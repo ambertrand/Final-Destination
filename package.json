@@ -1,0 +1,24 @@
+{
+  "name": "final-destination",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "dependencies": {
+    "dotenv": "^8.2.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ambertrand/Final-Destination.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ambertrand/Final-Destination/issues"
+  },
+  "homepage": "https://github.com/ambertrand/Final-Destination"
+}
