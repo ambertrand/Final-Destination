@@ -1,7 +1,7 @@
 import React from "react";
 import "./styles.css";
-import "./chat-script.js";
-import "https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.1/socket.io.js"
+//import "./chat-script.js";
+//import "https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.1/socket.io.js"
 
 function Chat() {
     return (
