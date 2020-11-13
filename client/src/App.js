@@ -1,8 +1,9 @@
 import React from "react";
+import Chat from "./pages/Chat";
 
 function App() {
   return (
-   <h1>test</h1>
+    <Chat/>
   );
 }
 
