@@ -1,0 +1,29 @@
+{
+  "name": "final-destination",
+  "version": "1.0.0",
+  "description": "sources used\r https://github.com/iamshaunjp/websockets-playlist",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ambertrand/Final-Destination.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ambertrand/Final-Destination/issues"
+  },
+  "homepage": "https://github.com/ambertrand/Final-Destination#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.10.13",
+    "nodemon": "^2.0.6",
+    "react": "^17.0.1",
+    "react-scripts": "^4.0.0",
+    "socket.io": "^3.0.1"
+  },
+  "devDependencies": {}
+}
