@@ -1,12 +1,13 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState } from 'react';
 import UserInfo from "./pages/UserInfo";
 import socket from "./utils/socket/socket";
 
 
 function App() {
+  const [chatMessage, setChatMessage] = useState("");
   useEffect( () => {
     socket.on("chat", (data) => {
-      console.log(data);
+      setChatMessage(data);
     });
     return () => {
       socket.off("chat");
@@ -16,6 +17,7 @@ function App() {
   return (
     <div className="App">
       <UserInfo />
+      {chatMessage}
       <button onClick={() => {socket.emit("chat", "socket works!")}}>emit</button>
     </div>
   );
