@@ -1,5 +1,4 @@
-//import logo from './logo.svg';
-//import './App.css';
+import React from 'react';
 import UserInfo from "./pages/UserInfo";
 import ShoppingList from "./pages/ShoppingList.js";
 
@@ -9,6 +8,6 @@ function App() {
       {/* <UserInfo /> */}
       <ShoppingList/>
     </div>
-  )
+  );
 }
 export default App;
