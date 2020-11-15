@@ -1,7 +1,9 @@
 import { Auth0Provider } from "@auth0/auth0-react";
 import ReactDOM from "react-dom";
 import React from 'react';
-import UserInfo from "./pages/UserInfo";ReactDOM.render(
+import UserInfo from "./pages/UserInfo";
+
+ReactDOM.render(
   <Auth0Provider
     domain={ process.env.AUTH0_DOMAIN }
     clientId={ process.env.AUTH0_CLIENTID }
