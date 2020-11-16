@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import socket from "../utils/socket/socket";
-import StartList from "../components/StartList";
-import ChatWindow from "../components/ChatWindow";
-import AddList from "../components/AddList";
+import StartList from "../components/Chat/StartList";
+import ChatWindow from "../components/Chat/ChatWindow";
+import AddList from "../components/Chat/AddList";
 import "./shopStyle.css";
 
 function Shopping() {
@@ -22,11 +22,11 @@ function Shopping() {
             {/* {chatMessage} */}
             <label>Socket in shopping list</label>
             {/* <button onClick={() => { socket.emit("chat", "socket works!") }}>emit</button> */}
-            {/* <div id="list-chat">
+            <div id="list-chat">
                 <StartList />
                 <ChatWindow />
                 <AddList />
-            </div> */}
+            </div>
             <div id="list-chat">
                 <input id="store" type="text" placeholder="Store"></input>
                 <button id="shop">Start List</button>
