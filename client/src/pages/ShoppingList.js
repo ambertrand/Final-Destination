@@ -19,7 +19,7 @@ function Shopping() {
     return (
         <div>
             <p>Shopping list works!</p>
-            {chatMessage}
+            {/* {chatMessage} */}
             <label>Socket in shopping list</label>
             {/* <button onClick={() => { socket.emit("chat", "socket works!") }}>emit</button> */}
             {/* <div id="list-chat">
@@ -32,13 +32,13 @@ function Shopping() {
         <button id="shop">Start List</button>
         <div id = "store-div"></div>
         <div id="chat-window">
-            <div id="output"></div>
+            <div id="output"> {chatMessage}</div>
             <div id="feedback"></div>
             
         </div>
         <input id="handle" type="text" placeholder="Handle"></input>
         <input id="message" type="text" placeholder="message"></input>
-        <button id="send"onClick={() => { socket.emit("chat", "socket works!") }}>Send</button>
+        <button id="send"onClick={() => { socket.emit("chat", "Message sent") }}>Send</button>
     </div>
         </div>
     )
