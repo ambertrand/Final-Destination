@@ -5,6 +5,11 @@ import Login from "./pages/Login";
 import socket from "./utils/socket/socket";
 import { HashRouter as Router, Route, Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
+// React Bootstrap
+import Button from 'react-bootstrap/Button';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Container from 'react-bootstrap/Container';
 
 function App() {
   const [chatMessage, setChatMessage] = useState("");
@@ -20,19 +25,21 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <div className="App container-fluid background">
+        <Container fluid>
           {/* Set up Router */}
-          <div className="row navigation navbar navbar-light bg-light">
-            <div className=" col-12 navigation-sub">
-              <Link to="/" className="item navbar-brand">Home </Link>
+          <Row className="navigation navbar navbar-light bg-light">
+            <Col className="navigation-sub">
+            <Link to="/" className="item navbar-brand">Home </Link>
               <Link to="/shopping" className="item navbar-brand">Shopping </Link>
               <Link to="/userinfo" className="item navbar-brand">User Info</Link>
-            </div>
-          </div>
+            </Col>
+          </Row>
+
           <Route exact path="/" component={Login} />
           <Route exact path="/shopping" component={Shopping} />
           <Route path="/userinfo" component={UserInfo} />
-        </div>
+
+        </Container>
       </Router>
 
       {/* <UserInfo />
@@ -40,7 +47,7 @@ function App() {
       <Login /> */}
 
       {chatMessage}
-      <button onClick={() => { socket.emit("chat", "socket works!") }}>emit</button>
+      <Button onClick={() => { socket.emit("chat", "socket works!") }}>emit</Button>
     </div>
   );
 }
