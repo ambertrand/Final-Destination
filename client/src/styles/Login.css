@@ -1,0 +1,20 @@
+.jumbotron {
+    background: #0b5375;
+  height: 200px;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.info {
+    position: absolute;
+            top: 350px;
+            left: 300px;
+
+            margin: 0 auto;
+            width: 1000px;
+}
+
+.pic{
+    position: absolute;
+            top: 550px;
+            left: 600px;
+}
