@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import socket from "../utils/socket/socket";
 import StartList from "../components/Chat/StartList";
 import ChatWindow from "../components/Chat/ChatWindow";
-import AddList from "../components/Chat/AddList";
+import AddComment from "../components/Chat/AddComment";
 import "./shopStyle.css";
 
 function Shopping() {
@@ -25,7 +25,7 @@ function Shopping() {
             <div id="list-chat">
                 <StartList />
                 <ChatWindow />
-                <AddList />
+                <AddComment />
             </div>
         </div>
     )

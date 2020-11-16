@@ -1,7 +1,7 @@
 import React from "react";
 import "./style.css";
 
-function AddList() {
+function AddComment() {
     return (
         <div>
             <input id="handle" type="text" placeholder="Handle"></input>
@@ -11,4 +11,4 @@ function AddList() {
     )
 }
 
-export default AddList;
+export default AddComment;
