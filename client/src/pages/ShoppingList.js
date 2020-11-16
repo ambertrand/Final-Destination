@@ -28,18 +28,18 @@ function Shopping() {
                 <AddList />
             </div> */}
             <div id="list-chat">
-        <input id="store" type="text" placeholder="Store"></input>
-        <button id="shop">Start List</button>
-        <div id = "store-div"></div>
-        <div id="chat-window">
-            <div id="output"> {chatMessage}</div>
-            <div id="feedback"></div>
-            
-        </div>
-        <input id="handle" type="text" placeholder="Handle"></input>
-        <input id="message" type="text" placeholder="message"></input>
-        <button id="send"onClick={() => { socket.emit("chat", "Message sent") }}>Send</button>
-    </div>
+                <input id="store" type="text" placeholder="Store"></input>
+                <button id="shop">Start List</button>
+                <div id="store-div"></div>
+                <div id="chat-window">
+                    <div id="output"> {chatMessage}</div>
+                    <div id="feedback"></div>
+
+                </div>
+                <input id="handle" type="text" placeholder="Handle"></input>
+                <input id="message" type="text" placeholder="message"></input>
+                <button id="send" onClick={() => { socket.emit("chat", "Message sent") }}>Send</button>
+            </div>
         </div>
     )
 }
