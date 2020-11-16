@@ -1,26 +1,36 @@
+import React, { useEffect, useState } from 'react';
 import { Auth0Provider } from "@auth0/auth0-react";
 import ReactDOM from "react-dom";
-import React, { useEffect, useState } from 'react';
+import { HashRouter as Router, Route, Link } from 'react-router-dom';
+import {Redirect, Switch, withRouter} from 'react-router-dom';
+
+//import Nav from './Nav';
+// import Home from './Home';
+// import Profile from './Profile';
+// import Callback from './Callback';
+
 import UserInfo from "./pages/UserInfo";
 import Shopping from "./pages/ShoppingList";
 import Login from "./pages/Login";
 import socket from "./utils/socket/socket";
-import { HashRouter as Router, Route, Link } from 'react-router-dom';
+
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Auth } from 'auth0-react';
 
-ReactDOM.render(
-  <Auth0Provider
-    domain={ process.env.AUTH0_DOMAIN }
-    clientId={ process.env.AUTH0_CLIENTID }
-    redirectUri={window.location.origin}
-  >
-    <App />
-  </Auth0Provider>,
-  document.getElementById('root')
-);
+// ReactDOM.render(
+//   <Auth0Provider
+//     domain={ process.env.AUTH0_DOMAIN }
+//     clientId={ process.env.AUTH0_CLIENTID }
+//     redirectUri={window.location.origin}
+//   >
+//     <App />
+//   </Auth0Provider>,
+//   document.getElementById('root')
+// );
 
 
-function App() {
+function App({history}) {
+  const auth = new Auth(history);
   const [chatMessage, setChatMessage] = useState("");
   useEffect(() => {
     socket.on("chat", (data) => {
@@ -33,6 +43,7 @@ function App() {
   }, [])
   return (
     <div className="App">
+      <Nav auth={auth}/>
       <Router>
         <div className="App container-fluid background">
           {/* Set up Router */}
