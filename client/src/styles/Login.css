@@ -18,3 +18,15 @@
             top: 550px;
             left: 700px;
 }
+
+.btn {
+    position: absolute;
+            top: 650px;
+            left: 500px;
+}
+
+.btm {
+    position: absolute;
+            top: 650px;
+            left: 1000px;
+}

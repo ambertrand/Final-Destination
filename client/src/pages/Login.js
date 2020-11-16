@@ -14,6 +14,8 @@ function Login() {
                 <div class="pic">
                     <img src="https://i.pinimg.com/originals/d7/dd/94/d7dd9454070b491daa5dc6b38fb679f5.jpg" alt="Logo" width="200" height="200" />;
                 </div>
+                <button type="button" class="btm btn-primary">Sign Up</button>
+                <button type="button" class="btn btn-primary">Log in</button>
             </div>
         </div>
     )
