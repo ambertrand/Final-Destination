@@ -11,6 +11,7 @@ function Shopping() {
     useEffect(() => {
         socket.on("chat", (data) => {
             setChatMessage(data);
+            console.log(data)
         });
         return () => {
             socket.off("chat");
