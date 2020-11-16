@@ -1,9 +1,9 @@
-import React from "react";
-import ListChat from "../components/ListChat";
+import React, { useEffect, useState } from "react";
 
-function ShoppingList() {
+function Shopping() {
     return (
-        <ListChat />
+        <p>Shopping list works!</p>
     )
 }
-export default ShoppingList;
+
+export default Shopping;
