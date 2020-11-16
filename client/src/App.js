@@ -47,7 +47,7 @@ function App() {
       <Login /> */}
 
       {chatMessage}
-      <button onClick={() => { socket.emit("chat", "socket works!") }}>emit</button>
+      <Button onClick={() => { socket.emit("chat", "socket works!") }}>emit</Button>
     </div>
   );
 }
