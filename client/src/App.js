@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import UserInfo from "./pages/UserInfo";
 import Shopping from "./pages/ShoppingList";
 import Login from "./pages/Login";
