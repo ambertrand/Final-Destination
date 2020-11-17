@@ -7,13 +7,18 @@ import "./shopStyle.css";
 
 function Shopping() {
     const messageRef = useRef();
+    const typingRef = useRef();
     // const [chatMessage, setChatMessage] = useState("");
     const [messages, setMessages] = useState([]);
     const handleSendMessage = () => { socket.emit("chat", "User: " + messageRef.current.value) }
+    const handleTyping = () => {socket.emit("typing", "User: " + " is typing")}
     useEffect(() => {
         socket.on("chat", (data) => {
             setMessages((prevMessages) => ([...prevMessages, data]));
             console.log(data)
+        });
+        socket.on("typing", (data) => {
+          console.log("is typing")
         });
         return () => {
             socket.off("chat");
@@ -42,11 +47,11 @@ function Shopping() {
                             <p key={i}>{message}</p>
                         ))}
                     </div>
-                    <div id="feedback"></div>
+                    <div id="feedback" ref={typingRef}></div>
 
                 </div>
                 {/* <input id="handle" type="text" placeholder="Handle"></input> */}
-                <input id="message" type="text" placeholder="message" ref={messageRef} />
+                <input id="message" type="text" placeholder="message" ref={messageRef} onInput={handleTyping}/>
                 <button id="send" onClick={handleSendMessage}>Send</button>
             </div>
         </div>
