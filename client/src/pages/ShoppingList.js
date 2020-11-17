@@ -3,7 +3,7 @@ import socket from "../utils/socket/socket";
 import "./shopStyle.css";
 var user = "User";
 var store = "Store"
-var storeMessage = user + " is going to " + store
+var storeMessage = user + " is going to " + store;
 function Shopping() {
     const messageRef = useRef();
     const [messages, setMessages] = useState([]);
