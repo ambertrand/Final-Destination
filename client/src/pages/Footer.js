@@ -1,9 +1,8 @@
-import React from 'react'
+import React from 'react';
 
 function Footer() {
     return (
 <   div className="main-footer">
-    <div className="fixed-bottom">
         <div className="container">
             <div className="row">
              <div className="col-md-6">
@@ -15,8 +14,7 @@ function Footer() {
          <div className="col-md-6">
                 <h4>We Love Feedbeack!</h4>
                 <ul className="list-unstyled">
-                    <li>email</li>
-                    <li>email</li>
+                    <li>email </li>
                     <li>email</li>
                     <li>email</li>
                     <li>email</li>
@@ -33,9 +31,6 @@ function Footer() {
   </div>
         
   </div>
-  </div>
-
-
 
 
     );
