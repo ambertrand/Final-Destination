@@ -5,6 +5,7 @@ import Login from "./pages/Login";
 import socket from "./utils/socket/socket";
 import { HashRouter as Router, Route, Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Footer from "./pages/Footer"
 
 function App() {
   const [chatMessage, setChatMessage] = useState("");
@@ -41,6 +42,7 @@ function App() {
 
       {chatMessage}
       <button onClick={() => { socket.emit("chat", "socket works!") }}>emit</button>
+      <Footer />
     </div>
   );
 }
