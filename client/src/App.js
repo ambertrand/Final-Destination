@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react';
-import { Auth0Provider } from "@auth0/auth0-react";
-import ReactDOM from "react-dom";
-import { HashRouter as Router, Route, Link } from 'react-router-dom';
-import {Redirect, Switch, withRouter} from 'react-router-dom';
+import ReactDOM from 'react-dom';
+import {Redirect, Route, Switch, withRouter} from 'react-router-dom';
+import { HashRouter as Router, Link } from 'react-router-dom';
+import {Auth0Provider} from '@auth0/auth0-react';
 
-//import Nav from './Nav';
-// import Home from './Home';
-// import Profile from './Profile';
-// import Callback from './Callback';
+
+import Nav from './Nav';
+import Home from './Home';
+import Profile from './Profile';
+import Callback from './Callback';
+import Auth from './Auth/Auth';
 
 import UserInfo from "./pages/UserInfo";
 import Shopping from "./pages/ShoppingList";
@@ -15,22 +17,23 @@ import Login from "./pages/Login";
 import socket from "./utils/socket/socket";
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Auth } from 'auth0-react';
 
-// ReactDOM.render(
-//   <Auth0Provider
-//     domain={ process.env.AUTH0_DOMAIN }
-//     clientId={ process.env.AUTH0_CLIENTID }
-//     redirectUri={window.location.origin}
-//   >
-//     <App />
-//   </Auth0Provider>,
-//   document.getElementById('root')
-// );
+
+ReactDOM.render(
+  <Auth0Provider
+    domain={ process.env.REACT_APP_AUTH0_DOMAIN }
+    clientId={ process.env.REACT_APP_AUTH0_CLIENTID }
+    redirectUri={window.location.origin}
+  >
+    <App />
+  </Auth0Provider>,
+  document.getElementById('root')
+);
 
 
 function App({history}) {
   const auth = new Auth(history);
+
   const [chatMessage, setChatMessage] = useState("");
   useEffect(() => {
     socket.on("chat", (data) => {
@@ -60,6 +63,16 @@ function App({history}) {
         </div>
       </Router>
 
+      <Switch> 
+        
+      <div className="body">
+          <Route exact path="/" render={props => <Home auth={auth} {...props} />} />
+          <Route exact path="/callback" render={props => <Callback auth={auth} {...props} />} />
+          <Route exact path="/profile" render={props => <Profile auth={auth} {...props} />} /> 
+      </div>
+
+      </Switch>
+
       {/* <UserInfo />
       <Shopping />
       <Login /> */}
@@ -70,4 +83,4 @@ function App({history}) {
   );
 }
 
-export default App;
+export default withRouter(App);
