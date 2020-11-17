@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import UserInfo from "./pages/UserInfo";
 import Shopping from "./pages/ShoppingList";
 import Login from "./pages/Login";
-// import socket from "./utils/socket/socket";
 import { HashRouter as Router, Route, Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 // React Bootstrap
@@ -12,16 +11,6 @@ import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 
 function App() {
-  // const [chatMessage, setChatMessage] = useState("");
-  // useEffect(() => {
-  //   socket.on("chat", (data) => {
-  //     setChatMessage(data);
-  //   });
-  //   return () => {
-  //     socket.off("chat");
-  //   }
-  //   // dependency array, put user object in array if we want the callback function to fire everytime userobject sees a change
-  // }, [])
   return (
     <div className="App">
       <Router>
@@ -41,13 +30,6 @@ function App() {
 
         </Container>
       </Router>
-
-      {/* <UserInfo />
-      <Shopping />
-      <Login /> */}
-
-      {/* {chatMessage}
-      <Button onClick={() => { socket.emit("chat", "socket works!") }}>emit</Button> */}
     </div>
   );
 }
