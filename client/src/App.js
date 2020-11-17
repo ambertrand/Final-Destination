@@ -1,39 +1,24 @@
+import Profile from './components/Profile';
+import Navbar from './components/Navbar';
+
 import React, { useEffect, useState } from 'react';
-import ReactDOM from 'react-dom';
-import {Redirect, Route, Switch, withRouter} from 'react-router-dom';
-import { HashRouter as Router, Link } from 'react-router-dom';
-import {Auth0Provider} from '@auth0/auth0-react';
-
-
-import Nav from './Nav';
-import Home from './Home';
-import Profile from './Profile';
-import Callback from './Callback';
-import Auth from './Auth/Auth';
-
 import UserInfo from "./pages/UserInfo";
 import Shopping from "./pages/ShoppingList";
 import Login from "./pages/Login";
+import Stores from "./pages/Stores";
+import Home from "./pages/Home";
 import socket from "./utils/socket/socket";
-
+import { HashRouter as Router, Route, Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
+// React Bootstrap
+import Button from 'react-bootstrap/Button';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Container from 'react-bootstrap/Container';
 
+import './App.css';
 
-ReactDOM.render(
-  <Auth0Provider
-    domain={ process.env.REACT_APP_AUTH0_DOMAIN }
-    clientId={ process.env.REACT_APP_AUTH0_CLIENTID }
-    redirectUri={window.location.origin}
-  >
-    <App />
-  </Auth0Provider>,
-  document.getElementById('root')
-);
-
-
-function App({history}) {
-  const auth = new Auth(history);
-
+function App() {
   const [chatMessage, setChatMessage] = useState("");
   useEffect(() => {
     socket.on("chat", (data) => {
@@ -46,41 +31,39 @@ function App({history}) {
   }, [])
   return (
     <div className="App">
-      <Nav auth={auth}/>
+      <Navbar />
+      <Profile />
+
       <Router>
-        <div className="App container-fluid background">
+        <Container fluid>
           {/* Set up Router */}
-          <div className="row navigation navbar navbar-light bg-light">
-            <div className=" col-12 navigation-sub">
-              <Link to="/" className="item navbar-brand">Home </Link>
+          <Row className="navigation navbar navbar-light bg-light">
+            <Col className="navigation-sub">
+              <Link to="/" className="item navbar-brand">Login </Link>
+              <Link to="/home" className="item navbar-brand">Home </Link>
               <Link to="/shopping" className="item navbar-brand">Shopping </Link>
+              <Link to="/stores" className="item navbar-brand">Stores </Link>
               <Link to="/userinfo" className="item navbar-brand">User Info</Link>
-            </div>
-          </div>
+            </Col>
+          </Row>
+
           <Route exact path="/" component={Login} />
+          <Route exact path="/home" component={Home} />
+          <Route path="/stores" component={Stores} />
           <Route exact path="/shopping" component={Shopping} />
           <Route path="/userinfo" component={UserInfo} />
-        </div>
+
+        </Container>
       </Router>
-
-      <Switch> 
-        
-      <div className="body">
-          <Route exact path="/" render={props => <Home auth={auth} {...props} />} />
-          <Route exact path="/callback" render={props => <Callback auth={auth} {...props} />} />
-          <Route exact path="/profile" render={props => <Profile auth={auth} {...props} />} /> 
-      </div>
-
-      </Switch>
 
       {/* <UserInfo />
       <Shopping />
       <Login /> */}
 
       {chatMessage}
-      <button onClick={() => { socket.emit("chat", "socket works!") }}>emit</button>
+      {/* <Button onClick={() => { socket.emit("chat", "socket works!") }}>emit</Button> */}
     </div>
   );
 }
 
-export default withRouter(App);
+export default App;
