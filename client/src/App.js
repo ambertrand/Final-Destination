@@ -29,7 +29,7 @@ function App() {
           {/* Set up Router */}
           <Row className="navigation navbar navbar-light bg-light">
             <Col className="navigation-sub">
-            <Link to="/" className="item navbar-brand">Home </Link>
+              <Link to="/" className="item navbar-brand">Home </Link>
               <Link to="/shopping" className="item navbar-brand">Shopping </Link>
               <Link to="/userinfo" className="item navbar-brand">User Info</Link>
             </Col>
@@ -47,7 +47,7 @@ function App() {
       <Login /> */}
 
       {chatMessage}
-      <Button onClick={() => { socket.emit("chat", "socket works!") }}>emit</Button>
+      {/*<Button onClick={() => { socket.emit("chat", "socket works!") }}>emit</Button>*/}
     </div>
   );
 }
