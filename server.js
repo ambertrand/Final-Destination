@@ -2,10 +2,11 @@ const express = require("express");
 
 const path = require("path");
 const PORT = process.env.PORT || 3001;
+const db = require("./models");
 const app = express();
 const http = require('http').createServer(app);
 
-const initializeSocketio = require("./socket") ;
+const initializeSocketio = require("./socket");
 
 //move this line and lines 35-37 inside of promise when connecting to db
 initializeSocketio(http);
@@ -37,7 +38,9 @@ if (process.env.NODE_ENV === "production") {
 // Connect to the MySQL
 
 
+db.sequelize.sync().then(() => {
+  http.listen(PORT, () => {
+    console.log(`🌎 ==> API server now on port ${PORT}!`);
+  });
 
-http.listen(PORT, () => {
-  console.log(`🌎 ==> API server now on port ${PORT}!`);
-});
+})
