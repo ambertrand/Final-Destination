@@ -62,10 +62,9 @@ function App() {
       <Login /> */}
 
       {chatMessage}
-      {/*<Button onClick={() => { socket.emit("chat", "socket works!") }}>emit</Button>*/}
       {/* <Button onClick={() => { socket.emit("chat", "socket works!") }}>emit</Button> */}
       <Footer />
-    </div >
+    </div>
 
 
   );
