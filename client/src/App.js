@@ -1,3 +1,6 @@
+import Profile from './components/Profile';
+import Navbar from './components/Navbar';
+
 import React, { useEffect, useState } from 'react';
 import UserInfo from "./pages/UserInfo";
 import Shopping from "./pages/ShoppingList";
@@ -14,6 +17,8 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 
+import './App.css';
+
 function App() {
   const [chatMessage, setChatMessage] = useState("");
   useEffect(() => {
@@ -27,6 +32,9 @@ function App() {
   }, [])
   return (
     <div className="App">
+      <Navbar />
+      <Profile />
+
       <Router>
         <Container fluid>
           {/* Set up Router */}
