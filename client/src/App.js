@@ -44,7 +44,7 @@ function App() {
       <Shopping />
       <Login /> */}
 
-      {/* {chatMessage} */}
+      {chatMessage}
       {/* <Button onClick={() => { socket.emit("chat", "socket works!") }}>emit</Button> */}
    <Footer />
     </div>
