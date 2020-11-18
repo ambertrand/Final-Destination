@@ -1,10 +1,9 @@
 {
-  "name": "final-destination",
+  "name": "while-im-out",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
   "dependencies": {
-    "bootstrap": "^4.5.3",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "if-env": "^1.0.4",
