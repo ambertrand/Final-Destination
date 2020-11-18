@@ -10,6 +10,7 @@ import Home from "./pages/Home";
 import socket from "./utils/socket/socket";
 import { HashRouter as Router, Route, Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Footer from "./components/Footer"
 // React Bootstrap
 import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/Row';
@@ -62,7 +63,10 @@ function App() {
 
       {chatMessage}
       {/* <Button onClick={() => { socket.emit("chat", "socket works!") }}>emit</Button> */}
+   <Footer />
     </div>
+
+
   );
 }
 
