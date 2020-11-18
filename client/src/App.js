@@ -40,8 +40,12 @@ function App() {
           {/* Set up Router */}
           <Row className="navigation navbar navbar-light bg-light">
             <Col className="navigation-sub">
+<<<<<<< HEAD
+              <Link to="/" className="item navbar-brand">Home </Link>
+=======
               <Link to="/" className="item navbar-brand">Login </Link>
               <Link to="/home" className="item navbar-brand">Home </Link>
+>>>>>>> dec9bdef0b0c075cd2c110d36935cca493073afa
               <Link to="/shopping" className="item navbar-brand">Shopping </Link>
               <Link to="/stores" className="item navbar-brand">Stores </Link>
               <Link to="/userinfo" className="item navbar-brand">User Info</Link>
@@ -62,8 +66,12 @@ function App() {
       <Login /> */}
 
       {chatMessage}
+<<<<<<< HEAD
+      {/*<Button onClick={() => { socket.emit("chat", "socket works!") }}>emit</Button>*/}
+=======
       {/* <Button onClick={() => { socket.emit("chat", "socket works!") }}>emit</Button> */}
    <Footer />
+>>>>>>> dec9bdef0b0c075cd2c110d36935cca493073afa
     </div>
 
 
