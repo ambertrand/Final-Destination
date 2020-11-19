@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
+import List from "../components/List.js";
 
 function Shopping() {
     return (
-        <p>Shopping list works!</p>
+        <List />
     )
 }
 
