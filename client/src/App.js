@@ -1,5 +1,5 @@
-import Profile from './components/Profile';
-import Navbar from './components/Navbar';
+import Profile from './components/navigation/Profile';
+import Navbar from './components/navigation/Navbar';
 
 import React, { useEffect, useState } from 'react';
 import UserInfo from "./pages/UserInfo";
