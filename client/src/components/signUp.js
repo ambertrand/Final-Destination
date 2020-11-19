@@ -15,7 +15,7 @@ function SignUp() {
                 <Col sm="auto">
                     <Button variant="primary">Sign Up</Button>{' '}
                 </Col>
-                <Col xs={6} md={4}>
+                <Col sm="auto">
                     <Image src="https://i.pinimg.com/originals/d7/dd/94/d7dd9454070b491daa5dc6b38fb679f5.jpg" alt="Logo" width="200" height="200" rounded />
                 </Col>
                 <Col sm="auto">
