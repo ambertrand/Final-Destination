@@ -43,12 +43,9 @@ function App() {
       {/* <UserInfo />
       <Shopping />
       <Login /> */}
-<<<<<<< HEAD
-=======
 
       {/* {chatMessage} */}
       {/* <Button onClick={() => { socket.emit("chat", "socket works!") }}>emit</Button> */}
->>>>>>> 55b79f0679fd4f2bee2b4e55f1547150a73056df
    <Footer />
     </div>
 
