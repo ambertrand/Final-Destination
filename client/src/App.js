@@ -5,6 +5,7 @@ import React, { useEffect, useState } from 'react';
 import UserInfo from "./pages/UserInfo";
 import Shopping from "./pages/ShoppingList";
 import Login from "./pages/Login";
+import Home from "./pages/Home";
 import { HashRouter as Router, Route, Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Footer from "./components/Footer"
@@ -27,13 +28,15 @@ function App() {
           {/* Set up Router */}
           <Row className="navigation navbar navbar-light bg-light">
             <Col className="navigation-sub">
-            <Link to="/" className="item navbar-brand">Home </Link>
+              <Link to="/" className="item navbar-brand">Login </Link>
+              <Link to="/home" className="item navbar-brand">Home </Link>
               <Link to="/shopping" className="item navbar-brand">Shopping </Link>
               <Link to="/userinfo" className="item navbar-brand">User Info</Link>
             </Col>
           </Row>
 
           <Route exact path="/" component={Login} />
+          <Route exact path="/home" component={Home} />
           <Route exact path="/shopping" component={Shopping} />
           <Route path="/userinfo" component={UserInfo} />
 
