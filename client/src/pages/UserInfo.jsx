@@ -14,11 +14,8 @@ function UserInfo() {
     return (<div>
         <JumboSection />
         <Row>
-            <Col sm="12" md="4" >
+            <Col sm="12">
                 <UserForm />
-            </Col>
-            <Col sm="12" md="8" >
-                <ShopperStores />
             </Col>
         </Row>
 
