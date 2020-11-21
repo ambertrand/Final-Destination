@@ -1,4 +1,6 @@
 import React from "react";
+import { useAuth0 } from '@auth0/auth0-react'
+// import { ProfileBox, Image, P } from './Styles';
 
 // React Bootstrap
 import Button from 'react-bootstrap/Button';
@@ -8,34 +10,41 @@ import Card from 'react-bootstrap/Card';
 import Form from 'react-bootstrap/Form';
 
 function UserForm() {
+    const { user, isAuthenticated } = useAuth0();
+
     return (
         <div>
             <Row>
                 {/* User image */}
                 <Col sm="12" md="4">
                     <Card >
-                        <Card.Img variant="top" src="https://static.thenounproject.com/png/642902-200.png" />
-                        <Card.Body>
+                        <Card.Img variant="top" src={user.picture} alt={user.name}/>
+                        {/* <Card.Body>
                             <h4 className="text-center">User Info</h4>
-                        </Card.Body>
+                        </Card.Body> */}
                     </Card>
                 </Col>
                 {/* User form */}
                 <Col sm="12" md="8" >
                     <Form >
-                        <Form.Group controlId="formFirstName">
+                        {/* <Form.Group controlId="formFirstName">
                             <Form.Label>First Name</Form.Label>
-                            <Form.Control type="text" placeholder="First Name" id="firstName" data-id="Will need to change" />
+                            <Form.Control type="text" placeholder="First Name" id="firstName" data-id="Will need to change" value={user.name}/>
                         </Form.Group>
 
                         <Form.Group controlId="formLastName">
                             <Form.Label>Last Name</Form.Label>
                             <Form.Control type="text" placeholder="Last Name" id="lastName" data-id="Will need to change" />
+                        </Form.Group> */}
+
+                        <Form.Group controlId="formUserName">
+                            <Form.Label>Username</Form.Label>
+                            <Form.Control type="text" placeholder={user.nickname} id="userName" data-id="Will need to change" />
                         </Form.Group>
 
                         <Form.Group controlId="formBasicEmail">
                             <Form.Label>Email</Form.Label>
-                            <Form.Control type="text" placeholder="User Email" id="email" data-id="Will need to change" />
+                            <Form.Control type="text" placeholder={user.email} id="email" data-id="Will need to change" />
                         </Form.Group>
 
                         <Form.Group controlId="formGroup">
