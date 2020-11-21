@@ -1,5 +1,5 @@
-import Profile from './components/Profile';
-import Navbar from './components/Navbar';
+import Profile from './components/navigation/Profile';
+import Navbar from './components/navigation/Navbar';
 
 import React, { useEffect, useState } from 'react';
 import UserInfo from "./pages/UserInfo";
@@ -15,33 +15,22 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 
+import JumboSection from "./components/welcomeJumbotron.jsx";
+import AboutUs from "./components/aboutUs.js";
+import SignUp from "./components/signUp.js";
+
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
+    <div className="App container-fluid">
       <Navbar />
-      <Profile />
+      <Row>
+        
+      </Row>
+      {/* <Profile /> */}
 
-      <Router>
-        <Container fluid>
-          {/* Set up Router */}
-          <Row className="navigation navbar navbar-light bg-light">
-            <Col className="navigation-sub">
-              <Link to="/" className="item navbar-brand">Login </Link>
-              <Link to="/home" className="item navbar-brand">Home </Link>
-              <Link to="/shopping" className="item navbar-brand">Shopping </Link>
-              <Link to="/userinfo" className="item navbar-brand">User Info</Link>
-            </Col>
-          </Row>
-
-          <Route exact path="/" component={Login} />
-          <Route exact path="/home" component={Home} />
-          <Route exact path="/shopping" component={Shopping} />
-          <Route path="/userinfo" component={UserInfo} />
-
-        </Container>
-      </Router>
+      
 
       {/* <UserInfo />
       <Shopping />
