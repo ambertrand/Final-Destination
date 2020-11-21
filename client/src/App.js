@@ -26,11 +26,11 @@ function App() {
     <div className="App container-fluid">
       <Navbar />
       <Row>
-        
+
       </Row>
       {/* <Profile /> */}
 
-      
+
 
       {/* <UserInfo />
       <Shopping />
