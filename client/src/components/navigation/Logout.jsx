@@ -1,5 +1,4 @@
 import React from 'react';
-import { Button } from './Styles';
 import { useAuth0 } from '@auth0/auth0-react';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';

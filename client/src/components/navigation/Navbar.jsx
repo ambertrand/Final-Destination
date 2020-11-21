@@ -1,20 +1,18 @@
 import React from 'react';
-// import { StyledNavbar } from './Styles'
+
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import Login from './Login';
+import LoginButton from './Login';
 import Logout from './Logout';
 
 const Navbar = () => {
   return (
-    // <StyledNavbar>
       <Row>
         <Col sm={12}>
-        <Login />
+        <LoginButton />
         <Logout />
         </Col>
-      </Row>   
-    // {/* </StyledNavbar> */}
+      </Row>  
   )
 }
 
