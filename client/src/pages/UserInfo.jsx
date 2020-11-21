@@ -19,17 +19,10 @@ function UserInfo() {
                 altText="shopping cart"
             />
             <Row >
-                <Col sm="12"
-                    md="4" >
+                <Col sm="12">
                     <UserForm />
-                </Col> <Col sm="12"
-                    md="8" >
-                    <ShopperStores />
-                </Col> {
-                    /* <Col sm="12" md="8">
-                                        <GroupStoreView />
-                                    </Col> */
-                } </Row>
+                </Col> 
+            </Row>
 
         </div>
     )
