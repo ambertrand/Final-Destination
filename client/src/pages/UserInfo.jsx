@@ -11,35 +11,27 @@ import Button from 'react-bootstrap/Button';
 
 
 function UserInfo() {
-    return (<
-            div >
-        <JumboSection
-            title="While You're There"
-            imageSrc="https://static.thenounproject.com/png/1700380-200.png"
-            altText="shopping cart"
-        />
-        <
-            Row >
-            <
-            Col sm="12"
-                md="4" >
-                <
-                    UserForm />
-                <
-            /Col> <
-                    Col sm="12"
+    return (
+        <div >
+            <JumboSection
+                title="While You're There"
+                imageSrc="https://static.thenounproject.com/png/1700380-200.png"
+                altText="shopping cart"
+            />
+            <Row >
+                <Col sm="12"
+                    md="4" >
+                    <UserForm />
+                </Col> <Col sm="12"
                     md="8" >
-                    <
-                        ShopperStores />
-                    <
-            /Col> {
-                        /* <Col sm="12" md="8">
-                                            <GroupStoreView />
-                                        </Col> */
-                    } <
-        /Row>
+                    <ShopperStores />
+                </Col> {
+                    /* <Col sm="12" md="8">
+                                        <GroupStoreView />
+                                    </Col> */
+                } </Row>
 
-    </div>
+        </div>
     )
 }
 
