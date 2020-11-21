@@ -26,7 +26,7 @@ function UserForm() {
                 </Col>
                 {/* User form */}
                 <Col xs="12" md="9" >
-                    <Form >
+                    <Form method="PUT" onsubmit="">
                         {/* <Form.Group controlId="formFirstName">
                             <Form.Label>First Name</Form.Label>
                             <Form.Control type="text" placeholder="First Name" id="firstName" data-id="Will need to change" value={user.name}/>
