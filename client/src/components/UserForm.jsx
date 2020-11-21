@@ -67,9 +67,9 @@ function UserForm() {
                         </Form.Group>
                         <Row className="justify-content-center">
                             <Col sm="auto">
-                                <Button variant="success" type="submit" id="updateUserInfo">
+                                <Button type="submit" id="updateUserInfo">
                                     Update Profile Info
-                                     </Button>
+                                </Button>
                             </Col>
                         </Row>
                     </Form>
