@@ -18,7 +18,7 @@ function UserForm() {
                 {/* User image */}
                 <Col xs="10" md="3">
                     <Card >
-                        <Card.Img variant="top" src={user.picture} alt={user.name} className="img-responsive" width="60px" max-height="100px"/>
+                        <Card.Img variant="top" src={user.picture} alt={user.name} className="img-responsive" width="60px" max-height="100px" />
                         {/* <Card.Body>
                             <h4 className="text-center">User Info</h4>
                         </Card.Body> */}
@@ -37,17 +37,17 @@ function UserForm() {
                             <Form.Control type="text" placeholder="Last Name" id="lastName" data-id="Will need to change" />
                         </Form.Group>
 
-                        {/* <Form.Group controlId="formUserName">
+                        <Form.Group>
                             <Form.Label>Username</Form.Label>
                             <Form.Control type="text" placeholder={user.nickname} id="userName" data-id="Will need to change" />
                         </Form.Group> */}
 
-                        <Form.Group controlId="formBasicEmail">
+                        <Form.Group>
                             <Form.Label>Email</Form.Label>
                             <Form.Control type="text" placeholder={user.email} id="email" data-id="Will need to change" />
                         </Form.Group>
 
-                        <Form.Group controlId="formGroup">
+                        <Form.Group>
                             <Form.Label>Group Name</Form.Label>
                             <Form.Control as="select" custom>
                                 <option>1</option>

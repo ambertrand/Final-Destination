@@ -16,7 +16,7 @@ function AboutUs() {
 
                 <Col xs={4} >
                     <Card>
-                        <Card.Body> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sapien nunc, blandit eu aliquam ut, tincidunt eu ante. In hac habitasse platea dictumst. Maecenas vel interdum tortor. Cras suscipit nisi at turpis consequat pulvinar. Nulla massa dui, porttitor vel sodales quis, euismod ut nunc. Sed accumsan tempor eros. Donec fermentum porttitor ullamcorper. Morbi tempus placerat dui, at consectetur enim ultrices id.</Card.Body>
+                        <Card.Body>The Mission of While You're There is to empower users with the ability to communicate with others such as roommates, familiy members, and friends to collaberate and create shopping lists in real time. Especially now more then ever with Covid-19, we believe that While You're There can help family members and friends who are at high risk for the virus. This gives them the control to make lists in real time and communicate with others who are able to go out and retreave everything they need to survive during this crisis. We're he to save you time and hardache when it comes to running errands! </Card.Body>
                     </Card>
 
                 </Col>
