@@ -6,7 +6,7 @@ import "./jumboStyle.css";
 
 function JumboSection() {
     return (
-        <Jumbotron fluid className="jumbo">
+        <Jumbotron fluid className="jumbo jumbotron-fluid">
             <Row className="justify-content-center">
                 <Col xs="auto">
                     <h2>Welcome to While You're There</h2>
