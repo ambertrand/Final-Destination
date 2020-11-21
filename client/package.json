@@ -1,6 +1,6 @@
 {
   "proxy": "http://localhost:3001",
-  "name": "while-im-out",
+  "name": "while-youre-there",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

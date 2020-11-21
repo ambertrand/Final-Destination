@@ -1,5 +1,5 @@
 {
-  "name": "while-im-out",
+  "name": "while-youre-there",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -32,12 +32,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ambertrand/Final-Destination.git"
+    "url": "git+https://github.com/ambertrand/While-Youre-There.git"
   },
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ambertrand/Final-Destination/issues"
+    "url": "https://github.com/ambertrand/While-Youre-There/issues"
   },
-  "homepage": "https://github.com/ambertrand/Final-Destination#readme"
+  "homepage": "https://github.com/ambertrand/While-Youre-There"
 }
