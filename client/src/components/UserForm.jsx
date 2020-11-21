@@ -40,7 +40,7 @@ function UserForm() {
                         <Form.Group>
                             <Form.Label>Username</Form.Label>
                             <Form.Control type="text" placeholder={user.nickname} id="userName" data-id="Will need to change" />
-                        </Form.Group> */}
+                        </Form.Group>
 
                         <Form.Group>
                             <Form.Label>Email</Form.Label>
