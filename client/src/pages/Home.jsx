@@ -13,37 +13,37 @@ import { CardImg } from "react-bootstrap";
 
 function Home() {
     return (
-    <Container>
+        <Container>
             <Card>
-            <Row className="teams justify-content-center">
-                <Col sm="auto" className="t mb-3">
-            <CardImg src={addgroup}/>
+                <Row className="teams justify-content-center">
+                    <Col sm="auto" className="t mb-3">
+                        <CardImg src={addgroup} />
 
-                    <Button variant="primary" type="submit" id="createTeam">Create Group</Button>
-                </Col>
-             </Row>
-            
-             <Row className="teams justify-content-center">
-                <Col sm="auto" className="mb-3">
-                <CardImg src={viewgroups}/>
-                    <Button variant="primary" type="submit" id="viewTeams">View Groups</Button>
-                </Col>
-            </Row>
-            <Row className="teams justify-content-center">
-                <Col sm="auto" className="mb-3">
-                <CardImg src={editinfo}/>
-                    <Button variant="primary" type="submit" id="updateUserProfile">Update User Profile</Button>
-                </Col>
-             </Row>
-             <Row className="teams justify-content-center">
-                <Col sm="auto" className="mb-3">
-                <CardImg src={stores}/>
-                    <Button variant="primary" type="submit" id="viewGroupStores">View Group Stores</Button>
-                </Col>
-                
-            </Row>
+                        <Button variant="primary" type="submit" id="createTeam">Create Group</Button>
+                    </Col>
+                </Row>
+
+                <Row className="teams justify-content-center">
+                    <Col sm="auto" className="mb-3">
+                        <CardImg src={viewgroups} />
+                        <Button variant="primary" type="submit" id="viewTeams">View Groups</Button>
+                    </Col>
+                </Row>
+                <Row className="teams justify-content-center">
+                    <Col sm="auto" className="mb-3">
+                        <CardImg src={editinfo} />
+                        <Button variant="primary" type="submit" id="updateUserProfile">Update User Profile</Button>
+                    </Col>
+                </Row>
+                <Row className="teams justify-content-center">
+                    <Col sm="auto" className="mb-3">
+                        <CardImg src={stores} />
+                        <Button variant="primary" type="submit" id="viewGroupStores">View Group Stores</Button>
+                    </Col>
+
+                </Row>
             </Card>
-            </Container>
+        </Container>
 
 
     )
