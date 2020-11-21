@@ -27,7 +27,7 @@ function UserInfo() {
                     UserForm />
                 <
             /Col> <
-            Col sm="12"
+                    Col sm="12"
                     md="8" >
                     <
                         ShopperStores />
@@ -39,10 +39,8 @@ function UserInfo() {
                     } <
         /Row>
 
-    <
-    /div>
-
-)
+    </div>
+    )
 }
 
 export default UserInfo;
