@@ -23,7 +23,7 @@ const LoginButton = () => {
           </Col>
         </Row>
 
-        <Row>
+        {/* <Row>
           <Col sm={12}>
             <JumboSection />
 
@@ -31,7 +31,7 @@ const LoginButton = () => {
 
             <SignUp />
           </Col>
-        </Row>
+        </Row> */}
       </div>
 
     )
