@@ -19,12 +19,13 @@ router.get('/user', function(req, res, next){
                 picture: userProfile.picture,
                 firstName: userProfile.firstName,
                 lastName: userProfile.lastName,
-
+                groupName: userProfile.groupName,
+                shopper: userProfile.shopper
             }
         }
 
         res.render('user', hbsObject);
-        
+
     }).catch(err => console.log(err));
 });
 
