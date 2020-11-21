@@ -9,6 +9,10 @@
 .jumbo {
   background-color:#a9d7a9;
   padding-top: 45px;
-  padding-bottom: 5px;
-  
+  padding-bottom: 5px; 
+}
+
+Button#updateUserInfo {
+  background-color:#a9d7a9;
+  color: black;
 }
