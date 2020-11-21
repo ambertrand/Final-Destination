@@ -14,18 +14,18 @@ function UserForm() {
 
     return (
         <div>
-            <Row>
+            <Row className="justify-content-center">
                 {/* User image */}
-                <Col sm="12" md="4">
+                <Col xs="10" md="3">
                     <Card >
-                        <Card.Img variant="top" src={user.picture} alt={user.name}/>
+                        <Card.Img variant="top" src={user.picture} alt={user.name} className="img-responsive" width="60px" max-height="100px"/>
                         {/* <Card.Body>
                             <h4 className="text-center">User Info</h4>
                         </Card.Body> */}
                     </Card>
                 </Col>
                 {/* User form */}
-                <Col sm="12" md="8" >
+                <Col xs="12" md="9" >
                     <Form >
                         {/* <Form.Group controlId="formFirstName">
                             <Form.Label>First Name</Form.Label>
@@ -67,7 +67,7 @@ function UserForm() {
                         </Form.Group>
                         <Row className="justify-content-center">
                             <Col sm="auto">
-                                <Button variant="primary" type="submit" id="updateUserInfo">
+                                <Button variant="success" type="submit" id="updateUserInfo">
                                     Update Profile Info
                                      </Button>
                             </Col>
