@@ -27,7 +27,7 @@ function UserForm() {
                 {/* User form */}
                 <Col xs="12" md="9" >
                     <Form method="PUT" onsubmit="">
-                        {/* <Form.Group controlId="formFirstName">
+                        <Form.Group controlId="formFirstName">
                             <Form.Label>First Name</Form.Label>
                             <Form.Control type="text" placeholder="First Name" id="firstName" data-id="Will need to change" value={user.name}/>
                         </Form.Group>
@@ -35,12 +35,12 @@ function UserForm() {
                         <Form.Group controlId="formLastName">
                             <Form.Label>Last Name</Form.Label>
                             <Form.Control type="text" placeholder="Last Name" id="lastName" data-id="Will need to change" />
-                        </Form.Group> */}
+                        </Form.Group>
 
-                        <Form.Group controlId="formUserName">
+                        {/* <Form.Group controlId="formUserName">
                             <Form.Label>Username</Form.Label>
                             <Form.Control type="text" placeholder={user.nickname} id="userName" data-id="Will need to change" />
-                        </Form.Group>
+                        </Form.Group> */}
 
                         <Form.Group controlId="formBasicEmail">
                             <Form.Label>Email</Form.Label>
