@@ -13,13 +13,13 @@ function SignUp() {
 
             <Row className="justify-content-center">
                 <Col sm="auto">
-                    <Button variant="primary">Sign Up</Button>{' '}
+
                 </Col>
                 <Col sm="auto">
-                    <Image src="https://i.pinimg.com/originals/d7/dd/94/d7dd9454070b491daa5dc6b38fb679f5.jpg" alt="Logo" width="200" height="200" rounded />
+                    <Image src="https://i.dlpng.com/static/png/6959392_preview.png" alt="Logo" width="200" height="200" rounded />
                 </Col>
                 <Col sm="auto">
-                    <Button variant="primary">Sign In</Button>{' '}
+
                 </Col>
             </Row>
 
