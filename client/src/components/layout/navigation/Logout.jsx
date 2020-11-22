@@ -18,7 +18,7 @@ const Logout = () => {
     isAuthenticated && (
       <div>
 
-        <Router>
+        {/* <Router> */}
           {/* Set up Router */}
           <Row className="navigation navbar navbar-light bg-dark">
             <Col sm={12} className="navigation-sub">
@@ -35,12 +35,12 @@ const Logout = () => {
             </Col>
           </Row>
 
-          <Route exact path="/" component={LandingPage} />
+          {/* <Route exact path="/" component={LandingPage} />
           <Route exact path="/home" component={Home} />
           <Route exact path="/userinfo" component={UserInfo} />
           <Route exact path="/shopping" component={Shopping} />
           <Route exact path="/home" component={Home} />
-        </Router>
+        </Router> */}
 
 
       </div>
