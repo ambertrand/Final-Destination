@@ -34,8 +34,10 @@ const Logout = () => {
               </Link>
             </Col>
           </Row>
+
           <Route exact path="/" component={Login} />
-          <Route path="/userinfo" component={UserInfo} />
+          <Route exact path="/home" component={Home} />
+          <Route exact path="/userinfo" component={UserInfo} />
           <Route exact path="/shopping" component={Shopping} />
           <Route exact path="/home" component={Home} />
         </Router>

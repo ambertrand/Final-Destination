@@ -39,6 +39,17 @@ function App() {
       {/* {chatMessage} */}
       {/* <Button onClick={() => { socket.emit("chat", "socket works!") }}>emit</Button> */}
       <Footer />
+      {/* <Navbar></Navbar>
+      <Switch>
+        <UserInfo></UserInfo>
+        <UserInfo></UserInfo>
+        <UserInfo></UserInfo>
+        <UserInfo></UserInfo>
+        <UserInfo></UserInfo>
+        <UserInfo></UserInfo>
+        <UserInfo></UserInfo>
+      </Switch>
+      <Footer></Footer> */}
     </div>
 
 
