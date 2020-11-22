@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import JumboSection from "../components/jumbotron/Jumbotron.jsx";
 import AboutUs from "../components/aboutComponents/aboutUs";
-// import SignUp from "../components/signUp.js";
 
 function LandingPage() {
     return (
@@ -15,6 +14,7 @@ function LandingPage() {
 
             <AboutUs />
 
+{/* Jesse, your code from sign up component is below. Create a new jsx file in homeComponents folder */}
             {/* <Row className="justify-content-center">
                 <Col sm="auto">
 
