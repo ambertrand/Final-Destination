@@ -9,9 +9,18 @@ function AboutUs() {
 
             <Row className="justify-content-center mb-4">
 
-                <Col xs={4} >
-                    <Card>
-                        <Card.Body>The Mission of While You're There is to empower users with the ability to communicate with others such as roommates, familiy members, and friends to collaberate and create shopping lists in real time. Especially now more then ever with Covid-19, we believe that While You're There can help family members and friends who are at high risk for the virus. This gives them the control to make lists in real time and communicate with others who are able to go out and retreave everything they need to survive during this crisis. We're he to save you time and hardache when it comes to running errands! </Card.Body>
+                <Col xs={11} md={5}>
+                    <h4 className="text-center"> Have you ever gone shopping for someone and forgot something? </h4>
+                    <Card className="bg-light">
+                        <Card.Body className="text-center">
+                            <p>
+                            We definitely have! That is why 
+                            we created While You're There. Now with COVID-19 it is more important then ever to remember shopping items 
+                            in one trip. This helps high risk individuals be able to request and receive all of their shopping needs 
+                            and minimizes the times the shopper is in crowded stores. 
+                            We're he to save you time and heartache when it comes to running errands!
+                            </p>
+                            </Card.Body>
                     </Card>
 
                 </Col>
