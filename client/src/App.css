@@ -12,7 +12,8 @@
   padding-bottom: 5px; 
 }
 
-Button#updateUserInfo {
+Button#updateUserInfo, Button#logOut {
   background-color:#a9d7a9;
   color: black;
 }
+ 

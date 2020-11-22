@@ -4,11 +4,6 @@ import { Button } from './Styles';
 import Row from 'react-bootstrap/esm/Row';
 import Col from 'react-bootstrap/Col';
 
-import JumboSection from "../../components/welcomeJumbotron.jsx";
-import AboutUs from "../../components/aboutUs.js";
-import SignUp from "../../components/signUp.js";
-
-
 const LoginButton = () => {
   const { isAuthenticated, loginWithPopup } = useAuth0()
   return (
