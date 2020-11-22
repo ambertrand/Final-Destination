@@ -10,7 +10,7 @@ function JumboSection(props) {
         <Jumbotron fluid className="jumbo jumbotron-fluid">
             <Row className="justify-content-center">
                 <Col xs="auto">
-                    <h2>{title}</h2>
+                    <h2 className="text-center text-dark">{title}</h2>
                     {/* className="display-4" */}
                 </Col>
             </Row>

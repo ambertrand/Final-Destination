@@ -17,16 +17,6 @@ const LoginButton = () => {
             </Button>
           </Col>
         </Row>
-
-        {/* <Row>
-          <Col sm={12}>
-            <JumboSection />
-
-            <AboutUs />
-
-            <SignUp />
-          </Col>
-        </Row> */}
       </div>
 
     )
