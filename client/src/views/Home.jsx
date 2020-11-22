@@ -1,13 +1,11 @@
 import React from "react";
 import Container from 'react-bootstrap/Container';
-import Navbar from "../components/navigation/Navbar";
-import JumboSection from "../components/Jumbotron.jsx";
+import JumboSection from "../components/jumbotron/Jumbotron.jsx";
 
 
 function Home() {
     return (
         <Container>
-
             <JumboSection
                 title="Welcome to While You're There!"
                 imageSrc="https://static.thenounproject.com/png/1700380-200.png"

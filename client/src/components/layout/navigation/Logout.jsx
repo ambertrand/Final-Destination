@@ -4,11 +4,11 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
-import UserInfo from "../../pages/UserInfo";
-import Shopping from "../../pages/ShoppingList";
-import Login from "../../pages/Login";
-import Home from "../../pages/Home";
-import About from "../../pages/About";
+import UserInfo from "../../../views/UserInfo";
+import Shopping from "../../../views/ShoppingList";
+import LandingPage from "../../../views/LandingPage";
+import Home from "../../../views/Home";
+// import About from "../../../views/About";
 
 
 const Logout = () => {
@@ -35,7 +35,7 @@ const Logout = () => {
             </Col>
           </Row>
 
-          <Route exact path="/" component={Login} />
+          <Route exact path="/" component={LandingPage} />
           <Route exact path="/home" component={Home} />
           <Route exact path="/userinfo" component={UserInfo} />
           <Route exact path="/shopping" component={Shopping} />
