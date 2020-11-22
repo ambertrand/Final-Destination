@@ -29,10 +29,10 @@ const Logout = () => {
       <div>
         <Row>
           <Col sm={12} md={9} className="navigation-sub">
-            <Link to="/" className="item navbar-brand text-white">Home</Link>
+            <Link to="/home" className="item navbar-brand text-white">Home</Link>
             <Link to="/userinfo" className="item navbar-brand text-white">Profile</Link>
             <Link to="/shopping" className="item navbar-brand text-white">Shopping </Link>
-            <Link to="/home" className="item navbar-brand text-white">About Us </Link>
+            <Link to="/about" className="item navbar-brand text-white">About Us </Link>
 
           </Col>
           <Col sm={12} md={3} className="navigation-sub">

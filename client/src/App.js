@@ -4,7 +4,7 @@ import UserInfo from "./views/UserInfo";
 import Shopping from "./views/ShoppingList";
 import LandingPage from "./views/LandingPage";
 import Home from "./views/Home";
-// import About from "./views/About";
+import About from "./views/About";
 import Footer from "./components/layout/footer/Footer";
 import Switch from 'react-bootstrap/esm/Switch';
 import { BrowserRouter as Router, Route} from 'react-router-dom';
@@ -23,7 +23,7 @@ function App() {
           <Route exact path="/home" component={Home} />
           <Route exact path="/userinfo" component={UserInfo} />
           <Route exact path="/shopping" component={Shopping} />
-          <Route exact path="/home" component={Home} />
+          <Route exact path="/about" component={About} />
         </Switch>
 
         <Footer />

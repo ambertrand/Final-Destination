@@ -18,7 +18,7 @@ function AboutUs() {
                             we created While You're There. Now with COVID-19 it is more important then ever to remember shopping items 
                             in one trip. This helps high risk individuals be able to request and receive all of their shopping needs 
                             and minimizes the times the shopper is in crowded stores. 
-                            We're he to save you time and heartache when it comes to running errands!
+                            We're here to save you time and heartache when it comes to running errands!
                             </p>
                             </Card.Body>
                     </Card>
