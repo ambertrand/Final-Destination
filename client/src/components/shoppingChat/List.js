@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
-import socket from "../utils/socket/socket";
+import socket from "../../utils/socket/socket";
 import "./listStyle.css";
 var user = "User";
 var store = "Store"

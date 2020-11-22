@@ -1,55 +1,36 @@
-import Profile from './components/navigation/Profile';
-import Navbar from './components/navigation/Navbar';
-
-import React, { useEffect, useState } from 'react';
-import UserInfo from "./pages/UserInfo";
-import Shopping from "./pages/ShoppingList";
-import Login from "./pages/Login";
-import Home from "./pages/Home";
-import { HashRouter as Router, Route, Link } from 'react-router-dom';
+import React from 'react';
+import Navigation from './components/layout/navigation/Navbar';
+import UserInfo from "./views/UserInfo";
+import Shopping from "./views/ShoppingList";
+import LandingPage from "./views/LandingPage";
+import Home from "./views/Home";
+import About from "./views/About";
+import Footer from "./components/layout/footer/Footer";
+import Switch from 'react-bootstrap/esm/Switch';
+import { BrowserRouter as Router, Route} from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Footer from "./components/Footer"
-// React Bootstrap
-import Button from 'react-bootstrap/Button';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import Container from 'react-bootstrap/Container';
-
-import JumboSection from "./components/welcomeJumbotron.jsx";
-import AboutUs from "./components/aboutUs.js";
-import SignUp from "./components/signUp.js";
-
 import './App.css';
+
 
 function App() {
   return (
     <div className="App container-fluid">
-      <Navbar />
-      <Row>
+      <Router>
+        <Navigation />
 
-      </Row>
-      {/* <Profile /> */}
+        <Switch>
+          <Route exact path="/" component={LandingPage} />
+          <Route exact path="/home" component={Home} />
+          <Route exact path="/userinfo" component={UserInfo} />
+          <Route exact path="/shopping" component={Shopping} />
+          <Route exact path="/about" component={About} />
+        </Switch>
 
-
-
-      {/* <UserInfo />
-      <Shopping />
-      <Login /> */}
+        <Footer />
+      </Router>
 
       {/* {chatMessage} */}
       {/* <Button onClick={() => { socket.emit("chat", "socket works!") }}>emit</Button> */}
-      <Footer />
-      {/* <Navbar></Navbar>
-      <Switch>
-        <UserInfo></UserInfo>
-        <UserInfo></UserInfo>
-        <UserInfo></UserInfo>
-        <UserInfo></UserInfo>
-        <UserInfo></UserInfo>
-        <UserInfo></UserInfo>
-        <UserInfo></UserInfo>
-      </Switch>
-      <Footer></Footer> */}
     </div>
 
 
