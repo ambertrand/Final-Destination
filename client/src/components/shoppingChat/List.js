@@ -12,7 +12,7 @@ function List() {
     const messageRef = useRef();
     const [messages, setMessages] = useState([]);
     const [typing, setTyping] = useState("")
-    const [room, joinRoom] = useState([]);
+    const [room, setRoom] = useState([]);
     const handleSendMessage = () => {
         socket.emit("chat", user + ": " + messageRef.current.value)
         messageRef.current.value = ""
@@ -23,6 +23,8 @@ function List() {
         socket.on('join1', function () {
             socket.emit('room1', room1)
             console.log("connected to room1")
+            //need to do something with this
+            setRoom()
         });
     }
     //connect room 2
@@ -30,6 +32,8 @@ function List() {
         socket.on('join2', function () {
             socket.emit('room2', room2)
             console.log("connected to room2")
+            //need to do something with this
+            setRoom()
         });
     }
     //commented out for now
