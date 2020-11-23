@@ -4,6 +4,8 @@ import "./listStyle.css";
 var user = "User";
 var store = "Store"
 var storeMessage = user + " is going to " + store;
+//room test
+var room = "test";
 function List() {
     const messageRef = useRef();
     const [messages, setMessages] = useState([]);
@@ -12,6 +14,14 @@ function List() {
         socket.emit("chat", user + ": " + messageRef.current.value)
         messageRef.current.value = ""
     }
+    //room test
+    socket.on('connect', function(){
+        socket.emit('room', room)
+    });
+    //room test
+    socket.on('message', function(data) {
+        console.log('Incoming message:', data);
+     });
     const handleTyping = () => { socket.emit("typing", user + ": is typing") }
     useEffect(() => {
         socket.on("chat", (data) => {
