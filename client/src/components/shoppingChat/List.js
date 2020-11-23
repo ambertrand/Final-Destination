@@ -6,7 +6,8 @@ var store = "Store"
 var storeMessage = user + " is going to " + store;
 //room test
 var room1 = "room1";
-var room2 = "room2"
+var room2 = "room2";
+
 function List() {
     const messageRef = useRef();
     const [messages, setMessages] = useState([]);
@@ -16,16 +17,31 @@ function List() {
         messageRef.current.value = ""
     }
     //room test
-    socket.on('connect', function(){
-        socket.emit('room1', room1)
-    });
-    socket.on('connect', function(){
-        socket.emit('room2', room2)
-    });
+    //connect room 1
+    const connectRoom1 = () => {
+        socket.on('connect', function () {
+            socket.emit('room1', room1)
+            console.log("connected to room1")
+        });
+    }
+    //connect room 2
+    const connectRoom2 = () => {
+        socket.on('connect', function () {
+            socket.emit('room2', room2)
+            console.log("connected to room2")
+        });
+    }
+    //commented out for now
+    // socket.on('connect', function(){
+    //     socket.emit('room1', room1)
+    // });
+    // socket.on('connect', function(){
+    //     socket.emit('room2', room2)
+    // });
     //room test
-    socket.on('message', function(data) {
+    socket.on('message', function (data) {
         console.log('Incoming message:', data);
-     });
+    });
     const handleTyping = () => { socket.emit("typing", user + ": is typing") }
     useEffect(() => {
         socket.on("chat", (data) => {
@@ -44,9 +60,9 @@ function List() {
     return (
         <div>
             {/* connect to room 1 */}
-            <button>Room1</button>
+            <button onClick={connectRoom1}>Room1</button>
             {/* connect to room 2 */}
-            <button>Room2</button>
+            <button onClick={connectRoom2}>Room2</button>
             <h1>{storeMessage}</h1>
             <div id="list-chat">
                 <div id="chat-window">
