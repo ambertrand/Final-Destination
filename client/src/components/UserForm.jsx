@@ -26,7 +26,7 @@ function UserForm() {
                 </Col>
                 {/* User form */}
                 <Col xs="12" md="9" >
-                    <Form method="PUT" onsubmit="">
+                    <Form>
                         <Form.Group controlId="formFirstName">
                             <Form.Label>First Name</Form.Label>
                             <Form.Control type="text" placeholder="First Name" id="firstName" data-id="Will need to change" value={user.name}/>
@@ -39,17 +39,17 @@ function UserForm() {
 
                         <Form.Group>
                             <Form.Label>Username</Form.Label>
-                            <Form.Control type="text" placeholder={user.nickname} id="userName" data-id="Will need to change" />
+                            <Form.Control type="text" placeholder={user.username} id="userName" data-id="Will need to change" />
                         </Form.Group>
 
                         <Form.Group>
                             <Form.Label>Email</Form.Label>
                             <Form.Control type="text" placeholder={user.email} id="email" data-id="Will need to change" />
-                        </Form.Group>
+                        </Form.Group> 
 
                         <Form.Group>
                             <Form.Label>Group Name</Form.Label>
-                            <Form.Control as="select" custom>
+                            <Form.Control id = "groupName" as="select" custom>
                                 <option>1</option>
                                 <option>2</option>
                                 <option>3</option>
@@ -60,7 +60,7 @@ function UserForm() {
 
                         <Form.Group controlId="formShopperOrGroup">
                             <Form.Label>Role in group</Form.Label>
-                            <Form.Control as="select" custom>
+                            <Form.Control id = "shopper" as="select" custom>
                                 <option>Shopper</option>
                                 <option>Group Member</option>
                             </Form.Control>
