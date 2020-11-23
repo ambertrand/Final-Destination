@@ -12,6 +12,7 @@ function List() {
     const messageRef = useRef();
     const [messages, setMessages] = useState([]);
     const [typing, setTyping] = useState("")
+    const [room, joinRoom] = useState([]);
     const handleSendMessage = () => {
         socket.emit("chat", user + ": " + messageRef.current.value)
         messageRef.current.value = ""
@@ -19,14 +20,14 @@ function List() {
     //room test
     //connect room 1
     const connectRoom1 = () => {
-        socket.on('connect', function () {
+        socket.on('join1', function () {
             socket.emit('room1', room1)
             console.log("connected to room1")
         });
     }
     //connect room 2
     const connectRoom2 = () => {
-        socket.on('connect', function () {
+        socket.on('join2', function () {
             socket.emit('room2', room2)
             console.log("connected to room2")
         });
