@@ -24,11 +24,16 @@ const initializeSocketio = (server) => {
             socket.broadcast.emit('typing', data)
         });
         //room test
-        socket.on('room', function(room) {
-            socket.join(room);
-            console.log(room)
+        socket.on('room1', function(room1) {
+            socket.join(room1);
+            console.log(room1)
         });
-        room = "test";
+        room1 = "room1";
+        socket.on('room2', function(room2) {
+            socket.join(room2);
+            console.log(room2)
+        });
+        room2 = "room2";
         //socket.in(room).emit('message', 'what is going on, party people?');
         // socket.in('foobar').emit('message', 'anyone in this room yet?');
     });

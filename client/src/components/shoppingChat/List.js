@@ -5,7 +5,8 @@ var user = "User";
 var store = "Store"
 var storeMessage = user + " is going to " + store;
 //room test
-var room = "test";
+var room1 = "room1";
+var room2 = "room2"
 function List() {
     const messageRef = useRef();
     const [messages, setMessages] = useState([]);
@@ -16,7 +17,10 @@ function List() {
     }
     //room test
     socket.on('connect', function(){
-        socket.emit('room', room)
+        socket.emit('room1', room1)
+    });
+    socket.on('connect', function(){
+        socket.emit('room2', room2)
     });
     //room test
     socket.on('message', function(data) {
@@ -39,6 +43,10 @@ function List() {
     }, [])
     return (
         <div>
+            {/* connect to room 1 */}
+            <button>Room1</button>
+            {/* connect to room 2 */}
+            <button>Room2</button>
             <h1>{storeMessage}</h1>
             <div id="list-chat">
                 <div id="chat-window">
