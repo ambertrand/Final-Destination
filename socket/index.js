@@ -1,6 +1,6 @@
 const socketio = require('socket.io');
 
-let rooms = ["room1", "room2"] 
+//let rooms = ["room1", "room2"] 
 
 const initializeSocketio = (server) => {
     const io = socketio(server, {
