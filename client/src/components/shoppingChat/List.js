@@ -20,6 +20,7 @@ function List() {
     //room test
     //connect room 1
     const connectRoom1 = () => {
+        console.log("button 1 clicked")
         socket.on('join1', function () {
             socket.emit('room1', room1)
             console.log("connected to room1")
@@ -29,6 +30,7 @@ function List() {
     }
     //connect room 2
     const connectRoom2 = () => {
+        console.log("button 2 clicked")
         socket.on('join2', function () {
             socket.emit('room2', room2)
             console.log("connected to room2")
@@ -65,9 +67,10 @@ function List() {
     return (
         <div>
             {/* connect to room 1 */}
-            <button onClick={connectRoom1}>Room1</button>
+            <button onClick={connectRoom1}> Room 1 </button>
+            <br></br>
             {/* connect to room 2 */}
-            <button onClick={connectRoom2}>Room2</button>
+            <button onClick={connectRoom2}> Room 2 </button>
             <h1>{storeMessage}</h1>
             <div id="list-chat">
                 <div id="chat-window">

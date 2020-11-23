@@ -17,7 +17,7 @@ const initializeSocketio = (server) => {
         socket.on('chat', function (data) {
             io.sockets.emit('chat', data)
         });
-    
+        //doesn't do anything right now
         socket.on('start-shop', function (data) {
             io.sockets.emit('start-shop', data)
         });
