@@ -6,32 +6,35 @@ import LandingPage from "./views/LandingPage";
 import Home from "./views/Home";
 import About from "./views/About";
 import Footer from "./components/layout/footer/Footer";
-import Switch from 'react-bootstrap/esm/Switch';
-import { BrowserRouter as Router, Route} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
 
 function App() {
   return (
-    <div className="App container-fluid">
-      <Router>
-        <Navigation />
 
-        <Switch>
-          <Route exact path="/" component={LandingPage} />
-          <Route exact path="/home" component={Home} />
-          <Route exact path="/userinfo" component={UserInfo} />
-          <Route exact path="/shopping" component={Shopping} />
-          <Route exact path="/about" component={About} />
-        </Switch>
+    < Router >
+    <>
+      <Navigation />
 
-        <Footer />
-      </Router>
+      <Switch>
+        <Route exact path="/" component={LandingPage} />
+        <Route exact path="/home" component={Home} />
+        <Route exact path="/userinfo" component={UserInfo} />
+        <Route exact path="/shopping" component={Shopping} />
+        <Route exact path="/about" component={About} />
+      </Switch>
+
+      <Footer />
+
 
       {/* {chatMessage} */}
       {/* <Button onClick={() => { socket.emit("chat", "socket works!") }}>emit</Button> */}
-    </div>
+
+    </>
+    </Router >
+
 
 
   );
