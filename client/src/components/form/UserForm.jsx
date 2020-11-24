@@ -39,7 +39,7 @@ function UserForm() {
                                 <input type="text" placeholder={user.email} id="email" />
                             </label>
                             <label>
-                                Group name:
+                                Group name:&nbsp;
                                 {/* <input type="text" placeholder={user.email} id="email" /> */}
                                 <select id="groupName">
                                     <option value="1">team1</option>
@@ -49,7 +49,7 @@ function UserForm() {
                                 </select>
                             </label>
                             <label>
-                                Group role:
+                                Group role:&nbsp;
                                 <select id="isShopper">
                                     <option value="shopper">Shopper</option>
                                     <option value="groupMember">Group Member</option>
@@ -57,7 +57,7 @@ function UserForm() {
                             </label>
                             <Row className="justify-content-center">
                                 <Col sm="auto">
-                                    <Button type="submit" id="updateUserInfo" onClick={userInfo}>
+                                    <Button type="submit" className="m-2" id="updateUserInfo" onClick={userInfo}>
                                         Update Profile Info
                                 </Button>
                                 </Col>

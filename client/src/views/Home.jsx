@@ -1,5 +1,6 @@
-import React from "react";
-import JumboSection from "../components/jumbotron/Jumbotron.jsx";
+import React from 'react';
+import JumboSection from '../components/jumbotron/Jumbotron';
+import HomeButtons from '../components/homeComponents/homeButtons';
 
 
 function Home() {
@@ -11,6 +12,9 @@ function Home() {
                 altText="shopping cart"
                 imgClass="animate__animated animate__bounceInLeft"
             />
+
+            <HomeButtons />
+
         </>
 
 
