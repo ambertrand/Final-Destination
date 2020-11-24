@@ -17,7 +17,7 @@ function Chat() {
         if (room) initiateSocket(room);
         subscribeToChat((err, data) => {
             if (err) return;
-            setChat(oldChats => [data, ...oldChats])
+            setChat(oldChats => [...oldChats, data])
         });
         return () => {
             disconnectSocket();
