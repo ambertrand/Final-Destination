@@ -14,11 +14,7 @@ function Home() {
             />
 
             <HomeButtons />
-
         </>
-
-
-
     )
 }
 
