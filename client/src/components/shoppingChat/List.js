@@ -12,7 +12,7 @@ function List() {
     const messageRef = useRef();
     const [messages, setMessages] = useState([]);
     const [typing, setTyping] = useState("")
-    const [room, setRoom] = useState([]);
+    const [room, setRoom] = useState("");
     const handleSendMessage = () => {
         socket.emit("chat", user + ": " + messageRef.current.value)
         messageRef.current.value = ""
@@ -21,22 +21,24 @@ function List() {
     //connect room 1
     const connectRoom1 = () => {
         console.log("button 1 clicked")
-        socket.on('join1', function () {
-            socket.emit('room1', room1)
-            console.log("connected to room1")
-            //need to do something with this
-            setRoom()
-        });
+        // socket.on('join1', function (room1) {
+        //     socket.emit('room1', room1)
+        //     console.log("connected to room1")
+        //     //need to do something with this
+        //     setRoom()
+        // });
+        socket.emit('join1', "anything1")
     }
     //connect room 2
     const connectRoom2 = () => {
-        console.log("button 2 clicked")
-        socket.on('join2', function () {
-            socket.emit('room2', room2)
-            console.log("connected to room2")
-            //need to do something with this
-            setRoom()
-        });
+        // console.log("button 2 clicked")
+        // socket.on('join2', function () {
+        //     socket.emit('room2', room2)
+        //     console.log("connected to room2")
+        //     //need to do something with this
+        //     setRoom()
+        // });
+        socket.emit('join2', "anything2")
     }
     //commented out for now
     // socket.on('connect', function(){

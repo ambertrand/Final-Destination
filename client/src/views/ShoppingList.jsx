@@ -3,7 +3,9 @@ import List from "../components/shoppingChat/List.js";
 
 function Shopping() {
     return (
-        <List />
+        <div>
+            <List />
+        </div>
     )
 }
 

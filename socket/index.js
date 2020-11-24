@@ -28,12 +28,12 @@ const initializeSocketio = (server) => {
         //room test
         room1 = "room1";
         socket.on('join1', function(room1) {
-            socket.join(room1);
+            //socket.join(room1);
             console.log(room1)
         });
         room2 = "room2";
         socket.on('join2', function(room2) {
-            socket.join(room2);
+            //socket.join(room2);
             console.log(room2)
         });
         //socket.in(room).emit('message', 'what is going on, party people?');
