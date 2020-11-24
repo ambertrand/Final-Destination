@@ -49,11 +49,11 @@ const initializeSocketio = (server) => {
             console.log(`msg: ${message}, room: ${room}`);
             io.to(room).emit('chat', message);
         });
-        socket.on('typing', (data) => {
-            const { message, room } = data;
-            console.log(`msg: ${message}, room: ${room}`);
-            io.to(room).emit('typing', message);
-        });
+        // socket.on('typing', (data) => {
+        //     const { message, room } = data;
+        //     console.log(`msg: ${message}, room: ${room}`);
+        //     io.to(room).broadcast('typing', message);
+        // });
     });
 }
 
