@@ -1,5 +1,6 @@
 import React from "react";
-import { useAuth0 } from '@auth0/auth0-react'
+import { useAuth0 } from '@auth0/auth0-react';
+import userInfo from './userInfo';
 
 // React Bootstrap
 import Button from 'react-bootstrap/Button';
@@ -66,7 +67,7 @@ function UserForm() {
                         </Form.Group>
                         <Row className="justify-content-center">
                             <Col sm="auto">
-                                <Button type="submit" id="updateUserInfo">
+                                <Button type="submit" id="updateUserInfo" onClick={userInfo}>
                                     Update Profile Info
                                 </Button>
                             </Col>
