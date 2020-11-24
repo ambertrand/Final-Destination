@@ -1,5 +1,5 @@
-.footer{
-    display: flex;
-    align-self: flex-end;
-
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100vw;
   }

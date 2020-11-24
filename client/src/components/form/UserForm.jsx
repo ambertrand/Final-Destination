@@ -24,6 +24,7 @@ function UserForm() {
                         </Card.Body> */}
                     </Card>
                 </Col>
+                
                 {/* User form */}
                 <Col xs="12" md="9" >
                     <Form >
