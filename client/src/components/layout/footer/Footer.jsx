@@ -1,16 +1,16 @@
 import React from 'react';
 import Row from 'react-bootstrap/Row';
-import Container from 'react-bootstrap/Container';
+import './footer.css';
+
+
+
 function Footer() {
     return (
-        <Container>
-
-            <Row className="bg-dark text-white">
-                <p>
-                    &copy;{new Date().getFullYear()} While You're There App
-     </p>
+        <>
+            <Row className="footer justify-content-center bg-dark text-white p-2">
+                <footer>While You're There | Copyright &copy;{new Date().getFullYear()}</footer>
             </Row>
-        </Container>
+        </>
 
     );
 }

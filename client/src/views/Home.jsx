@@ -1,6 +1,5 @@
 import React from "react";
 import JumboSection from "../components/jumbotron/Jumbotron.jsx";
-import Container from 'react-bootstrap/Container';
 
 
 function Home() {

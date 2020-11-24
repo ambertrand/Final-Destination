@@ -10,7 +10,7 @@ import Card from 'react-bootstrap/Card';
 import Form from 'react-bootstrap/Form';
 
 function UserForm() {
-    const { user, isAuthenticated } = useAuth0();
+    const { user } = useAuth0();
 
     return (
         <div>
