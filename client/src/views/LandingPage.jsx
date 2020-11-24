@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import JumboSection from "../components/jumbotron/Jumbotron.jsx";
 import AboutUs from "../components/aboutComponents/aboutUs";
+import Container from 'react-bootstrap/Container';
 
 function LandingPage() {
     return (
-        <div>
+        <>
             <JumboSection
                 title="Welcome to While You're There!"
                 imageSrc="https://static.thenounproject.com/png/1700380-200.png"
@@ -30,7 +31,7 @@ function LandingPage() {
             {/* <SignUp /> */}
 
 
-        </div>
+        </>
 
     )
 }
