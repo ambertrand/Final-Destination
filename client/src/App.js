@@ -15,24 +15,24 @@ function App() {
   return (
 
     < Router >
-    <>
-      <Navigation />
+      <>
+        <Navigation />
 
-      <Switch>
-        <Route exact path="/" component={LandingPage} />
-        <Route exact path="/home" component={Home} />
-        <Route exact path="/userinfo" component={UserInfo} />
-        <Route exact path="/shopping" component={Shopping} />
-        <Route exact path="/about" component={About} />
-      </Switch>
+        <Switch>
+          <Route exact path="/" component={LandingPage} />
+          <Route exact path="/home" component={Home} />
+          <Route exact path="/userinfo" component={UserInfo} />
+          <Route exact path="/shopping" component={Shopping} />
+          <Route exact path="/about" component={About} />
+        </Switch>
 
-      <Footer />
+        <Footer />
 
 
-      {/* {chatMessage} */}
-      {/* <Button onClick={() => { socket.emit("chat", "socket works!") }}>emit</Button> */}
+        {/* {chatMessage} */}
+        {/* <Button onClick={() => { socket.emit("chat", "socket works!") }}>emit</Button> */}
 
-    </>
+      </>
     </Router >
 
 
