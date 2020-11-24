@@ -6,7 +6,7 @@ import Jumbotron from 'react-bootstrap/Jumbotron';
 function JumboSection(props) {
     const { title, imageSrc, altText, imgClass } = props;
     return (
-        <Jumbotron fluid className="jumbo mt-3">
+        <Jumbotron className="jumbo">
             <Row className="justify-content-center">
                 <Col xs="auto">
                     <h2 className="text-center text-dark">{title}</h2>

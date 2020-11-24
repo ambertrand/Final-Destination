@@ -14,7 +14,7 @@ import './App.css';
 function App() {
   return (
 
-    <Router>
+    < Router >
       <>
         <Navigation />
 
@@ -27,9 +27,13 @@ function App() {
         </Switch>
 
         <Footer />
-      </>
-    </Router>
 
+
+        {/* {chatMessage} */}
+        {/* <Button onClick={() => { socket.emit("chat", "socket works!") }}>emit</Button> */}
+
+      </>
+    </Router >
 
 
 
