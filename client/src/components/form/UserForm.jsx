@@ -7,7 +7,7 @@ import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
-import Form from 'react-bootstrap/Form';
+// import Form from 'react-bootstrap/Form';
 
 function UserForm() {
     const { user } = useAuth0();
@@ -24,6 +24,7 @@ function UserForm() {
                         </Card.Body> */}
                     </Card>
                 </Col>
+                
                 {/* User form */}
                 <Col xs="12" md="8" >
                     <Card className="bg-light m-3">
@@ -38,7 +39,7 @@ function UserForm() {
                                 <input type="text" placeholder={user.email} id="email" />
                             </label>
                             <label>
-                                Group name:
+                                Group name:&nbsp;
                                 {/* <input type="text" placeholder={user.email} id="email" /> */}
                                 <select id="groupName">
                                     <option value="1">team1</option>
@@ -48,7 +49,7 @@ function UserForm() {
                                 </select>
                             </label>
                             <label>
-                                Group role:
+                                Group role:&nbsp;
                                 <select id="isShopper">
                                     <option value="shopper">Shopper</option>
                                     <option value="groupMember">Group Member</option>
@@ -56,7 +57,7 @@ function UserForm() {
                             </label>
                             <Row className="justify-content-center">
                                 <Col sm="auto">
-                                    <Button type="submit" id="updateUserInfo" onClick={userInfo}>
+                                    <Button type="submit" className="m-2" id="updateUserInfo" onClick={userInfo}>
                                         Update Profile Info
                                 </Button>
                                 </Col>
