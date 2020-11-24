@@ -34,7 +34,7 @@ function Chat() {
                     <div id="output" >
                         {chat.map((m, i) => <p key={i}>{m}</p>)}
                     </div>
-                    <div id="feedback">{typing}</div>
+                    <div id="feedback" onChange ={handleTyping}>{typing}</div>
 
                 </div>
                 <input id="message" autoComplete="off" type="text" placeholder="message" value={message}
