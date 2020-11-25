@@ -29,7 +29,7 @@ const Logout = () => {
     isAuthenticated && (
       <div>
         <Row className="">
-          <Col sm={12} md={9} className="navigation-sub">
+          <Col sm={12} md={9} className="navigation-sub pt-2">
             <Link to="/home" className="item navbar-brand text-white">Home</Link>
             <Link to="/userinfo" className="item navbar-brand text-white">Profile</Link>
             <Link to="/shopping" className="item navbar-brand text-white">Shopping</Link>
