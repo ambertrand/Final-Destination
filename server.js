@@ -5,6 +5,7 @@ const PORT = process.env.PORT || 3001;
 const db = require("./models");
 const app = express();
 const http = require('http').createServer(app);
+const userRouter = require('./routes/userRoutes')
 
 const initializeSocketio = require("./socket");
 
@@ -37,6 +38,7 @@ if (process.env.NODE_ENV === "production") {
 
 // Connect to the MySQL
 
+app.use(userRouter);
 
 db.sequelize.sync().then(() => {
   http.listen(PORT, () => {
