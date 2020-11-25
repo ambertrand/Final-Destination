@@ -7,7 +7,7 @@ var storeMessage = user + " is going to " + store;
 
 
 function Chat() {
-    const rooms = ['1', '2', '3'];
+    const rooms = ['1', '2'];
     const messageRef = useRef();
     const [room, setRoom] = useState(rooms[0]);
     const [typing, setTyping] = useState("")
@@ -31,7 +31,7 @@ function Chat() {
     }, [room]);
     return (
         <div>
-            <h1>Room: {room}</h1>
+            <h1>Group: {room}</h1>
             { rooms.map((r, i) =>
                 <button onClick={() => setRoom(r)} key={i}>{r}</button>)}
             <h1>{storeMessage}</h1>
