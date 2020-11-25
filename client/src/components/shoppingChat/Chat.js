@@ -7,7 +7,7 @@ var storeMessage = user + " is going to " + store;
 
 
 function Chat() {
-    const rooms = ['A', 'B', 'C'];
+    const rooms = ['1', '2', '3'];
     const messageRef = useRef();
     const [room, setRoom] = useState(rooms[0]);
     const [typing, setTyping] = useState("")
@@ -40,7 +40,7 @@ function Chat() {
                     <div id="output" >
                         {chat.map((m, i) => <p key={i}>{m}</p>)}
                     </div>
-                    <div id="feedback">{typing}</div>
+                    <div id="feedback" >{typing}</div>
                 </div>
                 <input id="message" autoComplete="off" type="text" placeholder="message" value={message}
                 //not sure what e does anymore
@@ -48,6 +48,7 @@ function Chat() {
                 <button id="send" onClick={() => sendMessage(room, user + ": " + messageRef.current.value)}
                 //onchange={e => messageRef.current.value = ""}
                 // {handleSendMessage()}
+                onChange={() => handleTyping(room, user + ": is typing." )}
                     >Send</button>
             </div>
         </div>

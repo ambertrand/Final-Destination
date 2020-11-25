@@ -28,7 +28,7 @@ export const sendMessage = (room, message) => {
   console.log("message sent")
   message = "";
 }
-// export const handleTyping = (room, message) =>{
-//     if (socket) socket.emit('typing', {message, room});
-//     console.log("typing")
-// }
+export const handleTyping = (room, message) =>{
+    if (socket) socket.emit('typing', {message, room});
+    console.log("typing")
+}
