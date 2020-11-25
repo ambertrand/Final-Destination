@@ -10,7 +10,6 @@ import viewgroups from '../../assets/viewgroups.png';
 import editinfo from '../../assets/editinfo.png';
 import stores from '../../assets/stores.png';
 
-
 function HomeButtons() {
     return (
         <Container>
