@@ -39,7 +39,6 @@ function UserForm() {
                             </label>
                             <label>
                                 Group name:
-                                {/* <input type="text" placeholder={user.email} id="email" /> */}
                                 <select id="groupName">
                                     <option value="1">team1</option>
                                     <option value="2">team2</option>
