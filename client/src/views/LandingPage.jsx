@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import JumboSection from "../components/jumbotron/Jumbotron.jsx";
 import AboutUs from "../components/aboutComponents/aboutUs";
-import Container from 'react-bootstrap/Container';
 
 function LandingPage() {
     return (

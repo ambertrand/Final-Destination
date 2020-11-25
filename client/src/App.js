@@ -13,9 +13,9 @@ import './App.css';
 
 function App() {
   return (
+    <div className="App container-fluid">
+      < Router >
 
-    < Router >
-      <>
         <Navigation />
 
         <Switch>
@@ -32,9 +32,9 @@ function App() {
         {/* {chatMessage} */}
         {/* <Button onClick={() => { socket.emit("chat", "socket works!") }}>emit</Button> */}
 
-      </>
-    </Router >
 
+      </Router >
+    </div>
 
 
   );

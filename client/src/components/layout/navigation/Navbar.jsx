@@ -5,7 +5,7 @@ import Col from 'react-bootstrap/Col';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import { Button } from './Styles';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const LoginButton = () => {
   const { isAuthenticated, loginWithPopup } = useAuth0()
