@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
-import { initiateSocket, disconnectSocket, subscribeToChat, handleTyping, sendMessage } from "../../utils/socket/socket";
+import {socket, initiateSocket, disconnectSocket, subscribeToChat, handleTyping, sendMessage } from "../../utils/socket/socket";
 import "./listStyle.css";
 var user = "User";
 var store = "Store"
@@ -14,7 +14,8 @@ function Chat() {
     const [message, setMessage] = useState('');
     const [chat, setChat] = useState([]);
     const handleSendMessage = () => {
-        messageRef.current.value = "";
+        sendMessage(room, messageRef.current.value)
+        //messageRef.current.value = "";
     }
     //const handleTyping = () => { socket.emit("typing", user + ": is typing") }
     useEffect(() => {
@@ -39,11 +40,15 @@ function Chat() {
                     <div id="output" >
                         {chat.map((m, i) => <p key={i}>{m}</p>)}
                     </div>
-                    {/* <div id="feedback" onChange={setTyping()}>{typing}</div> */}
+                    <div id="feedback">{typing}</div>
                 </div>
                 <input id="message" autoComplete="off" type="text" placeholder="message" value={message}
-                    onChange={e => setMessage(e.target.value)} ref={messageRef}/>
-                <button id="send" onClick={() => sendMessage(room, message)} onclick={() => handleSendMessage}>Send</button>
+                //not sure what e does anymore
+                    onChange={e => setMessage(messageRef.current.value)} ref={messageRef}/>
+                <button id="send" onClick={() => sendMessage(room, user + ": " + messageRef.current.value)}
+                //onchange={e => messageRef.current.value = ""}
+                // {handleSendMessage()}
+                    >Send</button>
             </div>
         </div>
     )
