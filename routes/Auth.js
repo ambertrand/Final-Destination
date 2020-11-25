@@ -50,10 +50,10 @@ router.get("/logout", (req, res) => {
     returnTo += ":" + port;
   }
   let logoutURL = new url.URL(
-    util.format("https://%s/v2/logout", process.env.AUTH0_DOMAIN)
+    util.format("https://%s/v2/logout", process.env.REACT_APP_AUTH0_DOMAIN)
   );
   let searchString = querystring.stringify({
-    client_id: process.env.AUTH0_CLIENT_ID,
+    client_id: process.env.REACT_APP_AUTH0_CLIENT_ID,
     returnTo: returnTo
   });
   logoutURL.search = searchString;

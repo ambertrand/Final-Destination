@@ -3,14 +3,14 @@ const router = express.Router();
 const db = require("../models");
 
 // Create a new user profile
-router.post("/api/user", function (req, res) {
-  db.userProfile.create({
+router.post("/api/users", function (req, res) {
+  db.users.create({
     email: req.body.email,
     auth0_id: req.body.auth0_id,
     last_name: req.body.last_name,
     first_name: req.body.first_name,
     shopper: req.body.shopper,
-    user_group: req.body.user_group
+    group_name: req.body.group_name
   })
     .then(function (dbUser) {
       res.json(dbUser);
@@ -21,8 +21,8 @@ router.post("/api/user", function (req, res) {
 });
 
 // find all
-router.get("/api/user", function (req, res) {
-  db.userProfile.findAll({})
+router.get("/api/users", function (req, res) {
+  db.users.findAll({})
     .then(function (dbUser) {
       res.json(dbUser);
     });
@@ -30,7 +30,7 @@ router.get("/api/user", function (req, res) {
 
 // Get by id
 router.get("/api/profile/:id", function (req, res) {
-  db.userProfile.findOne({
+  db.users.findOne({
     where: {
       id: req.params.id
     }
@@ -42,7 +42,7 @@ router.get("/api/profile/:id", function (req, res) {
 
 // Update profile information
 router.put("/api/profile", function (req, res) {
-  db.userProfile.update(req.body, {
+  db.users.update(req.body, {
     where: {
       id: req.body.id
     }
