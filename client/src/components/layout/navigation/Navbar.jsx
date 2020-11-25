@@ -6,13 +6,14 @@ import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import { Button } from './Styles';
 import { Link } from 'react-router-dom';
+import shoppingCart from '../../../assets/shoppingCart.png';
 
 const LoginButton = () => {
   const { isAuthenticated, loginWithPopup } = useAuth0()
   return (
     !isAuthenticated && (
-      <div>
-        <Button className="m-2 mr-auto" onClick={() => loginWithPopup()}>
+      <div className="ml-auto">
+        <Button className="m-2" onClick={() => loginWithPopup()}>
           Log in/Sign Up
         </Button>
       </div>
@@ -28,15 +29,15 @@ const Logout = () => {
     isAuthenticated && (
       <div>
         <Row>
-          <Col sm={12} md={9} className="navigation-sub">
+          <Col sm={12} md={9} className="navigation-sub pt-2">
             <Link to="/home" className="item navbar-brand text-white">Home</Link>
             <Link to="/userinfo" className="item navbar-brand text-white">Profile</Link>
-            <Link to="/shopping" className="item navbar-brand text-white">Shopping </Link>
-            <Link to="/about" className="item navbar-brand text-white">About Us </Link>
+            <Link to="/shopping" className="item navbar-brand text-white">Shopping</Link>
+            <Link to="/about" className="item navbar-brand text-white">About Us</Link>
 
           </Col>
           <Col sm={12} md={3} className="navigation-sub">
-            <Button className="m-2 mr-auto" onClick={() => logout()}>
+            <Button className="" onClick={() => logout()}>
               Log Out
             </Button>
 
@@ -50,31 +51,20 @@ const Logout = () => {
 const Navigation = () => {
   return (
     <div>
-      <Navbar className="row" bg="dark" variant="dark">
-        <Navbar.Brand className="col" href="#home">
-          <Row className="justify-content-center">
-            <Col>
-            Image or icon here
-              {/* <img
-                alt="ShoppingCart"
-                src="https://static.thenounproject.com/png/1700380-200.png"
-                width="30"
-                height="30"
-                className="bg-light"
-              /> */}
-            </Col>
-          </Row>
-          <Row className="justify-content-center">
-            <Col>
-              While You're There
-            </Col>
-          </Row>
-
-        </Navbar.Brand>
-        <Nav className="col justify-content-end">
-          <LoginButton />
-          <Logout />
-        </Nav>
+      <Navbar bg="dark" variant="dark">
+            <Navbar.Brand href="#home">
+                  <img
+                    alt="ShoppingCart"
+                    src={shoppingCart}
+                    width="50"
+                    height="50"
+                    className=""
+                  />
+            </Navbar.Brand>
+            <Nav className="ml-auto">
+              <LoginButton />
+              <Logout />
+            </Nav>
       </Navbar>
 
     </div>

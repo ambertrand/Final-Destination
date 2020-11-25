@@ -9,8 +9,6 @@ import addgroup from '../../assets/addgroup.png';
 import viewgroups from '../../assets/viewgroups.png';
 import editinfo from '../../assets/editinfo.png';
 import stores from '../../assets/stores.png';
-import './homeStyle.css';
-
 
 function HomeButtons() {
     return (
