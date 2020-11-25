@@ -22,9 +22,9 @@ const initializeSocketio = (server) => {
         //     io.sockets.emit('start-shop', data)
         // });
 
-        socket.on('typing', function (data) {
-            socket.broadcast.emit('typing', data)
-        });
+        // socket.on('typing', function (data) {
+        //     socket.broadcast.emit('typing', data)
+        // });
         //room test
         // room1 = "room1";
         // socket.on('join1', function (room1) {
