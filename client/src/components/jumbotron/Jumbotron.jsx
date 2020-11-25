@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from 'prop-types';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Jumbotron from 'react-bootstrap/Jumbotron';
@@ -7,7 +6,7 @@ import Jumbotron from 'react-bootstrap/Jumbotron';
 function JumboSection(props) {
     const { title, imageSrc, altText, imgClass } = props;
     return (
-        <Jumbotron fluid className="jumbo jumbotron-fluid">
+        <Jumbotron className="jumbo">
             <Row className="justify-content-center">
                 <Col xs="auto">
                     <h2 className="text-center text-dark">{title}</h2>
