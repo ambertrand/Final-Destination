@@ -1,6 +1,6 @@
 const Sequelize = require("sequelize");
 
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
 
     const User = sequelize.define("user", {
         id: {
@@ -10,11 +10,22 @@ module.exports = function(sequelize, DataTypes) {
             unique: true,
             primaryKey: true
         },
+        auth0_id: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                len: [1]
+            }
+        },
         first_name: {
             type: DataTypes.STRING,
             allowNull: false
         },
         last_name: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        username: {
             type: DataTypes.STRING,
             allowNull: false
         },

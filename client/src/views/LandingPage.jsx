@@ -1,9 +1,20 @@
-import React from 'react';
-import JumboSection from '../components/jumbotron/Jumbotron.jsx';
-import AboutUs from '../components/aboutComponents/aboutUs';
+import React from "react";
+import JumboSection from "../components/jumbotron/Jumbotron.jsx";
+import AboutUs from "../components/aboutComponents/aboutUs";
 import HomeImage from '../components/homeComponents/homeImage';
+import { useAuth0 } from '@auth0/auth0-react';
 
-function LandingPage() {
+function LandingPage({ history }) {
+
+    const { isAuthenticated } = useAuth0();
+
+    React.useEffect(() => {
+        console.log(isAuthenticated);
+        if(isAuthenticated){
+            history.push("/home");
+        }
+    }, [isAuthenticated, history]);
+
     return (
         <>
             <JumboSection
