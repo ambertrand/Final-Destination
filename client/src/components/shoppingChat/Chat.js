@@ -53,7 +53,7 @@ function Chat() {
                 onChange={() => handleTyping(room, user + ": is typing." )}
                 //only clears current room
                 //have to comment out on startup
-                onSubmit={messageRef.current.value = ""}
+                //onSubmit={messageRef.current.value = ""}
                     >Send</button>
             </div>
         </div>
