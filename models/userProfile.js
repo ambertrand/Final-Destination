@@ -10,13 +10,6 @@ module.exports = function (sequelize, DataTypes) {
             unique: true,
             primaryKey: true
         },
-        auth0_id: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                len: [1]
-            }
-        },
         first_name: {
             type: DataTypes.STRING,
             allowNull: false
@@ -36,7 +29,8 @@ module.exports = function (sequelize, DataTypes) {
         },
         group_name: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: true,
+            defaultValue: null,
         },
         socket_ID: {
             type: DataTypes.STRING

@@ -3,7 +3,7 @@ const router = express.Router();
 const db = require("../models");
 
 // Create a new user profile
-router.post("/api/users", function (req, res) {
+router.post("/", function (req, res) {
   db.user.create({
     email: req.body.email,
     auth0_id: req.body.auth0_id,
@@ -20,22 +20,30 @@ router.post("/api/users", function (req, res) {
     });
 });
 
-router.post("/users/onAuthenticated", function(req, res) {
+router.post("/onAuthenticated", function (req, res) {
+  console.log(req);
   db.user.findOrCreate({
-    email: req.body.email,
-    last_name: req.body.family_name,
-    first_name: req.body.given_name,
-    picture: req.body.picture
-
-  }).then(function(dbUser) {
-    res.json(dbUser);
-  }).catch(function(err) {
-    res.status(401).json(err);
-  });
+    where: {
+      email: req.body.email
+    },
+    defaults: 
+    {
+      email: req.body.email,
+      last_name: req.body.family_name,
+      first_name: req.body.given_name,
+      picture: req.body.picture,
+      username: req.body.nickname
+    }
+  }).then(function (dbUser) {
+      res.json(dbUser);
+    }).catch(function (err) {
+      console.log(err);
+      res.status(401).json(err);
+    });
 });
 
 // find all
-router.get("/api/users", function (req, res) {
+router.get("/", function (req, res) {
   db.users.findAll({})
     .then(function (dbUser) {
       res.json(dbUser);
@@ -43,7 +51,7 @@ router.get("/api/users", function (req, res) {
 });
 
 // Get by id
-router.get("/api/profile/:id", function (req, res) {
+router.get("/profile/:id", function (req, res) {
   db.users.findOne({
     where: {
       id: req.params.id
@@ -54,8 +62,8 @@ router.get("/api/profile/:id", function (req, res) {
     });
 });
 
-// Update profile information
-router.put("/api/profile/:id", function (req, res) {
+// Update profile information /api/users/profile/:id (full api call actually being called below)
+router.put("/profile/:id", function (req, res) {
   db.users.update(req.body, {
     where: {
       id: req.body.id
