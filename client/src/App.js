@@ -19,21 +19,11 @@ function App() {
         <Navigation />
 
         <Switch>
-          <Route exact path="/">
-            <LandingPage />
-          </Route>
-          <Route exact path="/home">
-            <Home />
-          </Route>
-          <Route exact path="/userinfo">
-            <UserInfo />
-          </Route>
-          <Route exact path="/shopping">
-            <Shopping />
-          </Route>
-          <Route exact path="/about">
-            <About />
-          </Route>
+          <Route exact path="/" component={LandingPage} />
+          <Route exact path="/home" component={Home} />
+          <Route exact path="/userinfo" component={UserInfo} />
+          <Route exact path="/shopping" component={Shopping} />
+          <Route exact path="/about" component={About} />
         </Switch>
 
         <Footer />
