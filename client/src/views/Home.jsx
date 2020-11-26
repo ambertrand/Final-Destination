@@ -1,9 +1,22 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import JumboSection from '../components/jumbotron/Jumbotron';
 import HomeButtons from '../components/homeComponents/homeButtons';
-
+import { useAuth0 }  from '@auth0/auth0-react';
+import axios from 'axios';
 
 function Home() {
+
+    const {user, isAuthenticated} = useAuth0();
+
+    useEffect(() => {
+        if(isAuthenticated){
+
+            console.log(user);
+            axios.post("/api/users/onAuthenticated", user);
+
+        }
+    }, [isAuthenticated, user]);
+
     return (
         <>
             <JumboSection

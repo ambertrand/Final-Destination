@@ -62,7 +62,7 @@ function UserForm() {
                             </label>
                             <Row className="justify-content-center">
                                 <Col sm="auto">
-                                    <Button type="submit" className="" id="updateUserInfo" onClick={event => userInfo(event, 
+                                    <Button type="submit" className="mb-2" id="updateUserInfo" onClick={event => userInfo(event, 
                                         {
                                             userName,
                                             email,
