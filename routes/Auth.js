@@ -32,8 +32,12 @@ router.get("/callback", function (req, res, next) {
       // creates a user in the team_member table if not there
       const newUser = await createUser(userProfile);
 
+
+
+      console.log("Auth0 route callback");
+
       // send user to previous page or user profile
-      res.redirect(returnTo || "/dashboard");
+      res.redirect(returnTo || "/home");
     });
   })(req, res, next);
 });

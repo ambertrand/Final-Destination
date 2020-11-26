@@ -5,11 +5,13 @@ const session = require("express-session");
 const passport = require("passport");
 const Auth0Strategy = require("passport-auth0");
 const userInViews = require("./lib/middleware/userInViews");
-const authRouter = require("./routes/auth");
-const indexRouter = require("./routes/index");
-const usersRouter = require("./routes/users");
 
-const apiUser = require("./routes/api-user");
+
+const indexRouter = require("./routes/index");
+
+// const usersRouter = require("./routes/users");
+// const authRouter = require("./routes/Auth");
+// const apiUser = require("./routes/api-user");
 
 
 const path = require("path");
@@ -66,11 +68,15 @@ if (app.get("env") === "production") {
 }
 
 app.use(session(sess));
-app.use("/", authRouter);
-app.use("/", indexRouter);
-app.use("/", usersRouter);
 
-app.use("/", apiUser);
+app.use(userRouter);
+app.use("/api", indexRouter);
+
+// app.use("/", authRouter);
+
+// app.use("/", usersRouter);
+
+// app.use("/", apiUser);
 
 // Define API routes here
 
@@ -85,7 +91,7 @@ app.use("/", apiUser);
 
 // Connect to the MySQL
 
-app.use(userRouter);
+
 
 db.sequelize.sync().then(() => {
   http.listen(PORT, () => {

@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const db = require("../models");
 
+// "/api/user/"
 router.get('/user', function(req, res, next){
     const { _raw, _json, ...userProfile } = req.userProfile;
 
