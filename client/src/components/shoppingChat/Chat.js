@@ -13,9 +13,10 @@ function Chat() {
     const [typing, setTyping] = useState("")
     const [message, setMessage] = useState('');
     const [chat, setChat] = useState([]);
+    //keeps inputing for every letter
     const handleSendMessage = () => {
-        sendMessage(room, messageRef.current.value)
-        //messageRef.current.value = "";
+        sendMessage(room, user + ": " + messageRef.current.value)
+        messageRef.current.value = "";
     }
     //const handleTyping = () => { socket.emit("typing", user + ": is typing") }
     useEffect(() => {
@@ -45,10 +46,12 @@ function Chat() {
                 <input id="message" autoComplete="off" type="text" placeholder="message" value={message}
                 //not sure what e does anymore
                     onChange={e => setMessage(messageRef.current.value)} ref={messageRef}/>
-                <button id="send" onClick={() => sendMessage(room, user + ": " + messageRef.current.value)}
+                <button id="send" 
+                onClick={() => sendMessage(room, user + ": " + messageRef.current.value)}
                 //onchange={e => messageRef.current.value = ""}
-                // {handleSendMessage()}
+                //onClick={handleSendMessage()}
                 onChange={() => handleTyping(room, user + ": is typing." )}
+                onSubmit={messageRef.current.value= ""}
                     >Send</button>
             </div>
         </div>
