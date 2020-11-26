@@ -8,7 +8,7 @@ var storeMessage = user + " is going to " + store;
 
 function Chat() {
     const rooms = ['1', '2'];
-    const messageRef = useRef();
+    let messageRef = useRef();
     const [room, setRoom] = useState(rooms[0]);
     const [typing, setTyping] = useState("")
     const [message, setMessage] = useState('');
@@ -51,7 +51,9 @@ function Chat() {
                 //onchange={e => messageRef.current.value = ""}
                 //onClick={handleSendMessage()}
                 onChange={() => handleTyping(room, user + ": is typing." )}
-                onSubmit={messageRef.current.value= ""}
+                //only clears current room
+                //have to comment out on startup
+                onSubmit={messageRef.current.value = ""}
                     >Send</button>
             </div>
         </div>
