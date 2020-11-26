@@ -1,13 +1,20 @@
-const path = require("path");
-const router = require("express").Router();
-// const apiRoutes = require("./api");
+const express = require("express");
+const router = express.Router();
+const models = require("../models");
 
-// API Routes
-// router.use("/api", apiRoutes);
+// const usersRouter = require("./routes/users");
+const authRouter = require("./Auth");
+const apiUser = require("./api-user");
+const apiGroup = require("./api-group");
 
-// If no API routes are hit, send the React app
-router.use(function(req, res) {
-  res.sendFile(path.join(__dirname, "../client/build/index.html"));
-});
+// router.use("/user", usersRouter);
+router.use("/auth", authRouter);
+router.use("/users", apiUser);
+router.use("/group", apiGroup);
+
+// // render index page
+// router.get("/", function (req, res) {
+//     res.render("index", { user: req.user });
+//   });
 
 module.exports = router;

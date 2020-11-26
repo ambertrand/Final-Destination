@@ -13,7 +13,7 @@ const LoginButton = () => {
   return (
     !isAuthenticated && (
       <div className="ml-auto">
-        <Button className="m-2" onClick={() => loginWithPopup()}>
+        <Button className="m-2" onClick={(event) => loginWithPopup()}>
           Log in/Sign Up
         </Button>
       </div>
