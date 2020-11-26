@@ -1,6 +1,7 @@
 import React from "react";
 import JumboSection from "../components/jumbotron/Jumbotron.jsx";
 import AboutUs from "../components/aboutComponents/aboutUs";
+import HomeImage from '../components/homeComponents/homeImage';
 import { useAuth0 } from '@auth0/auth0-react';
 
 function LandingPage({ history }) {
@@ -24,23 +25,7 @@ function LandingPage({ history }) {
             />
 
             <AboutUs />
-
-{/* Jesse, your code from sign up component is below. Create a new jsx file in homeComponents folder */}
-            {/* <Row className="justify-content-center">
-                <Col sm="auto">
-
-                </Col>
-                <Col sm="auto">
-                    <Image src="https://i.dlpng.com/static/png/6959392_preview.png" alt="Logo" width="200" height="200" rounded />
-                </Col>
-                <Col sm="auto">
-
-                </Col>
-            </Row> */}
-
-            {/* <SignUp /> */}
-
-
+            <HomeImage />
         </>
 
     )
