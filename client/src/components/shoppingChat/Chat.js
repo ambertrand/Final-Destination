@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
-import {socket, initiateSocket, disconnectSocket, subscribeToChat, handleTyping, sendMessage } from "../../utils/socket/socket";
+import {initiateSocket, disconnectSocket, subscribeToChat, handleTyping, sendMessage } from "../../utils/socket/socket";
 import "./listStyle.css";
 var user = "User";
 var store = "Store"
@@ -50,7 +50,7 @@ function Chat() {
                 onClick={() => sendMessage(room, user + ": " + messageRef.current.value)}
                 //onchange={e => messageRef.current.value = ""}
                 //onClick={handleSendMessage()}
-                onChange={() => handleTyping(room, user + ": is typing." )}
+                //onChange={() => handleTyping(room, user + ": is typing." )}
                 //only clears current room
                 //have to comment out on startup
                 //onSubmit={messageRef.current.value = ""}
