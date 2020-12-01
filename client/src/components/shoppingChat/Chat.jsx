@@ -16,17 +16,6 @@ function Chat() {
     const [typing, setTyping] = useState("")
     const [message, setMessage] = useState("");
     const [chat, setChat] = useState([]);
-    //keeps inputing for every letter
-    // const clearInput = (input) =>
-    // {
-    //     //input = "";
-    //     console.log("input cleared")
-    // }
-    // const handleSendMessage = () => {
-    //     sendMessage(room, user + ": " + messageRef.current.value)
-    //     messageRef.current.value = "";
-    // }
-    //const handleTyping = () => { socket.emit("typing", user + ": is typing") }
     //clears input
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -35,7 +24,7 @@ function Chat() {
         messageRef.current.value = "";
         // Or you can reset your form element to its default values
         // e.currentTarget.reset();
-      }
+    }
     useEffect(() => {
         if (room) initiateSocket(room);
         subscribeToChat((err, data) => {
@@ -70,15 +59,6 @@ function Chat() {
                     />
                     <button id="send"
                         onClick={() => sendMessage(room, user.name + ": " + messageRef.current.value)}
-                    //onClick={() => console.log("test")}
-                    //onClick={() => sendMessage(room, user + ": " + messageRef.current.value)} 
-                    //onchange={e => messageRef.current.value = ""}
-                    //onClick={handleSendMessage()}
-                    //onChange={() => handleTyping(room, user + ": is typing." )}
-                    //only clears current room
-                    //have to comment out on startup
-                    //onChange={console.log("test")}
-                    //onSubmit={messageRef.current.value = ""}
                     >Send</button>
                 </form>
             </div>
