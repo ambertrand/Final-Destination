@@ -20,16 +20,11 @@ export const subscribeToChat = (cb) => {
     return cb(null, msg);
   });
 }
-export const handleSendMessage = () =>{
-    
-}
 export const sendMessage = (room, message) => {
   if (socket) socket.emit('chat', {room, message });
   console.log("message sent")
-  //message = "";
 }
 export const handleTyping = (room, message) =>{
     if (socket) socket.emit('typing', {room, message});
-    //message = "";
     console.log("typing")
 }
