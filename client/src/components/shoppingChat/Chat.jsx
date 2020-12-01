@@ -1,14 +1,16 @@
 import React, { useEffect, useState, useRef } from "react";
 import {initiateSocket, disconnectSocket, subscribeToChat, handleTyping, sendMessage } from "../../utils/socket/socket";
 import "./listStyle.css";
-var user = "User";
-var store = "Store"
-var storeMessage = user + " is going to " + store;
+import { useAuth0 } from '@auth0/auth0-react';
 
 
 function Chat() {
+    const { user } = useAuth0();
     const rooms = ['1', '2'];
     let messageRef = useRef();
+    //const [userName, setUserName] = useState(user.nickname);
+    const store = "Store"
+    const storeMessage = user.name + " is going to " + store;
     const [room, setRoom] = useState(rooms[0]);
     const [typing, setTyping] = useState("")
     const [message, setMessage] = useState("");
@@ -56,7 +58,7 @@ function Chat() {
                     //onChange={() => handleTyping(room, user + ": is typing.")}
                     />
                 <button id="send" 
-                onClick={() => sendMessage(room, user + ": " + messageRef.current.value)} 
+                onClick={() => sendMessage(room, user.name + ": " + messageRef.current.value)} 
                 //onClick={() => console.log("test")}
                 //onClick={() => sendMessage(room, user + ": " + messageRef.current.value)} 
                 //onchange={e => messageRef.current.value = ""}
