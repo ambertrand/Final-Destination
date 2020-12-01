@@ -11,13 +11,18 @@ function Chat() {
     let messageRef = useRef();
     const [room, setRoom] = useState(rooms[0]);
     const [typing, setTyping] = useState("")
-    const [message, setMessage] = useState('');
+    const [message, setMessage] = useState("");
     const [chat, setChat] = useState([]);
     //keeps inputing for every letter
-    const handleSendMessage = () => {
-        sendMessage(room, user + ": " + messageRef.current.value)
-        messageRef.current.value = "";
-    }
+    // const clearInput = (input) =>
+    // {
+    //     //input = "";
+    //     console.log("input cleared")
+    // }
+    // const handleSendMessage = () => {
+    //     sendMessage(room, user + ": " + messageRef.current.value)
+    //     messageRef.current.value = "";
+    // }
     //const handleTyping = () => { socket.emit("typing", user + ": is typing") }
     useEffect(() => {
         if (room) initiateSocket(room);
@@ -43,16 +48,23 @@ function Chat() {
                     </div>
                     <div id="feedback" >{typing}</div>
                 </div>
-                <input id="message" autoComplete="off" type="text" placeholder="message" value={message}
-                //not sure what e does anymore
-                    onChange={e => setMessage(messageRef.current.value)} ref={messageRef}/>
+                <input id="message" autoComplete="off" type="text" 
+                defaultValue = ""
+                 placeholder="message"
+                //value={message}
+                    onChange={() => setMessage(messageRef.current.value)} ref={messageRef}
+                    //onChange={() => handleTyping(room, user + ": is typing.")}
+                    />
                 <button id="send" 
-                onClick={() => sendMessage(room, user + ": " + messageRef.current.value)}
+                onClick={() => sendMessage(room, user + ": " + messageRef.current.value)} 
+                //onClick={() => console.log("test")}
+                //onClick={() => sendMessage(room, user + ": " + messageRef.current.value)} 
                 //onchange={e => messageRef.current.value = ""}
                 //onClick={handleSendMessage()}
                 //onChange={() => handleTyping(room, user + ": is typing." )}
                 //only clears current room
                 //have to comment out on startup
+                //onChange={console.log("test")}
                 //onSubmit={messageRef.current.value = ""}
                     >Send</button>
             </div>

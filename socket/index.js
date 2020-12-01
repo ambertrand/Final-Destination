@@ -50,9 +50,9 @@ const initializeSocketio = (server) => {
             io.to(room).emit('chat', message);
         });
         // socket.on('typing', (data) => {
-        //     const { message, room } = data;
-        //     console.log(`msg: ${message}, room: ${room}`);
-        //     io.to(room).broadcast('typing', message);
+        //     const { typing, room } = data;
+        //     console.log(`msg: ${typing}, room: ${room}`);
+        //     io.to(room).broadcast('typing', typing);
         // });
     });
 }

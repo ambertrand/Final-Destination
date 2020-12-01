@@ -24,11 +24,12 @@ export const handleSendMessage = () =>{
     
 }
 export const sendMessage = (room, message) => {
-  if (socket) socket.emit('chat', { message, room });
+  if (socket) socket.emit('chat', {room, message });
   console.log("message sent")
   //message = "";
 }
 export const handleTyping = (room, message) =>{
-    if (socket) socket.emit('typing', {message, room});
+    if (socket) socket.emit('typing', {room, message});
+    //message = "";
     console.log("typing")
 }
