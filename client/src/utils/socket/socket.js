@@ -1,6 +1,6 @@
 // import {io} from "socket.io-client";
 // const socket = io.connect(process.env.PORT || "http://localhost:3001");
-// export default socket;
+//export default socket;
 
 import io from 'socket.io-client';
 let socket;
@@ -24,7 +24,7 @@ export const sendMessage = (room, message) => {
   if (socket) socket.emit('chat', {room, message });
   console.log("message sent")
 }
-export const handleTyping = (room, message) =>{
-    if (socket) socket.emit('typing', {room, message});
-    console.log("typing")
-}
+// export const handleTyping = (room, message) =>{
+//     if (socket) socket.emit('typing', {room, message});
+//     console.log("typing")
+// }

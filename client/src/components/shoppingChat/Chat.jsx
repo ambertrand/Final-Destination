@@ -25,6 +25,13 @@ function Chat() {
         // Or you can reset your form element to its default values
         // e.currentTarget.reset();
     }
+    const handleTyping = () =>
+    {
+        setMessage()
+        //want to put room but if I put room, message it just displays the room number
+        setTyping("" + user.name + ": is typing")
+        console.log(typing)
+    }
     useEffect(() => {
         if (room) initiateSocket(room);
         subscribeToChat((err, data) => {
@@ -55,7 +62,7 @@ function Chat() {
                         placeholder="message"
                         //value={message}
                         onChange={() => setMessage(messageRef.current.value)} ref={messageRef}
-                    //onChange={() => handleTyping(room, user + ": is typing.")}
+                        //onChange={() => handleTyping()}
                     />
                     <button id="send"
                         onClick={() => sendMessage(room, user.name + ": " + messageRef.current.value)}
