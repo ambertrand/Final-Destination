@@ -2,11 +2,11 @@ const express = require("express");
 const router = express.Router();
 const db = require("../models");
 
-// Create a new user profile
+// Create a new user profile - Actual route: /api/users/
 router.post("/", function (req, res) {
   db.user.create({
     email: req.body.email,
-    auth0_id: req.body.auth0_id,
+    // auth0_id: req.body.auth0_id,
     last_name: req.body.last_name,
     first_name: req.body.first_name,
     shopper: req.body.shopper,
@@ -16,6 +16,7 @@ router.post("/", function (req, res) {
       res.json(dbUser);
     })
     .catch(function (err) {
+      console.log(err);
       res.status(401).json(err);
     });
 });
@@ -73,5 +74,6 @@ router.put("/profile/:id", function (req, res) {
       res.json(dbUser);
     });
 });
+
 
 module.exports = router;

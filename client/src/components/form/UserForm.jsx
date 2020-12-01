@@ -41,7 +41,7 @@ function UserForm() {
                             </label>
                             <label>
                                 Email:
-                                <input type="text" placeholder={user.email} id="email" onChange={(event) => setEmail(event.target.value)}/>
+                                <input type="text" defaultValue={user.email} id="email" onChange={(event) => setEmail(event.target.value)}/>
                             </label>
                             <label>
                                 Group name:&nbsp;
@@ -49,15 +49,15 @@ function UserForm() {
                                 <select id="groupName" onChange={(event) => setGroupName(event.target.value)}>
                                     <option value="1">team1</option>
                                     <option value="2">team2</option>
-                                    <option selected value="3">team3</option>
+                                    <option value="3">team3</option>
                                     <option value="4">team4</option>
                                 </select>
                             </label>
                             <label>
                                 Group role:&nbsp;
                                 <select id="isShopper" onChange={(event) => setGroupRole(event.target.value)}>
-                                    <option value="shopper">Shopper</option>
-                                    <option value="groupMember">Group Member</option>
+                                    <option>Shopper</option>
+                                    <option>Group Member</option>
                                 </select>
                             </label>
                             <Row className="justify-content-center">
@@ -74,7 +74,6 @@ function UserForm() {
                                 </Button>
                                 </Col>
                             </Row>
-                            {/* <input type="submit" value="Submit" /> */}
                         </form>
 
                       
