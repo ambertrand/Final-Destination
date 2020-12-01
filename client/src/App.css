@@ -26,6 +26,11 @@ Button.choice {
   color: #000000;
 }
 
+.iconImg {
+  height: 100px;
+  width: 100px;
+}
+
 .footer {
   position: fixed;
   bottom: 0;

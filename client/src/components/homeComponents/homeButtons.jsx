@@ -14,21 +14,21 @@ function HomeButtons() {
 
     return (
         <Container>
-            <Row className="teams justify-content-center">
+            <Row className="teams">
                 <Col sm="12" md="3" className="mb-3">
-                    <CardImg src={addgroup} />
+                    <CardImg className="iconImg align-content-center" src={addgroup} />
                     <Button type="submit" className="choice m-2" id="createTeam">Create Group</Button>
                 </Col>
                 <Col sm="12" md="3" className="mb-3">
-                    <CardImg src={viewgroups} />
+                    <CardImg className="iconImg" src={viewgroups} />
                     <Button type="submit" className="choice m-2" id="viewTeams">View Groups</Button>
                 </Col>
                 <Col sm="12" md="3" className="mb-3">
-                    <CardImg src={editinfo} />
+                    <CardImg className="iconImg" src={editinfo} />
                     <Button type="submit" className="choice m-2" id="updateUserProfile">Update User Profile</Button>
                 </Col>
                 <Col sm="12" md="3" className="mb-3">
-                    <CardImg src={stores} />
+                    <CardImg className="iconImg" src={stores} />
                     <Button type="submit" className="choice m-2" id="viewGroupStores">View Group Stores</Button>
                 </Col>
             </Row>
