@@ -11,22 +11,23 @@ import editinfo from '../../assets/editinfo.png';
 import stores from '../../assets/stores.png';
 
 function HomeButtons() {
+
     return (
         <Container>
             <Row className="teams justify-content-center">
-                <Col sm="3" className="mb-3">
+                <Col sm="12" md="3" className="mb-3">
                     <CardImg src={addgroup} />
                     <Button type="submit" className="choice m-2" id="createTeam">Create Group</Button>
                 </Col>
-                <Col sm="3" className="mb-3">
+                <Col sm="12" md="3" className="mb-3">
                     <CardImg src={viewgroups} />
                     <Button type="submit" className="choice m-2" id="viewTeams">View Groups</Button>
                 </Col>
-                <Col sm="3" className="mb-3">
+                <Col sm="12" md="3" className="mb-3">
                     <CardImg src={editinfo} />
                     <Button type="submit" className="choice m-2" id="updateUserProfile">Update User Profile</Button>
                 </Col>
-                <Col sm="3" className="mb-3">
+                <Col sm="12" md="3" className="mb-3">
                     <CardImg src={stores} />
                     <Button type="submit" className="choice m-2" id="viewGroupStores">View Group Stores</Button>
                 </Col>
