@@ -13,6 +13,11 @@
   min-width: 100%;
 }
 
+img.shoppingLogo {
+  background-color: #a9d7a9;
+  border-radius: 5px;
+}
+
 Button#updateUserInfo {
   background-color:#a9d7a9;
   border-color: #a9d7a9;
@@ -24,6 +29,11 @@ Button.choice {
   background-color: #a9d7a9;
   border-color: #a9d7a9;
   color: #000000;
+}
+
+.iconImg {
+  height: 100px;
+  width: 100px;
 }
 
 .footer {
