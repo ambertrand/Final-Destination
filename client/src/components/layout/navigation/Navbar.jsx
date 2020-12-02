@@ -52,13 +52,13 @@ const Navigation = () => {
   return (
     <div>
       <Navbar bg="dark" variant="dark">
-            <Navbar.Brand href="#home">
+            <Navbar.Brand href="/">
                   <img
                     alt="ShoppingCart"
                     src={shoppingCart}
                     width="50"
                     height="50"
-                    className=""
+                    className="shoppingLogo"
                   />
             </Navbar.Brand>
             <Nav className="ml-auto">

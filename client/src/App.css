@@ -13,6 +13,11 @@
   min-width: 100%;
 }
 
+img.shoppingLogo {
+  background-color: #a9d7a9;
+  border-radius: 5px;
+}
+
 Button#updateUserInfo {
   background-color:#a9d7a9;
   border-color: #a9d7a9;
