@@ -1,5 +1,4 @@
 import React from 'react';
-// import axios from 'axios';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
@@ -11,14 +10,14 @@ import viewgroups from '../../assets/viewgroups.png';
 import editinfo from '../../assets/editinfo.png';
 import stores from '../../assets/stores.png';
 
+// Button Logic
+import newGroupButton from './newGroup';
+import viewGroupButton from './viewGroup';
+import updateButton from './updateUser';
+import viewStores from './viewStores';
+
 
 function HomeButtons() {
-
-    const clickButtons = (event) => {
-        event.preventDefault();
-        // console.log("button clicked");
-    }
-
 
     return (
         <Container>
@@ -31,7 +30,7 @@ function HomeButtons() {
                     </Row>
                     <Row>
                         <Col>
-                            <Button type="submit" className="choice m-2" id="createTeam" onClick={clickButtons} >Create Group</Button>
+                            <Button type="submit" className="choice m-2" id="createTeam" onClick={newGroupButton} >Create Group</Button>
                         </Col>
                     </Row>
                 </Col>
@@ -44,7 +43,7 @@ function HomeButtons() {
                     </Row>
                     <Row>
                         <Col>
-                            <Button type="submit" className="choice m-2" id="viewTeams">View Groups</Button>
+                            <Button type="submit" className="choice m-2" id="viewTeams" onClick={viewGroupButton}>View Groups</Button>
                         </Col>
                     </Row>
                 </Col>
@@ -57,7 +56,7 @@ function HomeButtons() {
                     </Row>
                     <Row>
                         <Col>
-                            <Button type="submit" className="choice m-2" id="updateUserProfile">Update User Profile</Button>
+                            <Button type="submit" className="choice m-2" id="updateUserProfile" onClick={updateButton}>Update User Profile</Button>
                         </Col>
                     </Row>
                 </Col>
@@ -70,7 +69,7 @@ function HomeButtons() {
                     </Row>
                     <Row>
                         <Col>
-                            <Button type="submit" className="choice m-2" id="viewGroupStores">View Group Stores</Button>
+                            <Button type="submit" className="choice m-2" id="viewGroupStores" onClick={viewStores}>View Group Stores</Button>
                         </Col>
                     </Row>
                 </Col>
