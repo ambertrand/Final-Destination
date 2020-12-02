@@ -4,7 +4,7 @@ import Row from 'react-bootstrap/Row';
 import Image from 'react-bootstrap/Image';
 import landingimage from '../../assets/landingimage.png';
 
-const HomeImage = () => {
+const LandingImage = () => {
     return (
         <Container>
             <Row className="justify-content-center">
@@ -14,4 +14,4 @@ const HomeImage = () => {
     )
 }
 
-export default HomeImage;
+export default LandingImage;
