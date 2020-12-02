@@ -1,6 +1,7 @@
-import React from "react";
+import React, {useContext} from "react";
 import { useAuth0 } from '@auth0/auth0-react';
 import userInfo from './userInfo';
+import userContext from './userContext';
 
 // React Bootstrap
 import Button from 'react-bootstrap/Button';
@@ -16,9 +17,11 @@ function UserForm() {
     const [email, setEmail] = useState(user.email);
     const [groupName, setGroupName] = useState("");
     const [groupRole, setGroupRole] = useState("");
+    const userId = useContext(userContext);
 
     return (
         <div>
+            {console.log(userId)}
             <Row className="justify-content-center">
                 {/* User image */}
                 <Col xs="12" md="4">
@@ -62,7 +65,7 @@ function UserForm() {
                             </label>
                             <Row className="justify-content-center">
                                 <Col sm="auto">
-                                    <Button type="submit" className="mb-2" id="updateUserInfo" onClick={event => userInfo(event, 
+                                    <Button type="submit" className="mb-2" id="updateUserInfo" onClick={event => userInfo(event, userId, 
                                         {
                                             userName,
                                             email,

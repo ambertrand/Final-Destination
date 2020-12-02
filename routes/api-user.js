@@ -22,7 +22,7 @@ router.post("/", function (req, res) {
 });
 
 router.post("/onAuthenticated", function (req, res) {
-  console.log(req);
+  // console.log(req);
   db.user.findOrCreate({
     where: {
       email: req.body.email
@@ -65,9 +65,9 @@ router.get("/profile/:id", function (req, res) {
 
 // Update profile information /api/users/profile/:id (full api call actually being called below)
 router.put("/profile/:id", function (req, res) {
-  db.users.update(req.body, {
+  db.user.update({username: req.body.userName}, {
     where: {
-      id: req.body.id
+      id: req.params.id
     }
   })
     .then(function (dbUser) {
