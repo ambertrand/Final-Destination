@@ -46,3 +46,7 @@ Button.choice {
   position: relative;
   padding-bottom: 40px;
 }
+
+.landingImage {
+  padding-bottom: 40px;
+}
