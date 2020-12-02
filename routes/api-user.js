@@ -6,7 +6,6 @@ const db = require("../models");
 router.post("/", function (req, res) {
   db.user.create({
     email: req.body.email,
-    // auth0_id: req.body.auth0_id,
     last_name: req.body.last_name,
     first_name: req.body.first_name,
     shopper: req.body.shopper,

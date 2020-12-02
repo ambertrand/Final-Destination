@@ -29,7 +29,7 @@ function App() {
           <Switch>
             <Route exact path="/" component={LandingPage} />
             <Route exact path="/home" render={(props) => (
-              <Home getUserId={getUserId}/>
+              <Home getUserId={getUserId} />
             )} />
             <Route exact path="/userinfo" component={UserInfo} />
             <Route exact path="/shopping" component={Shopping} />
@@ -37,11 +37,6 @@ function App() {
           </Switch>
 
           <Footer />
-
-
-          {/* {chatMessage} */}
-          {/* <Button onClick={() => { socket.emit("chat", "socket works!") }}>emit</Button> */}
-
 
         </Router >
       </userContext.Provider>
