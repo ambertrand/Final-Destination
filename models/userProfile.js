@@ -12,15 +12,15 @@ module.exports = function (sequelize, DataTypes) {
         },
         first_name: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: true
         },
         last_name: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: true
         },
         username: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: true
         },
         email: {
             type: DataTypes.STRING,

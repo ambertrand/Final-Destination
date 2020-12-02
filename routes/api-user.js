@@ -2,11 +2,11 @@ const express = require("express");
 const router = express.Router();
 const db = require("../models");
 
-// Create a new user profile
+// Create a new user profile - Actual route: /api/users/
 router.post("/", function (req, res) {
   db.user.create({
     email: req.body.email,
-    auth0_id: req.body.auth0_id,
+    // auth0_id: req.body.auth0_id,
     last_name: req.body.last_name,
     first_name: req.body.first_name,
     shopper: req.body.shopper,
@@ -16,12 +16,13 @@ router.post("/", function (req, res) {
       res.json(dbUser);
     })
     .catch(function (err) {
+      console.log(err);
       res.status(401).json(err);
     });
 });
 
 router.post("/onAuthenticated", function (req, res) {
-  console.log(req);
+  // console.log(req);
   db.user.findOrCreate({
     where: {
       email: req.body.email
@@ -64,14 +65,15 @@ router.get("/profile/:id", function (req, res) {
 
 // Update profile information /api/users/profile/:id (full api call actually being called below)
 router.put("/profile/:id", function (req, res) {
-  db.users.update(req.body, {
+  db.user.update({username: req.body.userName}, {
     where: {
-      id: req.body.id
+      id: req.params.id
     }
   })
     .then(function (dbUser) {
       res.json(dbUser);
     });
 });
+
 
 module.exports = router;
