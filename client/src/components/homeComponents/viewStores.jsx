@@ -1,6 +1,4 @@
-import React from 'react';
-
-const viewStores = (event) => {
+function viewStores (event) {
     event.preventDefault();
     // console.log("button clicked");
 }

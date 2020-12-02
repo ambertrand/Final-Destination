@@ -1,6 +1,4 @@
-import React from 'react';
-
-const updateButton = (event) => {
+function updateButton (event) {
     event.preventDefault();
     // console.log("button clicked");
 }

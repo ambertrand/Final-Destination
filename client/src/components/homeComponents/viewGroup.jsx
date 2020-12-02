@@ -1,6 +1,4 @@
-import React from 'react';
-
-const viewGroupButton = (event) => {
+function viewGroupButton (event) {
     event.preventDefault();
     // console.log("button clicked");
 }
