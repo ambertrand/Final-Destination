@@ -28,6 +28,11 @@ Button.choice {
 
 .footer {
   position: fixed;
-  bottom: 0;
+  bottom: 0px;
   width: 100vw;
+}
+
+.outerContainer {
+  position: relative;
+  padding-bottom: 40px;
 }
