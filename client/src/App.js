@@ -43,11 +43,6 @@ function App() {
 
           <Footer />
 
-
-          {/* {chatMessage} */}
-          {/* <Button onClick={() => { socket.emit("chat", "socket works!") }}>emit</Button> */}
-
-
         </Router >
       </userContext.Provider>
     </div>
