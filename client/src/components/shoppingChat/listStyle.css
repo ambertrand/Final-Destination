@@ -69,7 +69,8 @@ input{
     /* background: #575ed8; */
     background-color: #a9d7a9;
   border-color: #a9d7a9;
-    color: #fff;
+    /* color: #fff; */
+    color: #000000;
     font-size: 18px;
     border: 0;
     padding: 12px 0;
