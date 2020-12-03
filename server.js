@@ -21,7 +21,7 @@ const app = express();
 const http = require('http').createServer(app);
 const userRouter = require('./routes/userRoutes')
 
-const initializeSocketio = require("./socket");
+const initializeSocketio = require("./client/src/utils/socket/index");
 
 //move this line and lines 35-37 inside of promise when connecting to db
 initializeSocketio(http);
