@@ -25,6 +25,7 @@ function Chat() {
         // Or you can reset your form element to its default values
         // e.currentTarget.reset();
     }
+    //does nothing atm
     const handleTyping = () => {
         setMessage()
         //want to put room but if I put room, message it just displays the room number
@@ -61,6 +62,7 @@ function Chat() {
                         placeholder="message"
                         //value={message}
                         onChange={() => setMessage(messageRef.current.value)} ref={messageRef}
+                        //onKeyDown={() => sendMessage(room, user.name + ": " + messageRef.current.value)}
                     //onChange={() => handleTyping()}
                     />
                     <button id="send"
