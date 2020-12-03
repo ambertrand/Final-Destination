@@ -1,7 +1,13 @@
 import React from "react";
 import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+// import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
+import Carousel from 'react-bootstrap/Carousel';
+import alex from '../../assets/Alex.png';
+import nk from '../../assets/NK.png';
+import matthew from '../../assets/Matthew.png';
+import jfarms from '../../assets/jfarms.png';
+import { First } from "react-bootstrap/esm/PageItem";
 
 
 function AboutUs() {
@@ -10,21 +16,80 @@ function AboutUs() {
 
             <Row className="justify-content-center mb-4">
 
-                <Col xs={11} md={5}>
-                    <h4 className="text-center"> Have you ever gone shopping for someone and forgot something? </h4>
-                    <Card className="bg-light">
-                        <Card.Body className="text-center">
-                            <p>
-                                We definitely have! That is why
-                                we created While You're There. Now with COVID-19 it is more important then ever to remember shopping items
-                                in one trip. This helps high risk individuals be able to request and receive all of their shopping needs
-                                and minimizes the times the shopper is in crowded stores.
-                                We're here to save you time and heartache when it comes to running errands!
-                            </p>
-                        </Card.Body>
-                    </Card>
+                <Carousel>
+                    <Carousel.Item>
+                        <Card style={{ width: '18rem' }}>
+                            <Card.Img variant="top" src={alex} />
+                            <Card.Body>
+                                <Card.Title>Card Title</Card.Title>
+                                <Card.Text>
+                                    Some quick example text to build on the card title and make up the bulk of
+                                    the card's content.
+                            </Card.Text>
+                            </Card.Body>
+                        </Card>
+                    </Carousel.Item>
+                    <Carousel.Item>
+                        <Card style={{ width: '18rem' }}>
+                            <Card.Img variant="top" src={nk} />
+                            <Card.Body>
+                                <Card.Title>Card Title</Card.Title>
+                                <Card.Text>
+                                    Some quick example text to build on the card title and make up the bulk of
+                                    the card's content.
+                            </Card.Text>
+                            </Card.Body>
+                        </Card>
+                    </Carousel.Item>
+                    <Carousel.Item>
+                        <Card style={{ width: '18rem' }}>
+                            <Card.Img style={{ width: 500, height: 'auto' }} variant="top" src={matthew} />
+                            <Card.Body>
+                                <Card.Title>Card Title</Card.Title>
+                                <Card.Text>
+                                    Some quick example text to build on the card title and make up the bulk of
+                                    the card's content.
+                            </Card.Text>
+                            </Card.Body>
+                        </Card>
+                    </Carousel.Item>
 
-                </Col>
+                    <Carousel.Item>
+                        <Card style={{ width: '18rem' }}>
+                            <Card.Img variant="top" src={jfarms} />
+                            <Card.Body>
+                                <Card.Title>Card Title</Card.Title>
+                                <Card.Text>
+                                    Some quick example text to build on the card title and make up the bulk of
+                                    the card's content.
+                            </Card.Text>
+                            </Card.Body>
+                        </Card>
+                    </Carousel.Item>
+                    <Carousel.Item>
+                        <Card style={{ width: '18rem' }}>
+                            <Card.Img variant="top" src={jfarms} />
+                            <Card.Body>
+                                <Card.Title>Card Title</Card.Title>
+                                <Card.Text>
+                                    Some quick example text to build on the card title and make up the bulk of
+                                    the card's content.
+                            </Card.Text>
+                            </Card.Body>
+                        </Card>
+                    </Carousel.Item>
+                    <Carousel.Item>
+                        <img
+                            className="d-block w-100"
+                            src=""
+                            alt="First slide"
+                        />
+                        <Carousel.Caption>
+                            <h3>First slide label</h3>
+                            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                        </Carousel.Caption>
+                    </Carousel.Item>
+                </Carousel>
 
             </Row>
 

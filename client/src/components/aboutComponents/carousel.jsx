@@ -9,19 +9,14 @@ import "react-bootstrap-carousel/dist/react-bootstrap-carousel.css";
 
 
 
-function ControlledCarousel() {
-    const [index, setIndex] = useState(0);
-
-    const handleSelect = (selectedIndex, e) => {
-        setIndex(selectedIndex);
-    };
+function Jesse() {
 
     return (
-        <Carousel activeIndex={index} onSelect={handleSelect}>
+        <Carousel>
             <Carousel.Item>
                 <img
                     className="d-block w-100"
-                    src="holder.js/800x400?text=First slide&bg=373940"
+                    src=""
                     alt="First slide"
                 />
                 <Carousel.Caption>
@@ -32,8 +27,8 @@ function ControlledCarousel() {
             <Carousel.Item>
                 <img
                     className="d-block w-100"
-                    src="holder.js/800x400?text=Second slide&bg=282c34"
-                    alt="Second slide"
+                    src=""
+                    alt="Third slide"
                 />
 
                 <Carousel.Caption>
@@ -44,23 +39,18 @@ function ControlledCarousel() {
             <Carousel.Item>
                 <img
                     className="d-block w-100"
-                    src="holder.js/800x400?text=Third slide&bg=20232a"
+                    src=""
                     alt="Third slide"
                 />
 
                 <Carousel.Caption>
                     <h3>Third slide label</h3>
-                    <p>
-                        Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-            </p>
+                    <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
                 </Carousel.Caption>
             </Carousel.Item>
         </Carousel>
-    );
+
+    )
+
 }
-
-render(<ControlledCarousel />);
-
-
-
-export default ControlledCarousel;
+export default Jesse;
