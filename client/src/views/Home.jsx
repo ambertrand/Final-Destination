@@ -15,6 +15,7 @@ function Home(props) {
             console.log(user);
             axios.post("/api/users/onAuthenticated", user)
                 .then(function (response) {
+                    console.log(response);
                     props.getUserId(response.data[0].id);
                 });
 

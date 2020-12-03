@@ -60,8 +60,8 @@ function UserForm() {
                                 Group role:&nbsp;
                                 <select id="isShopper" onChange={(event) => setGroupRole(event.target.value)}>
                                     <option>Select group role</option>
-                                    <option>Shopper</option>
-                                    <option>Group Member</option>
+                                    <option value={true}>Shopper</option>
+                                    <option value={false}>Group Member</option>
                                 </select>
                             </label>
                             <Row className="justify-content-center">
