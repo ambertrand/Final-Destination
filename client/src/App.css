@@ -46,3 +46,7 @@ Button.choice {
   position: relative;
   padding-bottom: 40px;
 }
+
+.carouselPad {
+  padding-top: 100px;
+}
