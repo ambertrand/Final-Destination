@@ -10,7 +10,7 @@ import jfarms from '../../assets/jfarms.png';
 import warren from '../../assets/warren.png';
 import Dwayne from '../../assets/Dwayne.png';
 import { First } from "react-bootstrap/esm/PageItem";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 
 function AboutUs() {
@@ -50,11 +50,11 @@ function AboutUs() {
                             <Card.Body>
                                 <Card.Title>Matthew Bongiorno</Card.Title>
 
-                                <a href="https://www.google.com/">
+                                {/* <a href="https://www.google.com/">
 
                                     <FontAwesomeIcon icon={['fab', 'FaLinkedin']} />
 
-                                </a>
+                                </a> */}
                                 <Card.Text>
                                     Some quick example text to build on the card title and make up the bulk of
                                     the card's content.
