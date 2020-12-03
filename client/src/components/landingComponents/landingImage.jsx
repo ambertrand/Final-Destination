@@ -8,7 +8,7 @@ const LandingImage = () => {
     return (
         <Container>
             <Row className="justify-content-center">
-                <Image className="justify-content-center" src={landingimage} alt="Logo" width="160" height="160" />
+                <Image className="justify-content-center landingImage" src={landingimage} alt="Logo" width="160" height="160" />
             </Row>
         </Container>
     )
