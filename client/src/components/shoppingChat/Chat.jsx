@@ -51,7 +51,7 @@ function Chat() {
             <div id="list-chat">
                 <div id="chat-window">
                     <div id="output" >
-                        {chat.map((m, i) => <p key={i}>{m}</p>)}
+                        {chat.map((m, i) => <p key={i}>{m}<input class ="checkbox" type="checkbox"></input></p>)}
                     </div>
                     <div id="feedback" >{typing}</div>
                 </div>
