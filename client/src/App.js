@@ -11,6 +11,8 @@ import UserProfileProvider from './components/providers/userProfileProvider/Prov
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
+//background image
+import GroceryStore from './assets/GroceryStore.jpg';
 // import { library } from '@fortawesome/fontawesome-svg-core'
 // import { fab } from '@fortawesome/free-brands-svg-icons'
 // import { faCheckSquare, faCoffee } from '@fortawesome/free-solid-svg-icons'
@@ -26,7 +28,7 @@ function App() {
   }
 
   return (
-    <div className="App container-fluid outerContainer">
+    <div className="App container-fluid outerContainer" styles={{backgroundImage: `url(${GroceryStore})`}}>
       <userContext.Provider value={userId}>
         <UserProfileProvider>
           < Router >
