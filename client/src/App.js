@@ -10,6 +10,9 @@ import userContext from './components/form/userContext';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
+
+import BackgroundImage from './assets/GroceryStore.jpg';
+
 // import { library } from '@fortawesome/fontawesome-svg-core'
 // import { fab } from '@fortawesome/free-brands-svg-icons'
 // import { faCheckSquare, faCoffee } from '@fortawesome/free-solid-svg-icons'
@@ -24,8 +27,17 @@ function App() {
     setUserId(id);
   }
 
+  const backgroundStyle = {
+    backgroundImage: `url(${BackgroundImage})`,
+    height: "100vh",
+    backgroundRepeat: "no-repeat",
+    backgroundPosition: "center",
+    backgroundAttachment: "fixed",
+    backgroundSize: "cover"
+  }
+
   return (
-    <div className="App container-fluid outerContainer">
+    <div className="App container-fluid outerContainer" style={ backgroundStyle }>
       <userContext.Provider value={userId}>
         < Router >
 
