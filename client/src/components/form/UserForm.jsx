@@ -11,6 +11,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
 import { useState } from "react";
+import { useEffect } from "react";
 
 function UserForm() {
     const { user } = useAuth0();
@@ -25,6 +26,10 @@ function UserForm() {
     const [groupName, setGroupName] = useState(userProfile.group_name);
     const [groupRole, setGroupRole] = useState(userProfile.shopper);
     const userId = useContext(userContext);
+
+    // useEffect(() => {
+    //     userPhoto 
+    // });
 
     // getUserInfo(userId);
 
