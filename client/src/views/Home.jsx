@@ -8,27 +8,27 @@ import { useAuth0 } from '@auth0/auth0-react';
 import axios from 'axios';
 
 function Home(props) {
-    const {setUserProfile} = useContext(context);
-    const { user, isAuthenticated } = useAuth0();
+    // const {setUserProfile} = useContext(context);
+    // const { user, isAuthenticated } = useAuth0();
 
-    useEffect(() => {
-        if (isAuthenticated) {
+    // useEffect(() => {
+    //     if (isAuthenticated) {
 
-            console.log(user);
-            axios.post("/api/users/onAuthenticated", user)
-                .then(function (response) {
-                    // console.log(response);
-                    // setUserProfile(response);
-                    props.getUserId(response.data[0].id);
-                    return getUserInfo(response.data[0].id);
-                }).then(function(response){
-                    console.log(response);
-                    console.log("new response above");
-                    setUserProfile(response.data)
-                })
+    //         console.log(user);
+    //         axios.post("/api/users/onAuthenticated", user)
+    //             .then(function (response) {
+    //                 // console.log(response);
+    //                 // setUserProfile(response);
+    //                 props.getUserId(response.data[0].id);
+    //                 return getUserInfo(response.data[0].id);
+    //             }).then(function(response){
+    //                 console.log(response);
+    //                 console.log("new response above");
+    //                 setUserProfile(response.data)
+    //             })
 
-        }
-    }, [isAuthenticated, user]);
+    //     }
+    // }, [isAuthenticated, user]);
 
     return (
         <>
