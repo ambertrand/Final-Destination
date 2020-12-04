@@ -1,7 +1,9 @@
 import React, { useContext } from "react";
 import { useAuth0 } from '@auth0/auth0-react';
 import userInfo from './userInfo';
+// import getUserInfo from './getUserInfo';
 import userContext from './userContext';
+import context from '../providers/userProfileProvider/context';
 
 // React Bootstrap
 import Button from 'react-bootstrap/Button';
@@ -12,11 +14,15 @@ import { useState } from "react";
 
 function UserForm() {
     const { user } = useAuth0();
+    const {userProfile, setUserProfile} = useContext(context);
+    console.log(userProfile);
     const [userName, setUserName] = useState(user.nickname);
     const [email, setEmail] = useState(user.email);
     const [groupName, setGroupName] = useState("");
     const [groupRole, setGroupRole] = useState("");
     const userId = useContext(userContext);
+
+    // getUserInfo();
 
     return (
         <div>
@@ -39,6 +45,7 @@ function UserForm() {
                         <form>
                             <label>
                                 Username:
+                                {console.log(userProfile.nickname)}
                                 <input type="text" defaultValue={user.nickname} name="userName" onChange={(event) => setUserName(event.target.value)} />
                             </label>
                             <label>
@@ -49,7 +56,7 @@ function UserForm() {
                                 Group name:&nbsp;
                                 {/* <input type="text" placeholder={user.email} id="email" /> */}
                                 <select id="groupName" onChange={(event) => setGroupName(event.target.value)}>
-                                    <option value="-1">Select group name</option>
+                                    <option value="0">Select group name</option>
                                     <option value="1">team1</option>
                                     <option value="2">team2</option>
                                     <option value="3">team3</option>
@@ -59,8 +66,8 @@ function UserForm() {
                             <label>
                                 Group role:&nbsp;
                                 <select id="isShopper" onChange={(event) => setGroupRole(event.target.value)}>
-                                    <option>Select group role</option>
-                                    <option value={true}>Shopper</option>
+                                    {/* <option>Select group role</option> */}
+                                    <option defaultValue="Select group role" value={true}>Shopper</option>
                                     <option value={false}>Group Member</option>
                                 </select>
                             </label>

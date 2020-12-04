@@ -44,7 +44,7 @@ router.post("/onAuthenticated", function (req, res) {
 
 // find all
 router.get("/", function (req, res) {
-  db.users.findAll({})
+  db.user.findAll({})
     .then(function (dbUser) {
       res.json(dbUser);
     });
@@ -52,7 +52,7 @@ router.get("/", function (req, res) {
 
 // Get by id
 router.get("/profile/:id", function (req, res) {
-  db.users.findOne({
+  db.user.findOne({
     where: {
       id: req.params.id
     }
@@ -62,9 +62,17 @@ router.get("/profile/:id", function (req, res) {
     });
 });
 
+ // {
+    //   email: req.body.email,
+    //   // auth0_id: req.body.auth0_id,
+    //   last_name: req.body.last_name,
+    //   first_name: req.body.first_name,
+    //   shopper: req.body.shopper,
+    //   group_name: req.body.group_name
+    // }
+
 // Update profile information /api/users/profile/:id (full api call actually being called below)
 router.put("/profile/:id", function (req, res) {
-  console.log(req.body);
   db.user.update({
     username: req.body.userName,
     group_name: req.body.groupName,
