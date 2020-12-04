@@ -10,6 +10,11 @@ import userContext from './components/form/userContext';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
+// import { library } from '@fortawesome/fontawesome-svg-core'
+// import { fab } from '@fortawesome/free-brands-svg-icons'
+// import { faCheckSquare, faCoffee } from '@fortawesome/free-solid-svg-icons'
+
+// library.add(fab, faCheckSquare, faCoffee)
 
 
 function App() {
@@ -29,7 +34,7 @@ function App() {
           <Switch>
             <Route exact path="/" component={LandingPage} />
             <Route exact path="/home" render={(props) => (
-              <Home getUserId={getUserId}/>
+              <Home getUserId={getUserId} />
             )} />
             <Route exact path="/userinfo" component={UserInfo} />
             <Route exact path="/shopping" component={Shopping} />
@@ -37,11 +42,6 @@ function App() {
           </Switch>
 
           <Footer />
-
-
-          {/* {chatMessage} */}
-          {/* <Button onClick={() => { socket.emit("chat", "socket works!") }}>emit</Button> */}
-
 
         </Router >
       </userContext.Provider>

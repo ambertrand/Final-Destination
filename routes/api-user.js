@@ -6,7 +6,6 @@ const db = require("../models");
 router.post("/", function (req, res) {
   db.user.create({
     email: req.body.email,
-    // auth0_id: req.body.auth0_id,
     last_name: req.body.last_name,
     first_name: req.body.first_name,
     shopper: req.body.shopper,
@@ -65,7 +64,12 @@ router.get("/profile/:id", function (req, res) {
 
 // Update profile information /api/users/profile/:id (full api call actually being called below)
 router.put("/profile/:id", function (req, res) {
-  db.user.update({username: req.body.userName}, {
+  console.log(req.body);
+  db.user.update({
+    username: req.body.userName,
+    group_name: req.body.groupName,
+    shopper: req.body.groupRole
+  }, {
     where: {
       id: req.params.id
     }

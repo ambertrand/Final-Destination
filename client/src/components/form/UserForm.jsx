@@ -1,4 +1,4 @@
-import React, {useContext} from "react";
+import React, { useContext } from "react";
 import { useAuth0 } from '@auth0/auth0-react';
 import userInfo from './userInfo';
 import userContext from './userContext';
@@ -9,7 +9,6 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
 import { useState } from "react";
-// import Form from 'react-bootstrap/Form';
 
 function UserForm() {
     const { user } = useAuth0();
@@ -32,7 +31,7 @@ function UserForm() {
                         </Card.Body>
                     </Card>
                 </Col>
-                
+
                 {/* User form */}
                 <Col xs="12" md="8" >
                     <Card className="bg-light m-3">
@@ -40,11 +39,11 @@ function UserForm() {
                         <form>
                             <label>
                                 Username:
-                                <input type="text" placeholder={user.nickname} name="userName" onChange={(event) => setUserName(event.target.value)}/>
+                                <input type="text" defaultValue={user.nickname} name="userName" onChange={(event) => setUserName(event.target.value)} />
                             </label>
                             <label>
                                 Email:
-                                <input type="text" defaultValue={user.email} id="email" onChange={(event) => setEmail(event.target.value)}/>
+                                <input type="text" defaultValue={user.email} id="email" onChange={(event) => setEmail(event.target.value)} />
                             </label>
                             <label>
                                 Group name:&nbsp;
@@ -60,13 +59,14 @@ function UserForm() {
                             <label>
                                 Group role:&nbsp;
                                 <select id="isShopper" onChange={(event) => setGroupRole(event.target.value)}>
-                                    <option>Shopper</option>
-                                    <option>Group Member</option>
+                                    <option>Select group role</option>
+                                    <option value={true}>Shopper</option>
+                                    <option value={false}>Group Member</option>
                                 </select>
                             </label>
                             <Row className="justify-content-center">
                                 <Col sm="auto">
-                                    <Button type="submit" className="mb-2" id="updateUserInfo" onClick={event => userInfo(event, userId, 
+                                    <Button type="submit" className="mb-2" id="updateUserInfo" onClick={event => userInfo(event, userId,
                                         {
                                             userName,
                                             email,
@@ -80,7 +80,7 @@ function UserForm() {
                             </Row>
                         </form>
 
-                      
+
 
                     </Card>
 
