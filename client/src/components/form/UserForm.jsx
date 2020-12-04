@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { useAuth0 } from '@auth0/auth0-react';
 import userInfo from './userInfo';
-// import getUserInfo from './getUserInfo';
+import getUserInfo from './getUserInfo';
 import userContext from './userContext';
 import context from '../providers/userProfileProvider/context';
 
@@ -16,13 +16,17 @@ function UserForm() {
     const { user } = useAuth0();
     const {userProfile, setUserProfile} = useContext(context);
     console.log(userProfile);
-    const [userName, setUserName] = useState(user.nickname);
-    const [email, setEmail] = useState(user.email);
-    const [groupName, setGroupName] = useState("");
-    const [groupRole, setGroupRole] = useState("");
+    const [userName, setUserName] = useState(userProfile.username);
+
+    const [userPhoto, setUserPhoto] = useState("");
+    const [userFirstName, setUserFirstName] = useState("");
+
+    const [email, setEmail] = useState(userProfile.email);
+    const [groupName, setGroupName] = useState(userProfile.group_name);
+    const [groupRole, setGroupRole] = useState(userProfile.shopper);
     const userId = useContext(userContext);
 
-    // getUserInfo();
+    // getUserInfo(userId);
 
     return (
         <div>
@@ -31,10 +35,10 @@ function UserForm() {
                 {/* User image */}
                 <Col xs="12" md="4">
                     <Card className="m-3 profileImage">
-                        <Card.Img variant="top" src={user.picture} alt={user.name} className="img-responsive" width="60px" max-height="100px" />
-                        <Card.Body >
-                            <h4>{user.name}</h4>
-                        </Card.Body>
+                        <Card.Img variant="top" src={userProfile.picture} alt={userProfile.first_name} className="img-responsive" width="60px" max-height="100px"/>
+                        {/* <Card.Body >
+                            <h4>{`${userProfile.first_name} ${userProfile.last_name}`}</h4>
+                        </Card.Body> */}
                     </Card>
                 </Col>
 
@@ -45,18 +49,19 @@ function UserForm() {
                         <form>
                             <label>
                                 Username:
-                                {console.log(userProfile.nickname)}
-                                <input type="text" defaultValue={user.nickname} name="userName" onChange={(event) => setUserName(event.target.value)} />
+                                {console.log(userProfile.username)}
+                                <input type="text" defaultValue={userProfile.username} name="userName" onChange={(event) => setUserName(event.target.value)} />
                             </label>
                             <label>
                                 Email:
-                                <input type="text" defaultValue={user.email} id="email" onChange={(event) => setEmail(event.target.value)} />
+                                <h6>{userProfile.email}</h6> 
+                                {/* type="text" defaultValue= id="email" onChange={(event) => setEmail(event.target.value)} /> */}
                             </label>
                             <label>
                                 Group name:&nbsp;
                                 {/* <input type="text" placeholder={user.email} id="email" /> */}
                                 <select id="groupName" onChange={(event) => setGroupName(event.target.value)}>
-                                    <option value="0">Select group name</option>
+                                    <option value="0">{userProfile.group_name}</option>
                                     <option value="1">team1</option>
                                     <option value="2">team2</option>
                                     <option value="3">team3</option>
@@ -66,8 +71,8 @@ function UserForm() {
                             <label>
                                 Group role:&nbsp;
                                 <select id="isShopper" onChange={(event) => setGroupRole(event.target.value)}>
-                                    {/* <option>Select group role</option> */}
-                                    <option defaultValue="Select group role" value={true}>Shopper</option>
+                                    <option>{userProfile.shopper}</option>
+                                    <option value={true}>Shopper</option>
                                     <option value={false}>Group Member</option>
                                 </select>
                             </label>
