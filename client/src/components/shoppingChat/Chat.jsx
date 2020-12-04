@@ -8,7 +8,7 @@ function Chat() {
     const { user } = useAuth0();
     //const rooms = ['1', '2'];
     //const { rooms }  = useAuth0();
-    const rooms = ["Default", user.group_name];
+    const rooms = ["Default", "Test", user.group_name];
     const [myList, setList] = useState([]);
     const messageRef = useRef(null);
     //const [userName, setUserName] = useState(user.nickname);
@@ -49,14 +49,22 @@ function Chat() {
     }, [room]);
     return (
         <div>
-            <h1>Group: {room}</h1>
+            <h1
+                //won't send message
+                // onChange={() => setMessage(user.name + " Joined Group" + room)}
+                // onChange={() => sendMessage(room, user.name + " Joined Group" + room)}
+                onChange={console.log("room changed")}
+            >Group: {room}</h1>
             { rooms.map((r, i) =>
-                <button onClick={() => setRoom(r)} key={i}>{r}</button>)}
+                <button
+                    //onChange={() => sendMessage(room, user.name + " Joined Group" + room)} 
+                    onClick={() => setRoom(r)} key={i}>{r}
+                </button>)}
             <h1>{storeMessage}</h1>
             <div id="list-chat">
                 <div id="chat-window">
                     <div id="output" >
-                        {chat.map((m, i) => <p key={i}>{m}<input class ="checkbox" type="checkbox"></input></p>)}
+                        {chat.map((m, i) => <p key={i}>{m}<input class="checkbox" type="checkbox"></input></p>)}
                     </div>
                     <div id="feedback" >{typing}</div>
                 </div>
@@ -66,7 +74,7 @@ function Chat() {
                         placeholder="message"
                         //value={message}
                         onChange={() => setMessage(messageRef.current.value)} ref={messageRef}
-                        //onKeyDown={() => sendMessage(room, user.name + ": " + messageRef.current.value)}
+                    //onKeyDown={() => sendMessage(room, user.name + ": " + messageRef.current.value)}
                     //onChange={() => handleTyping()}
                     />
                     <button id="send"
