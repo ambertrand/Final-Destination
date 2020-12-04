@@ -6,13 +6,17 @@ import { useAuth0 } from '@auth0/auth0-react';
 
 function Chat() {
     const { user } = useAuth0();
-    const rooms = ['1', '2'];
+    //const rooms = ['1', '2'];
+    //const { rooms }  = useAuth0();
+    const rooms = ["Default", user.group_name];
     const [myList, setList] = useState([]);
     const messageRef = useRef(null);
     //const [userName, setUserName] = useState(user.nickname);
     const store = "Store"
     const storeMessage = user.name + " is going to " + store;
     const [room, setRoom] = useState(rooms[0]);
+    //const [room, setRoom] = useState(rooms);
+    //const [room, setRoom] = useState(user.group_name);
     const [typing, setTyping] = useState("")
     const [message, setMessage] = useState("");
     const [chat, setChat] = useState([]);
