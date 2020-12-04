@@ -52,7 +52,7 @@ const Navigation = () => {
   return (
     <div>
       <Navbar bg="dark" variant="dark">
-            <Navbar.Brand href="/">
+            <Navbar.Brand href="/home">
                   <img
                     alt="ShoppingCart"
                     src={shoppingCart}

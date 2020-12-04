@@ -12,6 +12,7 @@ import { useState } from "react";
 
 function UserForm() {
     const { user } = useAuth0();
+    console.log(user);
     const [userName, setUserName] = useState(user.nickname);
     const [email, setEmail] = useState(user.email);
     const [groupName, setGroupName] = useState("");
