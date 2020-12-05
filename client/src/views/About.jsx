@@ -6,17 +6,15 @@ import React from "react";
 import AboutUs from "../components/aboutComponents/aboutUs";
 // import Carousel from "../components/aboutComponents/carousel";
 
-
 function About() {
     return (
 
         <>
             <AboutUs />
 
-
         </>
-
-    )
+  
+  )
 }
 
 export default About;

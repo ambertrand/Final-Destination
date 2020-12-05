@@ -9,8 +9,7 @@ import matthew from '../../assets/Matthew.png';
 import jfarms from '../../assets/jfarms.png';
 import warren from '../../assets/warren.png';
 import Dwayne from '../../assets/Dwayne.png';
-import { First } from "react-bootstrap/esm/PageItem";
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 
 function AboutUs() {
@@ -18,7 +17,6 @@ function AboutUs() {
         <div className="carouselPad">
 
             <Row className="justify-content-center mb-4">
-
                 <Carousel>
                     <Carousel.Item>
                         <Card style={{ width: '18rem' }}>
@@ -29,6 +27,12 @@ function AboutUs() {
                                     Some quick example text to build on the card title and make up the bulk of
                                     the card's content.
                             </Card.Text>
+                                <Card.Link href="https://github.com/ambertrand" >
+                                    <FontAwesomeIcon icon={["fab", "github"]} size='3x' color='black' />&nbsp;&nbsp;&nbsp;
+                                 </Card.Link>
+                                <Card.Link href="https://www.linkedin.com/in/alex-bertrand/" >
+                                    <FontAwesomeIcon icon={["fab", "linkedin"]} size='3x' />
+                                </Card.Link>
                             </Card.Body>
                         </Card>
                     </Carousel.Item>
@@ -41,6 +45,12 @@ function AboutUs() {
                                     Some quick example text to build on the card title and make up the bulk of
                                     the card's content.
                             </Card.Text>
+                                <Card.Link href="https://github.com/nkleinmann" >
+                                    <FontAwesomeIcon icon={["fab", "github"]} size='3x' color='black' />&nbsp;&nbsp;&nbsp;
+                                 </Card.Link>
+                                <Card.Link href="https://www.linkedin.com/in/nicolekleinmann/" >
+                                    <FontAwesomeIcon icon={["fab", "linkedin"]} size='3x' />
+                                </Card.Link>
                             </Card.Body>
                         </Card>
                     </Carousel.Item>
@@ -49,16 +59,15 @@ function AboutUs() {
                             <Card.Img style={{ width: 500, height: 'auto' }} variant="top" src={matthew} />
                             <Card.Body>
                                 <Card.Title>Matthew Bongiorno</Card.Title>
-
-                                {/* <a href="https://www.google.com/">
-
-                                    <FontAwesomeIcon icon={['fab', 'FaLinkedin']} />
-
-                                </a> */}
                                 <Card.Text>
-                                    Some quick example text to build on the card title and make up the bulk of
-                                    the card's content.
-                            </Card.Text>
+                                    Fun Fact: Knows how to use font awesome with React!
+                                </Card.Text>
+                                <Card.Link href="https://google.com" >
+                                    <FontAwesomeIcon icon={["fab", "github"]} size='3x' color='black' />&nbsp;&nbsp;&nbsp;
+                                 </Card.Link>
+                                <Card.Link href="https://www.linkedin.com/in/mattbongiorno/" >
+                                    <FontAwesomeIcon icon={["fab", "linkedin"]} size='3x' />
+                                </Card.Link>
                             </Card.Body>
                         </Card>
                     </Carousel.Item>
@@ -72,6 +81,12 @@ function AboutUs() {
                                     Some quick example text to build on the card title and make up the bulk of
                                     the card's content.
                             </Card.Text>
+                                <Card.Link href="https://github.com/farmerj95" >
+                                    <FontAwesomeIcon icon={["fab", "github"]} size='3x' color='black' />&nbsp;&nbsp;&nbsp;
+                                 </Card.Link>
+                                <Card.Link href="https://www.linkedin.com/in/jesse-farmer-39a392166/" >
+                                    <FontAwesomeIcon icon={["fab", "linkedin"]} size='3x' />
+                                </Card.Link>
                             </Card.Body>
                         </Card>
                     </Carousel.Item>
@@ -84,6 +99,12 @@ function AboutUs() {
                                     Some quick example text to build on the card title and make up the bulk of
                                     the card's content.
                             </Card.Text>
+                                <Card.Link href="https://google.com" >
+                                    <FontAwesomeIcon icon={["fab", "github"]} size='3x' color='black' />&nbsp;&nbsp;&nbsp;
+                                 </Card.Link>
+                                <Card.Link href="https://www.linkedin.com/in/mattbongiorno/" >
+                                    <FontAwesomeIcon icon={["fab", "linkedin"]} size='3x' />
+                                </Card.Link>
                             </Card.Body>
                         </Card>
                     </Carousel.Item>
@@ -96,6 +117,12 @@ function AboutUs() {
                                     Some quick example text to build on the card title and make up the bulk of
                                     the card's content.
                             </Card.Text>
+                                <Card.Link href="https://google.com" >
+                                    <FontAwesomeIcon icon={["fab", "github"]} size='3x' color='black' />&nbsp;&nbsp;&nbsp;
+                                 </Card.Link>
+                                <Card.Link href="https://www.linkedin.com/in/matt-hunt-208076121/" >
+                                    <FontAwesomeIcon icon={["fab", "linkedin"]} size='3x' />
+                                </Card.Link>
                             </Card.Body>
                         </Card>
                     </Carousel.Item>

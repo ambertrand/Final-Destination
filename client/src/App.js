@@ -17,14 +17,14 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
 
-// import { library } from '@fortawesome/fontawesome-svg-core'
-// import { fab } from '@fortawesome/free-brands-svg-icons'
-// import { faCheckSquare, faCoffee } from '@fortawesome/free-solid-svg-icons'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { fab } from '@fortawesome/free-brands-svg-icons'
+import context from './components/providers/userProfileProvider/context';
+import { useAuth0 } from '@auth0/auth0-react';
+import axios from 'axios';
 
-// library.add(fab, faCheckSquare, faCoffee)
-// import context from './components/providers/userProfileProvider/context';
 
-
+library.add(fab)
 
 function App() {
   const [userId, setUserId] = useState("");
@@ -35,7 +35,7 @@ function App() {
     username: "",
     picture: "",
     shopper: 1
-  }); 
+  });
 
   const getUserId = (id) => {
     setUserId(id);
@@ -74,7 +74,7 @@ function App() {
   }, [isAuthenticated, user]);
 
   return (
-    <div className="App container-fluid outerContainer" style={ backgroundStyle }>
+    <div className="App container-fluid outerContainer" style={backgroundStyle}>
       <userContext.Provider value={userId}>
         <UserProfileProvider user={userProfile}>
           < Router >

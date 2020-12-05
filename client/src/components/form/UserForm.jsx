@@ -17,8 +17,8 @@ function UserForm() {
     console.log(userProfile);
     const [userName, setUserName] = useState(userProfile.username);
 
-    const [userPhoto, setUserPhoto] = useState("");
-    const [userFirstName, setUserFirstName] = useState("");
+    // const [userPhoto, setUserPhoto] = useState("");
+    // const [userFirstName, setUserFirstName] = useState("");
 
     const [email, setEmail] = useState(userProfile.email);
     const [groupName, setGroupName] = useState(userProfile.group_name);
