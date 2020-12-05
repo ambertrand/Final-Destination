@@ -29,6 +29,7 @@ function HomeButtons(event) {
 
     const newGroup = () => {
         console.log(groupName);
+        setShowCreateModal(false)
     }
 
 

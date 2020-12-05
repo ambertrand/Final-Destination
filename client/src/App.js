@@ -20,8 +20,6 @@ import './App.css';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
 import context from './components/providers/userProfileProvider/context';
-import { useAuth0 } from '@auth0/auth0-react';
-import axios from 'axios';
 
 
 library.add(fab)
