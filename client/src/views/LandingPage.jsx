@@ -1,7 +1,7 @@
 import React from "react";
 import JumboSection from "../components/jumbotron/Jumbotron.jsx";
 import Mission from "../components/landingComponents/missionstatement";
-import { useAuth0 } from '@auth0/auth0-react';
+// import { useAuth0 } from '@auth0/auth0-react';
 
 function LandingPage({ history }) {
 

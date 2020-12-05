@@ -13,7 +13,7 @@ import getUserInfo from './components/form/getUserInfo';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { useAuth0 } from '@auth0/auth0-react';
 import BackgroundImage from './assets/GroceryStore.jpg';
-import {useHistory} from "react-router-dom";
+import { useHistory } from "react-router-dom"
 // import ProtectedRoute from "./auth/protected-route";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
@@ -25,7 +25,6 @@ import { fab } from '@fortawesome/free-brands-svg-icons'
 
 
 library.add(fab)
-
 
 // const { isAuthenticated } = useAuth0();
 //    React.useEffect(() => {
@@ -39,6 +38,7 @@ library.add(fab)
 //    }, [isAuthenticated, history]);
 
 function App() {
+  const history = useHistory()
   const [userId, setUserId] = useState("");
   const [userProfile, setUserProfile] = useState({
     email: "",
@@ -68,7 +68,6 @@ function App() {
 
   useEffect(() => {
     if (isAuthenticated) {
-
       // console.log(user);
       axios.post("/api/users/onAuthenticated", user)
         .then(function (response) {
