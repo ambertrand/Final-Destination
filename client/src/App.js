@@ -12,8 +12,9 @@ import getUserInfo from './components/form/getUserInfo';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-//background image
-import GroceryStore from './assets/GroceryStore.jpg';
+
+import BackgroundImage from './assets/GroceryStore.jpg';
+
 // import { library } from '@fortawesome/fontawesome-svg-core'
 // import { fab } from '@fortawesome/free-brands-svg-icons'
 // import { faCheckSquare, faCoffee } from '@fortawesome/free-solid-svg-icons'
@@ -37,6 +38,15 @@ function App() {
 
   const getUserId = (id) => {
     setUserId(id);
+  }
+
+  const backgroundStyle = {
+    backgroundImage: `url(${BackgroundImage})`,
+    height: "100vh",
+    backgroundRepeat: "no-repeat",
+    backgroundPosition: "center",
+    backgroundAttachment: "fixed",
+    backgroundSize: "cover"
   }
 
   // const { setUserProfile } = useContext(context);
@@ -63,7 +73,7 @@ function App() {
   }, [isAuthenticated, user]);
 
   return (
-    <div className="App container-fluid outerContainer" styles={{ backgroundImage: `url(${GroceryStore})` }}>
+    <div className="App container-fluid outerContainer" style={ backgroundStyle }>
       <userContext.Provider value={userId}>
         <UserProfileProvider user={userProfile}>
           < Router >

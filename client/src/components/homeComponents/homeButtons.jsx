@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Image from "react-bootstrap/Image";
@@ -10,19 +11,27 @@ import viewgroups from '../../assets/viewgroups.png';
 import editinfo from '../../assets/editinfo.png';
 import stores from '../../assets/stores.png';
 
-// Button Logic
-import newGroupButton from './newGroup';
-import viewGroupButton from './viewGroup';
-import updateButton from './updateUser';
-import viewStores from './viewStores';
-
 
 function HomeButtons() {
+
+    const [showCreateModal, setShowCreateModal] = useState(false);
+    const [showViewModal, setShowViewModal] = useState(false);
+    const [showViewStoreModal, setShowViewStoreModal] = useState(false);
+
+
+    const handleClose = () => setShowCreateModal(false);
+    const handleShow = () => setShowCreateModal(true);
+    const handleViewClose = () => setShowViewModal(false);
+    const handleViewStoreClose = () => setShowViewStoreModal(false);
+
+
 
     return (
         <Container>
             <Row className="teams">
                 <Col sm={12} md={3}>
+                    
+                    {/* Create Group */}
                     <Row>
                         <Col className="text-center">
                             <Image className="iconImg" src={addgroup} />
@@ -30,11 +39,36 @@ function HomeButtons() {
                     </Row>
                     <Row>
                         <Col>
-                            <Button type="submit" className="choice m-2" id="createTeam" onClick={newGroupButton} >Create Group</Button>
+                            <Button type="submit" className="choice m-2" id="createTeam" onClick={() => setShowCreateModal(true)} >Create Group</Button>
                         </Col>
+
+                        <Modal show={showCreateModal} onHide={handleClose}>
+                            <Modal.Header>
+                                <Modal.Title>Create Group</Modal.Title>
+                            </Modal.Header>
+
+                            <Modal.Body>
+                                <form>
+                                    <input placeholder="Group Name"></input>
+                                </form>
+                            </Modal.Body>
+
+                            <Modal.Footer>
+                                <Row>
+                                    <Col xs={6}>
+                                        <Button variant="secondary" onClick={handleClose}>Close</Button>
+                                    </Col>
+                                    <Col xs={6}>
+                                        <Button variant="primary" onClick={handleShow}>Save</Button>
+                                    </Col>
+                                </Row>
+                            </Modal.Footer>
+                        </Modal>
+
                     </Row>
                 </Col>
 
+                {/* View Group  */}
                 <Col sm={12} md={3}>
                     <Row>
                         <Col className="text-center">
@@ -43,11 +77,26 @@ function HomeButtons() {
                     </Row>
                     <Row>
                         <Col>
-                            <Button type="submit" className="choice m-2" id="viewTeams" onClick={viewGroupButton}>View Groups</Button>
+                            <Button type="submit" className="choice m-2" id="viewTeams" onClick={() => setShowViewModal(true)}>View Groups</Button>
                         </Col>
+
+                        <Modal show={showViewModal} onHide={handleViewClose}>
+                            <Modal.Header>
+                                <Modal.Title>Your Groups</Modal.Title>
+                            </Modal.Header>
+
+                            <Modal.Body>
+                                <p>Populated Groups</p>
+                            </Modal.Body>
+
+                            <Modal.Footer>
+                                <Button variant="secondary" onClick={handleViewClose}>Close</Button>
+                            </Modal.Footer>
+                        </Modal>
                     </Row>
                 </Col>
 
+                {/* Go Shopping */}
                 <Col sm={12} md={3}>
                     <Row>
                         <Col className="text-center">
@@ -56,11 +105,12 @@ function HomeButtons() {
                     </Row>
                     <Row>
                         <Col>
-                            <Button type="submit" className="choice m-2" id="updateUserProfile" onClick={updateButton}>Update User Profile</Button>
+                            <Button type="submit" className="choice m-2" id="updateUserProfile">Shopping</Button>
                         </Col>
                     </Row>
                 </Col>
 
+                {/* View Group Stores */}
                 <Col sm={12} md={3}>
                     <Row>
                         <Col className="text-center">
@@ -69,8 +119,22 @@ function HomeButtons() {
                     </Row>
                     <Row>
                         <Col>
-                            <Button type="submit" className="choice m-2" id="viewGroupStores" onClick={viewStores}>View Group Stores</Button>
+                            <Button type="submit" className="choice m-2" id="viewGroupStores" onClick={() => setShowViewStoreModal(true)}>View Group Stores</Button>
                         </Col>
+
+                        <Modal show={showViewStoreModal} onHide={handleViewStoreClose}>
+                            <Modal.Header>
+                                <Modal.Title>Your Groups Stores</Modal.Title>
+                            </Modal.Header>
+
+                            <Modal.Body>
+                                <p>Populated Stores</p>
+                            </Modal.Body>
+
+                            <Modal.Footer>
+                                <Button variant="secondary" onClick={handleViewStoreClose}>Close</Button>
+                            </Modal.Footer>
+                        </Modal>
                     </Row>
                 </Col>
             </Row>
