@@ -51,3 +51,27 @@ Button.choice {
 .landingImage {
   padding-bottom: 40px;
 }
+
+.carouselPad {
+  padding-top: 40px;
+}
+
+.greyBox {
+  background-color:rgb(230, 227, 227);
+  opacity: 85%;
+  border-width: 0;
+  border-radius: 5px;
+}
+
+.userInfoPad {
+  padding-top: 150px;
+}
+
+@media screen and (max-width: 375px) {
+  .carouselPad {
+    padding-top: 0px;
+  }
+  .userInfoPad {
+    padding-top: 0px;
+  }
+}

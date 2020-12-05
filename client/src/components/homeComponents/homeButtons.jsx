@@ -33,10 +33,10 @@ function HomeButtons(event) {
 
 
     return (
-        <Container>
+        <Container className="greyBox">
             <Row className="teams">
                 <Col sm={12} md={3}>
-                    
+
                     {/* Create Group */}
                     <Row>
                         <Col className="text-center">
