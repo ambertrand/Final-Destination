@@ -17,7 +17,7 @@ router.post("/", function (req, res) {
 
 // find all teams
 router.get("/", function (req, res) {
-  db.Team.findAll({})
+  db.group.findAll({})
     .then(function (dbGroup) {
       res.json(dbGroup);
     });
