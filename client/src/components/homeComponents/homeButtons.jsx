@@ -11,12 +11,15 @@ import viewgroups from '../../assets/viewgroups.png';
 import editinfo from '../../assets/editinfo.png';
 import stores from '../../assets/stores.png';
 
+import newGroup from './createGroup';
 
-function HomeButtons() {
+
+function HomeButtons(event) {
 
     const [showCreateModal, setShowCreateModal] = useState(false);
     const [showViewModal, setShowViewModal] = useState(false);
     const [showViewStoreModal, setShowViewStoreModal] = useState(false);
+    const [groupName, setGroupName] = useState("");
 
 
     const handleClose = () => setShowCreateModal(false);
@@ -49,7 +52,7 @@ function HomeButtons() {
 
                             <Modal.Body>
                                 <form>
-                                    <input placeholder="Group Name"></input>
+                                    <input placeholder="Group Name" onChange={event => setGroupName(event.target.value)}></input>
                                 </form>
                             </Modal.Body>
 
@@ -59,7 +62,7 @@ function HomeButtons() {
                                         <Button variant="secondary" onClick={handleClose}>Close</Button>
                                     </Col>
                                     <Col xs={6}>
-                                        <Button variant="primary" onClick={handleShow}>Save</Button>
+                                        <Button variant="primary" onClick={newGroup}>Save</Button>
                                     </Col>
                                 </Row>
                             </Modal.Footer>
