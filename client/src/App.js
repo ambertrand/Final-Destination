@@ -1,4 +1,5 @@
 import React, { useState, useContext, useEffect } from 'react';
+import axios from 'axios';
 import Navigation from './components/layout/navigation/Navbar';
 import UserInfo from "./views/UserInfo";
 import Shopping from "./views/ShoppingList";
@@ -10,20 +11,23 @@ import userContext from './components/form/userContext';
 import UserProfileProvider from './components/providers/userProfileProvider/Provider';
 import getUserInfo from './components/form/getUserInfo';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { useAuth0 } from '@auth0/auth0-react';
+import BackgroundImage from './assets/GroceryStore.jpg';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
+<<<<<<< HEAD
+=======
 
-import BackgroundImage from './assets/GroceryStore.jpg';
+>>>>>>> c9eaa332ac54f5f5af4ea36ce3c3ef2e66aa67a2
 
-// import { library } from '@fortawesome/fontawesome-svg-core'
-// import { fab } from '@fortawesome/free-brands-svg-icons'
-// import { faCheckSquare, faCoffee } from '@fortawesome/free-solid-svg-icons'
-
-// library.add(fab, faCheckSquare, faCoffee)
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { fab } from '@fortawesome/free-brands-svg-icons'
 import context from './components/providers/userProfileProvider/context';
 import { useAuth0 } from '@auth0/auth0-react';
 import axios from 'axios';
 
+
+library.add(fab)
 
 function App() {
   const [userId, setUserId] = useState("");
@@ -34,15 +38,19 @@ function App() {
     username: "",
     picture: "",
     shopper: 1
+<<<<<<< HEAD
   }); 
+=======
+  });
+>>>>>>> c9eaa332ac54f5f5af4ea36ce3c3ef2e66aa67a2
 
-    const getUserId = (id) => {
-        setUserId(id);
-    }
+  const getUserId = (id) => {
+    setUserId(id);
+  }
 
   const backgroundStyle = {
     backgroundImage: `url(${BackgroundImage})`,
-    height: "100vh",
+    minHeight: "100vh",
     backgroundRepeat: "no-repeat",
     backgroundPosition: "center",
     backgroundAttachment: "fixed",
@@ -73,7 +81,7 @@ function App() {
   }, [isAuthenticated, user]);
 
   return (
-    <div className="App container-fluid outerContainer" style={ backgroundStyle }>
+    <div className="App container-fluid outerContainer" style={backgroundStyle}>
       <userContext.Provider value={userId}>
         <UserProfileProvider user={userProfile}>
           < Router >
@@ -98,6 +106,6 @@ function App() {
     </div>
 
 
-    );
+  );
 }
 export default App;
