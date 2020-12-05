@@ -13,6 +13,7 @@ import getUserInfo from './components/form/getUserInfo';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { useAuth0 } from '@auth0/auth0-react';
 import BackgroundImage from './assets/GroceryStore.jpg';
+import {useHistory} from "react-router-dom";
 // import ProtectedRoute from "./auth/protected-route";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
@@ -24,6 +25,18 @@ import { fab } from '@fortawesome/free-brands-svg-icons'
 
 
 library.add(fab)
+
+
+// const { isAuthenticated } = useAuth0();
+//    React.useEffect(() => {
+//     const history = useHistory();
+//        // console.log(isAuthenticated);
+//        if (isAuthenticated) {
+//            history.push("/home");
+//        } else {
+//            history.push("/")
+//        }
+//    }, [isAuthenticated, history]);
 
 function App() {
   const [userId, setUserId] = useState("");
@@ -52,6 +65,7 @@ function App() {
   // const { setUserProfile } = useContext(context);
   const { user, isAuthenticated } = useAuth0();
 
+
   useEffect(() => {
     if (isAuthenticated) {
 
@@ -66,12 +80,36 @@ function App() {
           console.log(response);
           console.log("new response above");
           setUserProfile(response.data)
+          history.push('/home')
+        }).catch(err => {
+          history.push("/")
         })
-
+    } else {
+       history.push("/")
     }
     console.log("if authenticated is shown below");
     console.log(isAuthenticated);
   }, [isAuthenticated, user]);
+  // useEffect(() => {
+  //   if (isAuthenticated) {
+
+  //     // console.log(user);
+  //     axios.post("/api/users/onAuthenticated", user)
+  //       .then(function (response) {
+  //         // console.log(response);
+  //         // setUserProfile(response);
+  //         getUserId(response.data[0].id);
+  //         return getUserInfo(response.data[0].id);
+  //       }).then(function (response) {
+  //         console.log(response);
+  //         console.log("new response above");
+  //         setUserProfile(response.data)
+  //       })
+
+  //   }
+  //   console.log("if authenticated is shown below");
+  //   console.log(isAuthenticated);
+  // }, [isAuthenticated, user]);
 
   return (
     <div className="App container-fluid outerContainer" style={backgroundStyle}>
