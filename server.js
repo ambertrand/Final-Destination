@@ -1,6 +1,7 @@
 // Requiring necessary npm packages
 const express = require("express");
 const session = require("express-session");
+const cors = require("cors");
 const passport = require("passport");
 
 require ("dotenv").config();
@@ -43,6 +44,7 @@ if (process.env.NODE_ENV === "production") {
 
 
 const indexRouter = require("./routes/index");
+const userRouter = require('./routes/userRoutes')
 // const usersRouter = require("./routes/users");
 // const authRouter = require("./routes/Auth");
 // const apiUser = require("./routes/api-user");
@@ -51,7 +53,6 @@ const indexRouter = require("./routes/index");
 const path = require("path");
 
 const http = require('http').createServer(app);
-const userRouter = require('./routes/userRoutes')
 
 const initializeSocketio = require("./client/src/utils/socket/index");
 
@@ -73,6 +74,7 @@ if (app.get("env") === "production") {
   
 }
 
+app.use(cors());
 app.use(session(sess));
 app.use(userRouter);
 app.use("/api", indexRouter);

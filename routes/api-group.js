@@ -3,8 +3,8 @@ const router = express.Router();
 const db = require("../models");
 
 // create a team
-router.post("/api/groups", function (req, res) {
-  db.Group.create({
+router.post("/", function (req, res) {
+  db.group.create({
     group_name: req.body.group_name
   })
     .then(function (dbGroup) {
@@ -16,7 +16,7 @@ router.post("/api/groups", function (req, res) {
 });
 
 // find all teams
-router.get("/api/groups", function (req, res) {
+router.get("/", function (req, res) {
   db.Team.findAll({})
     .then(function (dbGroup) {
       res.json(dbGroup);

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Modal from 'react-bootstrap/Modal';
@@ -11,7 +12,6 @@ import viewgroups from '../../assets/viewgroups.png';
 import editinfo from '../../assets/editinfo.png';
 // import stores from '../../assets/stores.png';
 
-// import newGroup from './createGroup';
 
 
 function HomeButtons(event) {
@@ -29,6 +29,10 @@ function HomeButtons(event) {
 
     const newGroup = () => {
         console.log(groupName);
+        axios.post("/api/groups", { group_name: groupName })
+            .then(res => {
+                console.log(res)
+            }).catch(err => console.log(err));
     }
 
 
@@ -36,7 +40,7 @@ function HomeButtons(event) {
         <Container>
             <Row className="teams">
                 <Col sm={12} md={4}>
-                    
+
                     {/* Create Group */}
                     <Row>
                         <Col className="text-center">
