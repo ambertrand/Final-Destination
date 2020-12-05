@@ -1,53 +1,56 @@
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Indie Flower', cursive;
-  font-size: 20px;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Indie Flower', cursive;
+    font-size: 20px;
 }
 
 .jumbo {
-  background-color:#a9d7a9;
-  padding-top: 45px;
-  padding-bottom: 5px; 
-  min-width: 100%;
-  opacity: 90%;
+    background-color: #a9d7a9;
+    padding-top: 45px;
+    padding-bottom: 5px;
+    min-width: 100%;
+    opacity: 90%;
 }
 
 img.shoppingLogo {
-  background-color: #a9d7a9;
-  border-radius: 5px;
+    background-color: #a9d7a9;
+    border-radius: 5px;
 }
 
 Button#updateUserInfo {
-  background-color:#a9d7a9;
-  border-color: #a9d7a9;
-  color: #000000;
-  
+    background-color: #a9d7a9;
+    border-color: #a9d7a9;
+    color: #000000;
 }
 
 Button.choice {
-  background-color: #a9d7a9;
-  border-color: #a9d7a9;
-  color: #000000;
+    background-color: #a9d7a9;
+    border-color: #a9d7a9;
+    color: #000000;
 }
 
 .iconImg {
-  height: 100px;
-  width: 100px;
+    height: 100px;
+    width: 100px;
 }
 
 .footer {
-  position: fixed;
-  bottom: 0px;
-  width: 100vw;
+    position: fixed;
+    bottom: 0px;
+    width: 100vw;
 }
 
 .outerContainer {
-  position: relative;
-  padding-bottom: 40px;
+    position: relative;
+    padding-bottom: 40px;
 }
 
 .landingImage {
-  padding-bottom: 40px;
+    padding-bottom: 40px;
+}
+
+.carouselPad {
+    padding-top: 30px;
 }
