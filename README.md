@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-# temp-p3-repo
-
-https://www.fullstacklabs.co/blog/chat-application-react-express-socket-io
-=======
 ![logo](https://user-images.githubusercontent.com/65721950/101120585-fde91700-35bb-11eb-8690-0be4ae1746f8.png)
 #  Table of Contents
  * [Description](#description)
@@ -43,4 +38,3 @@ https://www.fullstacklabs.co/blog/chat-application-react-express-socket-io
 
 # License
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
->>>>>>> 86b3dc6465a4a14b8cd08928165c1a057745ec87

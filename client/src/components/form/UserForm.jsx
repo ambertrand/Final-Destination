@@ -66,10 +66,7 @@ function UserForm() {
                                 Group name:&nbsp;
                                 {/* <input type="text" placeholder={user.email} id="email" /> */}
                                 <select id="groupName" onChange={(event) => setGroupName(event.target.value)}>
-<<<<<<< HEAD
-=======
                                     <option value="0">{userProfile.group_name}</option>
->>>>>>> 86b3dc6465a4a14b8cd08928165c1a057745ec87
                                     <option value="1">team1</option>
                                     <option value="2">team2</option>
                                     <option value="3">team3</option>
