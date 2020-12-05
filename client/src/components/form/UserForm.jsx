@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { useAuth0 } from '@auth0/auth0-react';
 import userInfo from './userInfo';
 import getUserInfo from './getUserInfo';
@@ -10,8 +10,6 @@ import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
-import { useState } from "react";
-import { useEffect } from "react";
 
 function UserForm() {
     const { user } = useAuth0();

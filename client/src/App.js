@@ -1,4 +1,5 @@
 import React, { useState, useContext, useEffect } from 'react';
+import axios from 'axios';
 import Navigation from './components/layout/navigation/Navbar';
 import UserInfo from "./views/UserInfo";
 import Shopping from "./views/ShoppingList";
@@ -10,10 +11,11 @@ import userContext from './components/form/userContext';
 import UserProfileProvider from './components/providers/userProfileProvider/Provider';
 import getUserInfo from './components/form/getUserInfo';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { useAuth0 } from '@auth0/auth0-react';
+import BackgroundImage from './assets/GroceryStore.jpg';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
-import BackgroundImage from './assets/GroceryStore.jpg';
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
