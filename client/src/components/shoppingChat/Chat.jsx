@@ -53,7 +53,7 @@ function Chat() {
                 //won't send message
                 // onChange={() => setMessage(user.name + " Joined Group" + room)}
                 // onChange={() => sendMessage(room, user.name + " Joined Group" + room)}
-                onChange={console.log("room changed")}
+                // onChange={console.log("room changed")}
             >Group: {room}</h1>
             { rooms.map((r, i) =>
                 <button
