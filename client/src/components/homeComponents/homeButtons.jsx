@@ -11,7 +11,7 @@ import viewgroups from '../../assets/viewgroups.png';
 import editinfo from '../../assets/editinfo.png';
 import stores from '../../assets/stores.png';
 
-import newGroup from './createGroup';
+// import newGroup from './createGroup';
 
 
 function HomeButtons(event) {
@@ -27,6 +27,9 @@ function HomeButtons(event) {
     const handleViewClose = () => setShowViewModal(false);
     const handleViewStoreClose = () => setShowViewStoreModal(false);
 
+    const newGroup = () => {
+        console.log(groupName);
+    }
 
 
     return (
@@ -51,7 +54,7 @@ function HomeButtons(event) {
                             </Modal.Header>
 
                             <Modal.Body>
-                                <form>
+                                <form onSubmit={newGroup}>
                                     <input placeholder="Group Name" onChange={event => setGroupName(event.target.value)}></input>
                                 </form>
                             </Modal.Body>
