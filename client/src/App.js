@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Navigation from './components/layout/navigation/Navbar';
 import UserInfo from "./views/UserInfo";
@@ -13,15 +13,14 @@ import getUserInfo from './components/form/getUserInfo';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { useAuth0 } from '@auth0/auth0-react';
 import BackgroundImage from './assets/GroceryStore.jpg';
+// import ProtectedRoute from "./auth/protected-route";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
-import context from './components/providers/userProfileProvider/context';
-import { useAuth0 } from '@auth0/auth0-react';
-import axios from 'axios';
+// import context from './components/providers/userProfileProvider/context';
 
 
 library.add(fab)
@@ -56,7 +55,7 @@ function App() {
   useEffect(() => {
     if (isAuthenticated) {
 
-      console.log(user);
+      // console.log(user);
       axios.post("/api/users/onAuthenticated", user)
         .then(function (response) {
           // console.log(response);
@@ -70,6 +69,7 @@ function App() {
         })
 
     }
+    console.log("if authenticated is shown below");
     console.log(isAuthenticated);
   }, [isAuthenticated, user]);
 

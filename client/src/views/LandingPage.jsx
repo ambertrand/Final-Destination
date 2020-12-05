@@ -8,7 +8,7 @@ function LandingPage({ history }) {
     const { isAuthenticated } = useAuth0();
 
     React.useEffect(() => {
-        console.log(isAuthenticated);
+        // console.log(isAuthenticated);
         if (isAuthenticated) {
             history.push("/home");
         }
