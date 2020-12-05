@@ -42,7 +42,7 @@ function App() {
 
   const backgroundStyle = {
     backgroundImage: `url(${BackgroundImage})`,
-    height: "100vh",
+    minHeight: "100vh",
     backgroundRepeat: "no-repeat",
     backgroundPosition: "center",
     backgroundAttachment: "fixed",
