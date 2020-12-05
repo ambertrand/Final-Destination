@@ -9,17 +9,6 @@ function userInfo(event, userId, userInfo) {
         }).catch(err => console.log(err));
 }
 
-// /profile/:id
-
-// {
-//   email: req.body.email,
-//   // auth0_id: req.body.auth0_id,
-//   last_name: req.body.last_name,
-//   first_name: req.body.first_name,
-//   shopper: req.body.shopper,
-//   group_name: req.body.group_name
-// } _______
-
 
 export default userInfo;
 
@@ -40,43 +29,4 @@ export default userInfo;
 //       .catch(function (error) {
 //         console.log(error);
 //       });
-//   };
-
-//   // Update user info in database
-//   const addUserInfo = (userID) => {
-//     let firstName = $firstName.val().trim();
-//     let currentTeamId = parseInt($teamDD.val());
-
-//     // check to see if a team is chosen before updating
-//     if (currentTeamId === -1) {
-
-//       axios.put("/api/profile", {
-//         id: userID,
-//         first_name: firstName,
-//         last_name: $lastName.val().trim(),
-//         nick_name: $nickName.val().trim() || firstName,
-//       })
-//         .then((response) => {
-//           console.log(response);
-//         })
-//         .catch(function (error) {
-//           console.log(error);
-//         });
-//     } else {
-
-//       axios.put("/api/profile", {
-//         id: userID,
-//         first_name: firstName,
-//         last_name: $lastName.val().trim(),
-//         nick_name: $nickName.val().trim() || firstName,
-//         TeamId: $teamDD.val()
-//       })
-//         .then((response) => {
-//           console.log(response);
-//         })
-//         .catch(function (error) {
-//           console.log(error);
-//         });
-//     }
-
 //   };
