@@ -54,9 +54,6 @@ Button.choice {
 
 .carouselPad {
   padding-top: 40px;
-  vertical-align:middle;
-  margin-left:auto;
-  margin-right:auto
 }
 
 .greyBox {
@@ -64,4 +61,17 @@ Button.choice {
   opacity: 85%;
   border-width: 0;
   border-radius: 5px;
+}
+
+.userInfoPad {
+  padding-top: 150px;
+}
+
+@media screen and (max-width: 375px) {
+  .carouselPad {
+    padding-top: 0px;
+  }
+  .userInfoPad {
+    padding-top: 0px;
+  }
 }

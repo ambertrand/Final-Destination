@@ -23,7 +23,7 @@ function LandingPage({ history }) {
                 imgClass="animate__animated animate__bounceInLeft"
             />
 
-            <Mission className="greyBox" />
+            <Mission />
 
         </>
 

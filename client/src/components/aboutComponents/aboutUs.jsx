@@ -56,7 +56,7 @@ function AboutUs() {
                     </Carousel.Item>
                     <Carousel.Item>
                         <Card style={{ width: '18rem' }}>
-                            <Card.Img style={{ width: 500, height: 'auto' }} variant="top" src={matthew} />
+                            <Card.Img variant="top" src={matthew} />
                             <Card.Body>
                                 <Card.Title>Matthew Bongiorno</Card.Title>
                                 <Card.Text>
