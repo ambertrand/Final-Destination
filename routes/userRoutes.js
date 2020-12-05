@@ -15,6 +15,20 @@ router.put('/updateUser/:id', function(req, res) {
       });
     // validation
 })
+router.put('/updateUser/:group_name', function(req, res) {
+  console.log(req.body);
+  db.user.create({
+      group_name: req.body.group_name
+  })
+  .then(function (group_name) {
+      res.status(201).end();
+    })
+    .catch(function (err) {
+      res.status(401).json(err);
+    });
+  // validation
+})
+
 
 
 
