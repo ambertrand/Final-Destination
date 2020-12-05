@@ -27,6 +27,12 @@ function AboutUs() {
                                     Some quick example text to build on the card title and make up the bulk of
                                     the card's content.
                             </Card.Text>
+                                <Card.Link href="https://github.com/ambertrand" >
+                                    <FontAwesomeIcon icon={["fab", "github"]} size='3x' color='black' />&nbsp;&nbsp;&nbsp;
+                                 </Card.Link>
+                                <Card.Link href="https://www.linkedin.com/in/alex-bertrand/" >
+                                    <FontAwesomeIcon icon={["fab", "linkedin"]} size='3x' />
+                                </Card.Link>
                             </Card.Body>
                         </Card>
                     </Carousel.Item>
@@ -39,6 +45,12 @@ function AboutUs() {
                                     Some quick example text to build on the card title and make up the bulk of
                                     the card's content.
                             </Card.Text>
+                                <Card.Link href="https://github.com/nkleinmann" >
+                                    <FontAwesomeIcon icon={["fab", "github"]} size='3x' color='black' />&nbsp;&nbsp;&nbsp;
+                                 </Card.Link>
+                                <Card.Link href="https://www.linkedin.com/in/nicolekleinmann/" >
+                                    <FontAwesomeIcon icon={["fab", "linkedin"]} size='3x' />
+                                </Card.Link>
                             </Card.Body>
                         </Card>
                     </Carousel.Item>
@@ -47,15 +59,15 @@ function AboutUs() {
                             <Card.Img style={{ width: 500, height: 'auto' }} variant="top" src={matthew} />
                             <Card.Body>
                                 <Card.Title>Matthew Bongiorno</Card.Title>
-                                 <Card.Link href="https://google.com" >
-                                     <FontAwesomeIcon icon={["fab", "github"]} size='3x'color='black'/>&nbsp;&nbsp;&nbsp;
-                                 </Card.Link>
-                                <Card.Link href="https://www.linkedin.com/in/mattbongiorno/" > 
-                                    <FontAwesomeIcon icon={["fab", "linkedin"]} size='3x'/>
-                                </Card.Link>
                                 <Card.Text>
-                                   Fun Fact: Knows how to use font awesome with React!
+                                    Fun Fact: Knows how to use font awesome with React!
                                 </Card.Text>
+                                <Card.Link href="https://google.com" >
+                                    <FontAwesomeIcon icon={["fab", "github"]} size='3x' color='black' />&nbsp;&nbsp;&nbsp;
+                                 </Card.Link>
+                                <Card.Link href="https://www.linkedin.com/in/mattbongiorno/" >
+                                    <FontAwesomeIcon icon={["fab", "linkedin"]} size='3x' />
+                                </Card.Link>
                             </Card.Body>
                         </Card>
                     </Carousel.Item>
@@ -69,6 +81,12 @@ function AboutUs() {
                                     Some quick example text to build on the card title and make up the bulk of
                                     the card's content.
                             </Card.Text>
+                                <Card.Link href="https://github.com/farmerj95" >
+                                    <FontAwesomeIcon icon={["fab", "github"]} size='3x' color='black' />&nbsp;&nbsp;&nbsp;
+                                 </Card.Link>
+                                <Card.Link href="https://www.linkedin.com/in/jesse-farmer-39a392166/" >
+                                    <FontAwesomeIcon icon={["fab", "linkedin"]} size='3x' />
+                                </Card.Link>
                             </Card.Body>
                         </Card>
                     </Carousel.Item>
@@ -81,6 +99,12 @@ function AboutUs() {
                                     Some quick example text to build on the card title and make up the bulk of
                                     the card's content.
                             </Card.Text>
+                                <Card.Link href="https://google.com" >
+                                    <FontAwesomeIcon icon={["fab", "github"]} size='3x' color='black' />&nbsp;&nbsp;&nbsp;
+                                 </Card.Link>
+                                <Card.Link href="https://www.linkedin.com/in/mattbongiorno/" >
+                                    <FontAwesomeIcon icon={["fab", "linkedin"]} size='3x' />
+                                </Card.Link>
                             </Card.Body>
                         </Card>
                     </Carousel.Item>
@@ -93,6 +117,12 @@ function AboutUs() {
                                     Some quick example text to build on the card title and make up the bulk of
                                     the card's content.
                             </Card.Text>
+                                <Card.Link href="https://google.com" >
+                                    <FontAwesomeIcon icon={["fab", "github"]} size='3x' color='black' />&nbsp;&nbsp;&nbsp;
+                                 </Card.Link>
+                                <Card.Link href="https://www.linkedin.com/in/matt-hunt-208076121/" >
+                                    <FontAwesomeIcon icon={["fab", "linkedin"]} size='3x' />
+                                </Card.Link>
                             </Card.Body>
                         </Card>
                     </Carousel.Item>
