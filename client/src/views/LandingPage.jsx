@@ -1,7 +1,6 @@
 import React from "react";
 import JumboSection from "../components/jumbotron/Jumbotron.jsx";
 import Mission from "../components/landingComponents/missionstatement";
-import LandingImage from '../components/landingComponents/landingImage';
 import { useAuth0 } from '@auth0/auth0-react';
 
 function LandingPage({ history }) {
@@ -25,7 +24,7 @@ function LandingPage({ history }) {
             />
 
             <Mission />
-            <LandingImage />
+
         </>
 
     )
