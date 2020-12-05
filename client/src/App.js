@@ -10,18 +10,14 @@ import Footer from "./components/layout/footer/Footer";
 import userContext from './components/form/userContext';
 import UserProfileProvider from './components/providers/userProfileProvider/Provider';
 import getUserInfo from './components/form/getUserInfo';
+// import context from './components/providers/userProfileProvider/context';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { useAuth0 } from '@auth0/auth0-react';
 import BackgroundImage from './assets/GroceryStore.jpg';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './App.css';
-
-
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
-import context from './components/providers/userProfileProvider/context';
-import { useAuth0 } from '@auth0/auth0-react';
-import axios from 'axios';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css';
 
 
 library.add(fab)

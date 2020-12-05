@@ -9,7 +9,7 @@ import Image from "react-bootstrap/Image";
 import addgroup from '../../assets/addgroup.png';
 import viewgroups from '../../assets/viewgroups.png';
 import editinfo from '../../assets/editinfo.png';
-import stores from '../../assets/stores.png';
+// import stores from '../../assets/stores.png';
 
 // import newGroup from './createGroup';
 
@@ -18,14 +18,14 @@ function HomeButtons(event) {
 
     const [showCreateModal, setShowCreateModal] = useState(false);
     const [showViewModal, setShowViewModal] = useState(false);
-    const [showViewStoreModal, setShowViewStoreModal] = useState(false);
+    // const [showViewStoreModal, setShowViewStoreModal] = useState(false);
     const [groupName, setGroupName] = useState("");
 
 
     const handleClose = () => setShowCreateModal(false);
     const handleShow = () => setShowCreateModal(true);
     const handleViewClose = () => setShowViewModal(false);
-    const handleViewStoreClose = () => setShowViewStoreModal(false);
+    // const handleViewStoreClose = () => setShowViewStoreModal(false);
 
     const newGroup = () => {
         console.log(groupName);
@@ -35,7 +35,7 @@ function HomeButtons(event) {
     return (
         <Container>
             <Row className="teams">
-                <Col sm={12} md={3}>
+                <Col sm={12} md={4}>
                     
                     {/* Create Group */}
                     <Row>
@@ -44,7 +44,7 @@ function HomeButtons(event) {
                         </Col>
                     </Row>
                     <Row>
-                        <Col>
+                        <Col className="text-center">
                             <Button type="submit" className="choice m-2" id="createTeam" onClick={() => setShowCreateModal(true)} >Create Group</Button>
                         </Col>
 
@@ -75,14 +75,14 @@ function HomeButtons(event) {
                 </Col>
 
                 {/* View Group  */}
-                <Col sm={12} md={3}>
+                <Col sm={12} md={4}>
                     <Row>
                         <Col className="text-center">
                             <Image className="iconImg" src={viewgroups} />
                         </Col>
                     </Row>
                     <Row>
-                        <Col>
+                        <Col className="text-center">
                             <Button type="submit" className="choice m-2" id="viewTeams" onClick={() => setShowViewModal(true)}>View Groups</Button>
                         </Col>
 
@@ -103,21 +103,21 @@ function HomeButtons(event) {
                 </Col>
 
                 {/* Go Shopping */}
-                <Col sm={12} md={3}>
+                <Col sm={12} md={4}>
                     <Row>
                         <Col className="text-center">
                             <Image className="iconImg" src={editinfo} />
                         </Col>
                     </Row>
                     <Row>
-                        <Col>
+                        <Col className="text-center">
                             <Button type="submit" className="choice m-2" id="updateUserProfile">Shopping</Button>
                         </Col>
                     </Row>
                 </Col>
 
-                {/* View Group Stores */}
-                <Col sm={12} md={3}>
+                {/* View Group Stores - Future development */}
+                {/* <Col sm={12} md={3}>
                     <Row>
                         <Col className="text-center">
                             <Image className="iconImg" src={stores} />
@@ -142,7 +142,7 @@ function HomeButtons(event) {
                             </Modal.Footer>
                         </Modal>
                     </Row>
-                </Col>
+                </Col> */}
             </Row>
         </Container>
     )
