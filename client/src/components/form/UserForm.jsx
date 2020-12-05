@@ -48,13 +48,12 @@ function UserForm() {
                             <label>
                                 Group name:&nbsp;
                                 {/* <input type="text" placeholder={user.email} id="email" /> */}
-                                <input type="text" defaultValue={user.group_name} id="groupName" onChange={(event) => setGroupName(event.target.value)}/>
-                                {/* <select id="groupName" onChange={(event) => setGroupName(event.target.value)}>
+                                <select id="groupName" onChange={(event) => setGroupName(event.target.value)}>
                                     <option value="1">team1</option>
                                     <option value="2">team2</option>
                                     <option value="3">team3</option>
                                     <option value="4">team4</option>
-                                </select> */}
+                                </select>
                             </label>
                             <label>
                                 Group role:&nbsp;
