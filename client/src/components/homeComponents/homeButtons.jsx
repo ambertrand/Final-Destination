@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios'
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Modal from 'react-bootstrap/Modal';
@@ -30,6 +31,15 @@ function HomeButtons(event) {
     const newGroup = () => {
         console.log(groupName);
         setShowCreateModal(false)
+        // let newGroup = `INSERT into groups (group_name) VALUES ('groupName')`;
+        // connection.query(newGroup), function (err) {
+        //   if (err) throw err;
+        // };
+        axios.post('/', {group_name: groupName})
+        .then(groupName => {
+            console.log(groupName)
+        })
+        .catch(err => console.log(err)) 
     }
 
 

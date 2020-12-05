@@ -3,7 +3,7 @@ const router = express.Router();
 const db = require("../models");
 
 // create a team
-router.post("/api/groups", function (req, res) {
+router.post("/", function (req, res) {
   db.Group.create({
     group_name: req.body.group_name
   })
