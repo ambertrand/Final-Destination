@@ -4,7 +4,7 @@ const db = require("../models");
 
 // create a team
 router.post("/", function (req, res) {
-  db.Group.create({
+  db.group.create({
     group_name: req.body.group_name
   })
     .then(function (dbGroup) {

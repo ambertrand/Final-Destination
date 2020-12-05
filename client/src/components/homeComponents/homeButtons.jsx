@@ -29,17 +29,18 @@ function HomeButtons(event) {
     const handleViewStoreClose = () => setShowViewStoreModal(false);
 
     const newGroup = () => {
-        console.log(groupName);
+        console.log("the group name is " + groupName);
         setShowCreateModal(false)
         // let newGroup = `INSERT into groups (group_name) VALUES ('groupName')`;
         // connection.query(newGroup), function (err) {
         //   if (err) throw err;
         // };
-        axios.post('/api/groups', {group_name: groupName})
-        .then(response => {
-            console.log(response)
-        })
-        .catch(err => console.log(err)) 
+        axios.post('/api/groups', { group_name: groupName })
+        //doesn't seem to get to the response
+            .then(response => {
+                console.log(response)
+            })
+            .catch(err => console.log(err))
     }
 
 
@@ -47,7 +48,7 @@ function HomeButtons(event) {
         <Container>
             <Row className="teams">
                 <Col sm={12} md={3}>
-                    
+
                     {/* Create Group */}
                     <Row>
                         <Col className="text-center">
