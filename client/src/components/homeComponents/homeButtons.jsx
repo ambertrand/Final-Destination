@@ -35,9 +35,9 @@ function HomeButtons(event) {
         // connection.query(newGroup), function (err) {
         //   if (err) throw err;
         // };
-        axios.post('/', {group_name: groupName})
-        .then(groupName => {
-            console.log(groupName)
+        axios.post('/api/groups', {group_name: groupName})
+        .then(response => {
+            console.log(response)
         })
         .catch(err => console.log(err)) 
     }

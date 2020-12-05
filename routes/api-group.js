@@ -16,7 +16,7 @@ router.post("/", function (req, res) {
 });
 
 // find all teams
-router.get("/api/groups", function (req, res) {
+router.get("/", function (req, res) {
   db.Team.findAll({})
     .then(function (dbGroup) {
       res.json(dbGroup);
