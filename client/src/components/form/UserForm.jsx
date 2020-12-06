@@ -1,4 +1,5 @@
 import React, { useContext, useState, useEffect } from "react";
+import axios from 'axios';
 import { useAuth0 } from '@auth0/auth0-react';
 import userInfo from './userInfo';
 import getUserInfo from './getUserInfo';
@@ -10,6 +11,7 @@ import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
+
 
 function UserForm() {
     const { user } = useAuth0();
@@ -25,11 +27,34 @@ function UserForm() {
     const [groupRole, setGroupRole] = useState(userProfile.shopper);
     const userId = useContext(userContext);
 
-    // useEffect(() => {
-    //     userPhoto 
-    // });
+    // let shopperOrGroupMember = "";
 
-    // getUserInfo(userId);
+    // function userRole() {
+    //     if (userProfile.shopper === true) {
+    //         shopperOrGroupMember === "Shopper";
+    //     }
+    //     if (userProfile.shopper === false) {
+    //         shopperOrGroupMember === "Group Member";
+    //     }
+    //     else {
+    //         shopperOrGroupMember === "Please select group role";
+    //     }
+    // }
+    
+    // userRole();
+    const [groups, setGroups] = useState({});
+    const [isFetching, setIsFetching] = useState(true);
+
+    useEffect(() => {
+        axios.get("/api/groups")
+            .then(response => {
+                setGroups(response.data);
+                console.log("user groups below");
+                console.log(response);
+                setIsFetching(false);
+            })
+    }, [])
+
 
     return (
         <div className="userInfoPad">
@@ -65,16 +90,13 @@ function UserForm() {
                                 {/* <input type="text" placeholder={user.email} id="email" /> */}
                                 <select id="groupName" onChange={(event) => setGroupName(event.target.value)}>
                                     <option value="0">{userProfile.group_name}</option>
-                                    <option value="1">team1</option>
-                                    <option value="2">team2</option>
-                                    <option value="3">team3</option>
-                                    <option value="4">team4</option>
+                                    {isFetching ? (<option>Loading</option>) : (groups.map(group => (<option value={group.group_name}>{group.group_name}</option>)))}
                                 </select>
                             </label>
                             <label>
                                 Group role:&nbsp;
                                 <select id="isShopper" onChange={(event) => setGroupRole(event.target.value)}>
-                                    <option>{userProfile.shopper}</option>
+                                    {/* <option>{shopperOrGroupMember}</option> */}
                                     <option value={true}>Shopper</option>
                                     <option value={false}>Group Member</option>
                                 </select>
