@@ -9,9 +9,9 @@ function Mission() {
     return (
         <div>
             <Row className="justify-content-center mb-4">
-                <Col xs={11} md={5}>
+                <Col className="greyBox" xs={11} md={5}>
                     <h4 className="text-center"> Have you ever gone shopping for someone and forgot something? </h4>
-                    <Card className="bg-light">
+                    <Card className="greyBox">
                         <Card.Body className="text-center">
                             <p>
                                 We definitely have! That is why
