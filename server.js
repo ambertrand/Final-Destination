@@ -1,7 +1,6 @@
 // Requiring necessary npm packages
 const express = require("express");
 const session = require("express-session");
-const cors = require("cors");
 const passport = require("passport");
 
 require ("dotenv").config();
@@ -74,7 +73,6 @@ if (app.get("env") === "production") {
   
 }
 
-app.use(cors());
 app.use(session(sess));
 app.use(userRouter);
 app.use("/api", indexRouter);

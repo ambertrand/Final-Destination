@@ -35,6 +35,10 @@ function HomeButtons(event) {
             }).catch(err => console.log(err));
     }
 
+    const viewGroups = (groupName) => {
+        return axios.get(`/api/groups/${groupName}`);
+        
+    }
 
     return (
         <Container>
@@ -96,7 +100,7 @@ function HomeButtons(event) {
                             </Modal.Header>
 
                             <Modal.Body>
-                                <p>Populated Groups</p>
+                                {viewGroups}
                             </Modal.Body>
 
                             <Modal.Footer>
