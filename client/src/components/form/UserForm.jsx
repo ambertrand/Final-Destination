@@ -1,4 +1,5 @@
 import React, { useContext, useState, useEffect } from "react";
+import axios from 'axios';
 import { useAuth0 } from '@auth0/auth0-react';
 import userInfo from './userInfo';
 import getUserInfo from './getUserInfo';
@@ -41,6 +42,18 @@ function UserForm() {
     // }
     
     // userRole();
+    const [groups, setGroups] = useState({});
+    const [isFetching, setIsFetching] = useState(true);
+
+    useEffect(() => {
+        axios.get("/api/groups")
+            .then(response => {
+                setGroups(response.data);
+                console.log("user groups below");
+                console.log(response);
+                setIsFetching(false);
+            })
+    }, [])
 
 
     return (
@@ -77,10 +90,7 @@ function UserForm() {
                                 {/* <input type="text" placeholder={user.email} id="email" /> */}
                                 <select id="groupName" onChange={(event) => setGroupName(event.target.value)}>
                                     <option value="0">{userProfile.group_name}</option>
-                                    <option value="1">team1</option>
-                                    <option value="2">team2</option>
-                                    <option value="3">team3</option>
-                                    <option value="4">team4</option>
+                                    {isFetching ? (<option>Loading</option>) : (groups.map(group => (<option value={group.group_name}>{group.group_name}</option>)))}
                                 </select>
                             </label>
                             <label>

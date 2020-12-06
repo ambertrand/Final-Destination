@@ -9,8 +9,9 @@ import About from "./views/About";
 import Footer from "./components/layout/footer/Footer";
 import userContext from './components/form/userContext';
 import UserProfileProvider from './components/providers/userProfileProvider/Provider';
+import groupContext from './components/providers/groupProvider/context'
+import groupProvider from './components/providers/groupProvider/Provider';
 import getUserInfo from './components/form/getUserInfo';
-// import context from './components/providers/userProfileProvider/context';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { useAuth0 } from '@auth0/auth0-react';
 import BackgroundImage from './assets/GroceryStore.jpg';
@@ -18,8 +19,6 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-// import { useHistory } from "react-router-dom"
-// import ProtectedRoute from "./auth/protected-route";
 
 
 library.add(fab)
@@ -64,7 +63,8 @@ function App() {
         }).then(function (response) {
           console.log(response);
           console.log("new response above");
-          setUserProfile(response.data)
+          setUserProfile(response.data);
+          // setGroupNames(response.data);
           // history.push('/home')
         })
       }
@@ -80,6 +80,7 @@ function App() {
 
   return (
     <div className="App container-fluid outerContainer" style={backgroundStyle}>
+      {/* <groupProvider name={groupNames}> */}
       <userContext.Provider value={userId}>
         <UserProfileProvider user={userProfile}>
           < Router >
@@ -109,6 +110,7 @@ function App() {
           </Router >
         </UserProfileProvider>
       </userContext.Provider>
+      {/* </groupProvider> */}
     </div>
 
 
