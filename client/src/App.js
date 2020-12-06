@@ -26,19 +26,7 @@ import { fab } from '@fortawesome/free-brands-svg-icons'
 
 library.add(fab)
 
-// const { isAuthenticated } = useAuth0();
-//    React.useEffect(() => {
-//     const history = useHistory();
-//        // console.log(isAuthenticated);
-//        if (isAuthenticated) {
-//            history.push("/home");
-//        } else {
-//            history.push("/")
-//        }
-//    }, [isAuthenticated, history]);
-
 function App() {
-  const history = useHistory()
   const [userId, setUserId] = useState("");
   const [userProfile, setUserProfile] = useState({
     email: "",
@@ -79,36 +67,18 @@ function App() {
           console.log(response);
           console.log("new response above");
           setUserProfile(response.data)
-          history.push('/home')
-        }).catch(err => {
-          history.push("/")
+          // history.push('/home')
         })
-    } else {
-       history.push("/")
-    }
+      }
+    //     .catch(err => {
+    //       // history.push("/")
+    //     })
+    // } else {
+    //    history.push("/")
+    // }
     console.log("if authenticated is shown below");
     console.log(isAuthenticated);
   }, [isAuthenticated, user]);
-  // useEffect(() => {
-  //   if (isAuthenticated) {
-
-  //     // console.log(user);
-  //     axios.post("/api/users/onAuthenticated", user)
-  //       .then(function (response) {
-  //         // console.log(response);
-  //         // setUserProfile(response);
-  //         getUserId(response.data[0].id);
-  //         return getUserInfo(response.data[0].id);
-  //       }).then(function (response) {
-  //         console.log(response);
-  //         console.log("new response above");
-  //         setUserProfile(response.data)
-  //       })
-
-  //   }
-  //   console.log("if authenticated is shown below");
-  //   console.log(isAuthenticated);
-  // }, [isAuthenticated, user]);
 
   return (
     <div className="App container-fluid outerContainer" style={backgroundStyle}>
@@ -119,11 +89,16 @@ function App() {
             <Navigation />
 
             <Switch>
-              <Route exact path="/" component={LandingPage} />
+              <Route exact path="/" render={(props) => (
+                <LandingPage history={props.history}/>
+              )}/>
+              <Route exact path="/userinfo" render={(props) => (
+                <UserInfo history={props.history}/>
+              )}/>
               <Route exact path="/home" render={(props) => (
                 <Home getUserId={getUserId} />
               )} />
-              <Route exact path="/userinfo" component={UserInfo} />
+              
               <Route exact path="/shopping" component={Shopping} />
               <Route exact path="/about" component={About} />
             </Switch>
