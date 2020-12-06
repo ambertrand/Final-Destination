@@ -9,8 +9,8 @@ import About from "./views/About";
 import Footer from "./components/layout/footer/Footer";
 import userContext from './components/form/userContext';
 import UserProfileProvider from './components/providers/userProfileProvider/Provider';
-import groupContext from './components/providers/groupProvider/context'
-import groupProvider from './components/providers/groupProvider/Provider';
+// import groupContext from './components/providers/groupProvider/context';
+// import groupProvider from './components/providers/groupProvider/Provider';
 import getUserInfo from './components/form/getUserInfo';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { useAuth0 } from '@auth0/auth0-react';
