@@ -41,7 +41,7 @@ function HomeButtons(event) {
     }
 
     return (
-        <Container>
+        <Container className="greyBox">
             <Row className="teams">
                 <Col sm={12} md={4}>
 

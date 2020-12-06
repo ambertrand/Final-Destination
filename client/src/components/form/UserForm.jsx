@@ -13,7 +13,7 @@ import Card from 'react-bootstrap/Card';
 
 function UserForm() {
     const { user } = useAuth0();
-    const {userProfile, setUserProfile} = useContext(context);
+    const { userProfile, setUserProfile } = useContext(context);
     console.log(userProfile);
     const [userName, setUserName] = useState(userProfile.username);
 
@@ -32,13 +32,13 @@ function UserForm() {
     // getUserInfo(userId);
 
     return (
-        <div>
+        <div className="userInfoPad">
             {console.log(userId)}
             <Row className="justify-content-center">
                 {/* User image */}
                 <Col xs="12" md="4">
                     <Card className="m-3 profileImage">
-                        <Card.Img variant="top" src={userProfile.picture} alt={userProfile.first_name} className="img-responsive" width="60px" max-height="100px"/>
+                        <Card.Img variant="top" src={userProfile.picture} alt={userProfile.first_name} className="img-responsive" width="60px" max-height="100px" />
                         {/* <Card.Body >
                             <h4>{`${userProfile.first_name} ${userProfile.last_name}`}</h4>
                         </Card.Body> */}
@@ -57,7 +57,7 @@ function UserForm() {
                             </label>
                             <label>
                                 Email:
-                                <h6>{userProfile.email}</h6> 
+                                <h6>{userProfile.email}</h6>
                                 {/* type="text" defaultValue= id="email" onChange={(event) => setEmail(event.target.value)} /> */}
                             </label>
                             <label>
