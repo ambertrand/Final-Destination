@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
-import { initiateSocket, disconnectSocket, subscribeToChat, handleTyping, sendMessage, ShoppingTrip } from "../../utils/socket/socket";
+import { initiateSocket, disconnectSocket, subscribeToChat, handleTyping, sendMessage } from "../../utils/socket/socket";
 import "./listStyle.css";
 import { useAuth0 } from '@auth0/auth0-react';
 
@@ -8,14 +8,16 @@ function Chat() {
     const { user } = useAuth0();
     //const rooms = ['1', '2'];
     //const { rooms }  = useAuth0();
-    const rooms = ["Default", "Test"];
+    const rooms = ["Default", "Test", user.group_name];
     const [myList, setList] = useState([]);
     const messageRef = useRef(null);
     //const [userName, setUserName] = useState(user.nickname);
-    //let store = "Store"
-    const [store, setStore] = useState("Store")
-    const [storeMessage, setStoreMessage] = useState("Shopping List for: " + store)
+    //const store = "Store"
     //const storeMessage = user.name + " is going to " + store;
+    //store and store message
+    const [store, setStore] = useState("Store")
+    const [storeMessage, setStoreMessage] = useState(user.name + " is going to " + store)
+    //rooms 
     const [room, setRoom] = useState(rooms[0]);
     //const [room, setRoom] = useState(rooms);
     //const [room, setRoom] = useState(user.group_name);
@@ -38,13 +40,6 @@ function Chat() {
         setTyping("" + user.name + ": is typing")
         console.log(typing)
     }
-    const newShoppingTrip = () => {
-        console.log("New Shopping Trip")
-        setStore("New Store")
-        //store = "New Store"
-        setStoreMessage("Shopping List for: " + store)
-        
-    }
     useEffect(() => {
         if (room) initiateSocket(room);
         subscribeToChat((err, data) => {
@@ -59,10 +54,10 @@ function Chat() {
     return (
         <div>
             <h1
-            //won't send message
-            // onChange={() => setMessage(user.name + " Joined Group" + room)}
-            // onChange={() => sendMessage(room, user.name + " Joined Group" + room)}
-            // onChange={console.log("room changed")}
+                //won't send message
+                // onChange={() => setMessage(user.name + " Joined Group" + room)}
+                // onChange={() => sendMessage(room, user.name + " Joined Group" + room)}
+                // onChange={console.log("room changed")}
             >Group: {room}</h1>
             { rooms.map((r, i) =>
                 <button
@@ -70,11 +65,6 @@ function Chat() {
                     onClick={() => setRoom(r)} key={i}>{r}
                 </button>)}
             <h1>{storeMessage}</h1>
-            <form onSubmit={() => newShoppingTrip()}>
-            <button id="new-trip" 
-            //onClick={() => newShoppingTrip()}
-            >Start a New Shopping Trip</button>
-            </form>
             <div id="list-chat">
                 <div id="chat-window">
                     <div id="output" >
