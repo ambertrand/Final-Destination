@@ -11,6 +11,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
 
+
 function UserForm() {
     const { user } = useAuth0();
     const { userProfile, setUserProfile } = useContext(context);
@@ -25,11 +26,22 @@ function UserForm() {
     const [groupRole, setGroupRole] = useState(userProfile.shopper);
     const userId = useContext(userContext);
 
-    // useEffect(() => {
-    //     userPhoto 
-    // });
+    // let shopperOrGroupMember = "";
 
-    // getUserInfo(userId);
+    // function userRole() {
+    //     if (userProfile.shopper === true) {
+    //         shopperOrGroupMember === "Shopper";
+    //     }
+    //     if (userProfile.shopper === false) {
+    //         shopperOrGroupMember === "Group Member";
+    //     }
+    //     else {
+    //         shopperOrGroupMember === "Please select group role";
+    //     }
+    // }
+    
+    // userRole();
+
 
     return (
         <div className="userInfoPad">
@@ -74,7 +86,7 @@ function UserForm() {
                             <label>
                                 Group role:&nbsp;
                                 <select id="isShopper" onChange={(event) => setGroupRole(event.target.value)}>
-                                    <option>{userProfile.shopper}</option>
+                                    {/* <option>{shopperOrGroupMember}</option> */}
                                     <option value={true}>Shopper</option>
                                     <option value={false}>Group Member</option>
                                 </select>
