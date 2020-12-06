@@ -10,18 +10,16 @@ import Footer from "./components/layout/footer/Footer";
 import userContext from './components/form/userContext';
 import UserProfileProvider from './components/providers/userProfileProvider/Provider';
 import getUserInfo from './components/form/getUserInfo';
+// import context from './components/providers/userProfileProvider/context';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { useAuth0 } from '@auth0/auth0-react';
 import BackgroundImage from './assets/GroceryStore.jpg';
-import { useHistory } from "react-router-dom"
-// import ProtectedRoute from "./auth/protected-route";
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './App.css';
-
-
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
-// import context from './components/providers/userProfileProvider/context';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css';
+// import { useHistory } from "react-router-dom"
+// import ProtectedRoute from "./auth/protected-route";
 
 
 library.add(fab)
@@ -102,7 +100,7 @@ function App() {
               <Route exact path="/shopping" render={(props) => (
                 <Shopping getUserId={getUserId} history={props.history}/>
                 )} />
-                
+
               <Route exact path="/about" component={About} />
             </Switch>
 

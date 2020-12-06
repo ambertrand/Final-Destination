@@ -10,7 +10,7 @@ const apiGroup = require("./api-group");
 // router.use("/user", usersRouter);
 router.use("/auth", authRouter);
 router.use("/users", apiUser);
-router.use("/group", apiGroup);
+router.use("/groups", apiGroup);
 
 // // render index page
 // router.get("/", function (req, res) {
