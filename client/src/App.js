@@ -96,10 +96,13 @@ function App() {
                 <UserInfo history={props.history}/>
               )}/>
               <Route exact path="/home" render={(props) => (
-                <Home getUserId={getUserId} />
+                <Home getUserId={getUserId} history={props.history}/>
               )} />
               
-              <Route exact path="/shopping" component={Shopping} />
+              <Route exact path="/shopping" render={(props) => (
+                <Shopping getUserId={getUserId} history={props.history}/>
+                )} />
+                
               <Route exact path="/about" component={About} />
             </Switch>
 
