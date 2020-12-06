@@ -25,7 +25,7 @@ export const sendMessage = (room, message) => {
   console.log("message sent")
 }
 export const goShopping = (room, storeMessage) => {
-  if (socket) socket.emit('go-shopping', {room, storeMessage });
+  if (socket) socket.emit('shopping', {room, storeMessage });
   console.log("new shopping trip")
 }
 // export const handleTyping = (room, message) =>{

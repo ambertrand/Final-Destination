@@ -49,6 +49,11 @@ const initializeSocketio = (server) => {
             console.log(`msg: ${message}, room: ${room}`);
             io.to(room).emit('chat', message);
         });
+        socket.on('shopping', (data) => {
+            const { storeMessage, room } = data;
+            console.log(`msg: ${storeMessage}, room: ${room}`);
+            io.to(room).emit('shopping', storeMessage);
+        });
         // socket.on('typing', (data) => {
         //     const { typing, room } = data;
         //     console.log(`msg: ${typing}, room: ${room}`);
