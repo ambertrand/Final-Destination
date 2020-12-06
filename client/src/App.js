@@ -16,14 +16,10 @@ import { useAuth0 } from '@auth0/auth0-react';
 import BackgroundImage from './assets/GroceryStore.jpg';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
-<<<<<<< HEAD
-import context from './components/providers/userProfileProvider/context';
-=======
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 // import { useHistory } from "react-router-dom"
 // import ProtectedRoute from "./auth/protected-route";
->>>>>>> 4582dae4bdfa86918568b881b9d8c42486deb19c
 
 
 library.add(fab)

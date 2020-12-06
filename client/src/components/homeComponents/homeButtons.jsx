@@ -1,9 +1,5 @@
 import React, { useState } from 'react';
-<<<<<<< HEAD
-import axios from 'axios'
-=======
 import axios from 'axios';
->>>>>>> 4582dae4bdfa86918568b881b9d8c42486deb19c
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Modal from 'react-bootstrap/Modal';
@@ -32,26 +28,11 @@ function HomeButtons(event) {
     // const handleViewStoreClose = () => setShowViewStoreModal(false);
 
     const newGroup = () => {
-<<<<<<< HEAD
-        console.log("the group name is " + groupName);
-        setShowCreateModal(false)
-        // let newGroup = `INSERT into groups (group_name) VALUES ('groupName')`;
-        // connection.query(newGroup), function (err) {
-        //   if (err) throw err;
-        // };
-        axios.post('/api/groups', { group_name: groupName })
-        //doesn't seem to get to the response
-            .then(response => {
-                console.log(response)
-            })
-            .catch(err => console.log(err))
-=======
         console.log(groupName);
         axios.post("/api/groups", { group_name: groupName })
             .then(res => {
                 console.log(res)
             }).catch(err => console.log(err));
->>>>>>> 4582dae4bdfa86918568b881b9d8c42486deb19c
     }
 
     const viewGroups = (groupName) => {
@@ -62,11 +43,7 @@ function HomeButtons(event) {
     return (
         <Container className="greyBox">
             <Row className="teams">
-<<<<<<< HEAD
-                <Col sm={12} md={3}>
-=======
                 <Col sm={12} md={4}>
->>>>>>> 4582dae4bdfa86918568b881b9d8c42486deb19c
 
                     {/* Create Group */}
                     <Row>
