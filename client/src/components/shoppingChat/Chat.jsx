@@ -86,12 +86,15 @@ function Chat() {
                 {shopping.map((m, i) => <h1 key={i}>{m}</h1>)}
             </div> */}
             {/* <button onClick={() => newShoppingTrip()}>Go Shopping</button> */}
-            <form onSubmit={handleSubmit}>
-                <input type="text" defaultValue="" placeholder="Store"
-                    onChange={() => setStore(storeRef.current.value)} ref={storeRef}>
-                </input>
-                <button onClick={() => goShopping(room, user.name + " is going to: " + storeRef.current.value)}>Go Shopping</button>
-            </form>
+            <div className="text-center"id="storeForm">
+                <form onSubmit={handleSubmit}>
+
+                    <button id="goShopping" onClick={() => goShopping(room, user.name + " is going to: " + storeRef.current.value)}>Go Shopping</button>
+                    <input id="storeInput" type="text" defaultValue="" placeholder="Store"
+                        onChange={() => setStore(storeRef.current.value)} ref={storeRef}>
+                    </input>
+                </form>
+            </div>
 
             <div id="list-chat">
                 <div id="chat-window">
