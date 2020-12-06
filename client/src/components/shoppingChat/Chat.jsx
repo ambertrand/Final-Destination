@@ -3,14 +3,15 @@ import { initiateSocket, disconnectSocket, subscribeToChat, handleTyping, sendMe
 import "./listStyle.css";
 import { useAuth0 } from '@auth0/auth0-react';
 import Shopping from "../../views/ShoppingList";
+import { Store } from "express-session";
 
 
 function Chat() {
     const { user } = useAuth0();
     //const rooms = ['1', '2'];
     //const { rooms }  = useAuth0();
-    //const rooms = ["Default", "Test"];
-    const rooms = ["Default", "Test", user.group_name];
+    const rooms = ["Default", "Test"];
+    //const rooms = ["Default", "Test", user.group_name];
     const [myList, setList] = useState([]);
     const messageRef = useRef(null);
     const storeRef = useRef(null);
@@ -37,24 +38,25 @@ function Chat() {
         messageRef.current.value = "";
         // Or you can reset your form element to its default values
         // e.currentTarget.reset();
+        storeRef.current.value = "";
     }
     //does nothing atm
-    const handleTyping = () => {
-        setMessage()
-        //want to put room but if I put room, message it just displays the room number
-        setTyping(user.name + ": is typing")
-        console.log(typing)
-    }
-    const newShoppingTrip = () => {
-        console.log("New shopping trip started")
-        let newStore = "New Store";
-        let newShopper = user.name;
-        setStore(newStore)
-        setShopper(newShopper)
-        console.log(store)
-        setStoreMessage(newShopper + " is going to: " + newStore)
-        goShopping(room, newShopper + " is going to: " + newStore)
-    }
+    // const handleTyping = () => {
+    //     setMessage()
+    //     //want to put room but if I put room, message it just displays the room number
+    //     setTyping(user.name + ": is typing")
+    //     console.log(typing)
+    // }
+    // const newShoppingTrip = () => {
+    //     console.log("New shopping trip started")
+    //     let newStore = "New Store";
+    //     let newShopper = user.name;
+    //     setStore(newStore)
+    //     setShopper(newShopper)
+    //     console.log(store)
+    //     setStoreMessage(newShopper + " is going to: " + newStore)
+    //     goShopping(room, newShopper + " is going to: " + newStore)
+    // }
     useEffect(() => {
         if (room) initiateSocket(room);
         subscribeToChat((err, data) => {
@@ -79,18 +81,24 @@ function Chat() {
                     //onChange={() => sendMessage(room, user.name + " Joined Group" + room)} 
                     onClick={() => setRoom(r)} key={i}>{r}
                 </button>)}
-            <h1>{storeMessage}</h1>
+            {/* <h1>{storeMessage}</h1> */}
             {/* <div id="storeMessage">
                 {shopping.map((m, i) => <h1 key={i}>{m}</h1>)}
             </div> */}
-            <button onClick={() => newShoppingTrip()}>Go Shopping</button>
-            <button onClick={() => goShopping(room, "Shopper is going to: Store")}>Go Shopping (Emit)</button>
+            {/* <button onClick={() => newShoppingTrip()}>Go Shopping</button> */}
+            <form onSubmit={handleSubmit}>
+                <input type="text" defaultValue="" placeholder="Store"
+                    onChange={() => setStore(storeRef.current.value)} ref={storeRef}>
+                </input>
+                <button onClick={() => goShopping(room, user.name + " is going to: " + storeRef.current.value)}>Go Shopping</button>
+            </form>
+
             <div id="list-chat">
                 <div id="chat-window">
                     <div id="output" >
                         {chat.map((m, i) => <p key={i}>{m}<input class="checkbox" type="checkbox"></input></p>)}
                     </div>
-                    <div id="feedback" >{typing}</div>
+                    {/* <div id="feedback" >{typing}</div> */}
                 </div>
                 <form onSubmit={handleSubmit}>
                     <input id="message" autoComplete="off" type="text"
