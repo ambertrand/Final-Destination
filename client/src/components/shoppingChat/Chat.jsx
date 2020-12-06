@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
-import { initiateSocket, disconnectSocket, subscribeToChat, handleTyping, sendMessage } from "../../utils/socket/socket";
+import { initiateSocket, disconnectSocket, subscribeToChat, handleTyping, sendMessage, goShopping } from "../../utils/socket/socket";
 import "./listStyle.css";
 import { useAuth0 } from '@auth0/auth0-react';
 
@@ -8,15 +8,19 @@ function Chat() {
     const { user } = useAuth0();
     //const rooms = ['1', '2'];
     //const { rooms }  = useAuth0();
-    const rooms = ["Default", "Test", user.group_name];
+    const rooms = ["Default", "Test"];
+    //const rooms = ["Default", "Test", user.group_name];
     const [myList, setList] = useState([]);
     const messageRef = useRef(null);
+    const storeRef = useRef(null);
     //const [userName, setUserName] = useState(user.nickname);
     //const store = "Store"
     //const storeMessage = user.name + " is going to " + store;
+     //shopper
+     const [shopper, setShopper] = useState("Shopper")
     //store and store message
     const [store, setStore] = useState("Store")
-    const [storeMessage, setStoreMessage] = useState(user.name + " is going to " + store)
+    const [storeMessage, setStoreMessage] = useState(shopper + " is going to: " + store)
     //rooms 
     const [room, setRoom] = useState(rooms[0]);
     //const [room, setRoom] = useState(rooms);
@@ -37,8 +41,18 @@ function Chat() {
     const handleTyping = () => {
         setMessage()
         //want to put room but if I put room, message it just displays the room number
-        setTyping("" + user.name + ": is typing")
+        setTyping(user.name + ": is typing")
         console.log(typing)
+    }
+    const newShoppingTrip = () =>{
+        console.log("New shopping trip started")
+        let newStore = "New Store";
+        let newShopper = user.name;
+        setStore(newStore)
+        setShopper(newShopper)
+        console.log(store)
+        setStoreMessage(newShopper + " is going to: " + newStore)
+        goShopping(room, newShopper + " is going to: " + newStore)
     }
     useEffect(() => {
         if (room) initiateSocket(room);
@@ -65,6 +79,7 @@ function Chat() {
                     onClick={() => setRoom(r)} key={i}>{r}
                 </button>)}
             <h1>{storeMessage}</h1>
+            <button onClick={() => newShoppingTrip()}>Go Shopping</button>
             <div id="list-chat">
                 <div id="chat-window">
                     <div id="output" >
