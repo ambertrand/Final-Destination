@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -20,7 +20,8 @@ function HomeButtons(event) {
     const [showViewModal, setShowViewModal] = useState(false);
     // const [showViewStoreModal, setShowViewStoreModal] = useState(false);
     const [groupName, setGroupName] = useState("");
-
+    const [groups, setGroups] = useState({});
+    const [isFetching, setIsFetching] = useState(true);
 
     const handleClose = () => setShowCreateModal(false);
     const handleShow = () => setShowCreateModal(true);
@@ -35,10 +36,15 @@ function HomeButtons(event) {
             }).catch(err => console.log(err));
     }
 
-    const viewGroups = (groupName) => {
-        return axios.get(`/api/groups/${groupName}`);
-        
-    }
+
+    useEffect(() => {
+        axios.get("/api/groups")
+            .then(response => {
+                setGroups(response.data)
+                console.log(response);
+                setIsFetching(false);
+            })
+    }, [])
 
     return (
         <Container className="greyBox">
@@ -100,7 +106,7 @@ function HomeButtons(event) {
                             </Modal.Header>
 
                             <Modal.Body>
-                                {viewGroups}
+                                {isFetching ? (<div>Loading</div>) : (groups.map(group => (<div>{group.group_name}</div>)))}
                             </Modal.Body>
 
                             <Modal.Footer>
