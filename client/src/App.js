@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Navigation from './components/layout/navigation/Navbar';
 import UserInfo from "./views/UserInfo";
@@ -10,16 +10,20 @@ import Footer from "./components/layout/footer/Footer";
 import userContext from './components/form/userContext';
 import UserProfileProvider from './components/providers/userProfileProvider/Provider';
 import getUserInfo from './components/form/getUserInfo';
+// import context from './components/providers/userProfileProvider/context';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { useAuth0 } from '@auth0/auth0-react';
 import BackgroundImage from './assets/GroceryStore.jpg';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './App.css';
-
-
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
+<<<<<<< HEAD
 import context from './components/providers/userProfileProvider/context';
+=======
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css';
+// import { useHistory } from "react-router-dom"
+// import ProtectedRoute from "./auth/protected-route";
+>>>>>>> 4582dae4bdfa86918568b881b9d8c42486deb19c
 
 
 library.add(fab)
@@ -51,10 +55,10 @@ function App() {
   // const { setUserProfile } = useContext(context);
   const { user, isAuthenticated } = useAuth0();
 
+
   useEffect(() => {
     if (isAuthenticated) {
-
-      console.log(user);
+      // console.log(user);
       axios.post("/api/users/onAuthenticated", user)
         .then(function (response) {
           // console.log(response);
@@ -65,9 +69,16 @@ function App() {
           console.log(response);
           console.log("new response above");
           setUserProfile(response.data)
+          // history.push('/home')
         })
-
-    }
+      }
+    //     .catch(err => {
+    //       // history.push("/")
+    //     })
+    // } else {
+    //    history.push("/")
+    // }
+    console.log("if authenticated is shown below");
     console.log(isAuthenticated);
   }, [isAuthenticated, user]);
 
@@ -80,12 +91,20 @@ function App() {
             <Navigation />
 
             <Switch>
-              <Route exact path="/" component={LandingPage} />
+              <Route exact path="/" render={(props) => (
+                <LandingPage history={props.history}/>
+              )}/>
+              <Route exact path="/userinfo" render={(props) => (
+                <UserInfo history={props.history}/>
+              )}/>
               <Route exact path="/home" render={(props) => (
-                <Home getUserId={getUserId} />
+                <Home getUserId={getUserId} history={props.history}/>
               )} />
-              <Route exact path="/userinfo" component={UserInfo} />
-              <Route exact path="/shopping" component={Shopping} />
+              
+              <Route exact path="/shopping" render={(props) => (
+                <Shopping getUserId={getUserId} history={props.history}/>
+                )} />
+
               <Route exact path="/about" component={About} />
             </Switch>
 

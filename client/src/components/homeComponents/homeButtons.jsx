@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
+<<<<<<< HEAD
 import axios from 'axios'
+=======
+import axios from 'axios';
+>>>>>>> 4582dae4bdfa86918568b881b9d8c42486deb19c
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Modal from 'react-bootstrap/Modal';
@@ -10,25 +14,25 @@ import Image from "react-bootstrap/Image";
 import addgroup from '../../assets/addgroup.png';
 import viewgroups from '../../assets/viewgroups.png';
 import editinfo from '../../assets/editinfo.png';
-import stores from '../../assets/stores.png';
+// import stores from '../../assets/stores.png';
 
-// import newGroup from './createGroup';
 
 
 function HomeButtons(event) {
 
     const [showCreateModal, setShowCreateModal] = useState(false);
     const [showViewModal, setShowViewModal] = useState(false);
-    const [showViewStoreModal, setShowViewStoreModal] = useState(false);
+    // const [showViewStoreModal, setShowViewStoreModal] = useState(false);
     const [groupName, setGroupName] = useState("");
 
 
     const handleClose = () => setShowCreateModal(false);
     const handleShow = () => setShowCreateModal(true);
     const handleViewClose = () => setShowViewModal(false);
-    const handleViewStoreClose = () => setShowViewStoreModal(false);
+    // const handleViewStoreClose = () => setShowViewStoreModal(false);
 
     const newGroup = () => {
+<<<<<<< HEAD
         console.log("the group name is " + groupName);
         setShowCreateModal(false)
         // let newGroup = `INSERT into groups (group_name) VALUES ('groupName')`;
@@ -41,13 +45,28 @@ function HomeButtons(event) {
                 console.log(response)
             })
             .catch(err => console.log(err))
+=======
+        console.log(groupName);
+        axios.post("/api/groups", { group_name: groupName })
+            .then(res => {
+                console.log(res)
+            }).catch(err => console.log(err));
+>>>>>>> 4582dae4bdfa86918568b881b9d8c42486deb19c
     }
 
+    const viewGroups = (groupName) => {
+        return axios.get(`/api/groups/${groupName}`);
+        
+    }
 
     return (
-        <Container>
+        <Container className="greyBox">
             <Row className="teams">
+<<<<<<< HEAD
                 <Col sm={12} md={3}>
+=======
+                <Col sm={12} md={4}>
+>>>>>>> 4582dae4bdfa86918568b881b9d8c42486deb19c
 
                     {/* Create Group */}
                     <Row>
@@ -56,7 +75,7 @@ function HomeButtons(event) {
                         </Col>
                     </Row>
                     <Row>
-                        <Col>
+                        <Col className="text-center">
                             <Button type="submit" className="choice m-2" id="createTeam" onClick={() => setShowCreateModal(true)} >Create Group</Button>
                         </Col>
 
@@ -87,14 +106,14 @@ function HomeButtons(event) {
                 </Col>
 
                 {/* View Group  */}
-                <Col sm={12} md={3}>
+                <Col sm={12} md={4}>
                     <Row>
                         <Col className="text-center">
                             <Image className="iconImg" src={viewgroups} />
                         </Col>
                     </Row>
                     <Row>
-                        <Col>
+                        <Col className="text-center">
                             <Button type="submit" className="choice m-2" id="viewTeams" onClick={() => setShowViewModal(true)}>View Groups</Button>
                         </Col>
 
@@ -104,7 +123,7 @@ function HomeButtons(event) {
                             </Modal.Header>
 
                             <Modal.Body>
-                                <p>Populated Groups</p>
+                                {viewGroups}
                             </Modal.Body>
 
                             <Modal.Footer>
@@ -115,21 +134,21 @@ function HomeButtons(event) {
                 </Col>
 
                 {/* Go Shopping */}
-                <Col sm={12} md={3}>
+                <Col sm={12} md={4}>
                     <Row>
                         <Col className="text-center">
                             <Image className="iconImg" src={editinfo} />
                         </Col>
                     </Row>
                     <Row>
-                        <Col>
+                        <Col className="text-center">
                             <Button type="submit" className="choice m-2" id="updateUserProfile">Shopping</Button>
                         </Col>
                     </Row>
                 </Col>
 
-                {/* View Group Stores */}
-                <Col sm={12} md={3}>
+                {/* View Group Stores - Future development */}
+                {/* <Col sm={12} md={3}>
                     <Row>
                         <Col className="text-center">
                             <Image className="iconImg" src={stores} />
@@ -154,7 +173,7 @@ function HomeButtons(event) {
                             </Modal.Footer>
                         </Modal>
                     </Row>
-                </Col>
+                </Col> */}
             </Row>
         </Container>
     )
