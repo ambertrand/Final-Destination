@@ -60,7 +60,7 @@ function UserForm() {
     return (
         <div className="userInfoPad">
             {/* {console.log(userId)} */}
-            <Row className="justify-content-center">
+            <Row className="justify-content-center greyBox">
                 {/* User image */}
                 <Col xs="12" md="4">
                     <Card className="m-3 profileImage">
