@@ -29,10 +29,10 @@ function HomeButtons(event) {
     // const handleViewStoreClose = () => setShowViewStoreModal(false);
 
     const newGroup = () => {
-        console.log(groupName);
+        // console.log(groupName);
         axios.post("/api/groups", { group_name: groupName })
             .then(res => {
-                console.log(res)
+                // console.log(res)
             }).catch(err => console.log(err));
     }
 
