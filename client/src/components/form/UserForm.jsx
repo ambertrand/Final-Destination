@@ -16,15 +16,16 @@ import Card from 'react-bootstrap/Card';
 function UserForm() {
     const { user } = useAuth0();
     const { userProfile, setUserProfile } = useContext(context);
-    console.log(userProfile);
+    // console.log(userProfile);
     const [userName, setUserName] = useState(userProfile.username);
 
     // const [userPhoto, setUserPhoto] = useState("");
-    // const [userFirstName, setUserFirstName] = useState("");
+    const [userFirstName, setUserFirstName] = useState(userProfile.first_name);
+    const [userLastName, setUserLastName] = useState(userProfile.last_name);
 
-    const [email, setEmail] = useState(userProfile.email);
+    // const [email, setEmail] = useState(userProfile.email);
     const [groupName, setGroupName] = useState(userProfile.group_name);
-    const [groupRole, setGroupRole] = useState(userProfile.shopper);
+    // const [groupRole, setGroupRole] = useState(userProfile.shopper);
     const userId = useContext(userContext);
 
     // let shopperOrGroupMember = "";
@@ -49,8 +50,8 @@ function UserForm() {
         axios.get("/api/groups")
             .then(response => {
                 setGroups(response.data);
-                console.log("user groups below");
-                console.log(response);
+                // console.log("user groups below");
+                // console.log(response);
                 setIsFetching(false);
             })
     }, [])
@@ -58,7 +59,7 @@ function UserForm() {
 
     return (
         <div className="userInfoPad">
-            {console.log(userId)}
+            {/* {console.log(userId)} */}
             <Row className="justify-content-center">
                 {/* User image */}
                 <Col xs="12" md="4">
@@ -77,38 +78,40 @@ function UserForm() {
                         <form>
                             <label>
                                 Username:
-                                {console.log(userProfile.username)}
                                 <input type="text" defaultValue={userProfile.username} name="userName" onChange={(event) => setUserName(event.target.value)} />
                             </label>
                             <label>
-                                Email:
-                                <h6>{userProfile.email}</h6>
+                                Group name:
+                                <select id="groupName" onChange={(event) => setGroupName(event.target.value)}>
+                                    <option value="0">{userProfile.group_name}</option>
+                                    {isFetching ? (<option>Loading</option>) : (groups.map(group => (<option key={group.group_name} value={group.group_name}>{group.group_name}</option>)))}
+                                </select>
+                            </label>
+                            <label>
+                                First Name:
+                                <input type="text" defaultValue={userProfile.first_name} name="firstName" onChange={(event) => setUserFirstName(event.target.value)} />
                                 {/* type="text" defaultValue= id="email" onChange={(event) => setEmail(event.target.value)} /> */}
                             </label>
                             <label>
-                                Group name:&nbsp;
-                                {/* <input type="text" placeholder={user.email} id="email" /> */}
-                                <select id="groupName" onChange={(event) => setGroupName(event.target.value)}>
-                                    <option value="0">{userProfile.group_name}</option>
-                                    {isFetching ? (<option>Loading</option>) : (groups.map(group => (<option value={group.group_name}>{group.group_name}</option>)))}
-                                </select>
+                                Last Name:
+                                <input type="text" defaultValue={userProfile.last_name} name="lastName" onChange={(event) => setUserLastName(event.target.value)} />
                             </label>
-                            <label>
+                            {/* <label>
                                 Group role:&nbsp;
                                 <select id="isShopper" onChange={(event) => setGroupRole(event.target.value)}>
-                                    {/* <option>{shopperOrGroupMember}</option> */}
+                                    <option>{shopperOrGroupMember}</option>
                                     <option value={true}>Shopper</option>
                                     <option value={false}>Group Member</option>
                                 </select>
-                            </label>
+                            </label> */}
                             <Row className="justify-content-center">
                                 <Col sm="auto">
                                     <Button type="submit" className="mb-2" id="updateUserInfo" onClick={event => userInfo(event, userId,
                                         {
                                             userName,
-                                            email,
                                             groupName,
-                                            groupRole
+                                            userFirstName,
+                                            userLastName
                                         }
                                     )}>
                                         Update Profile Info

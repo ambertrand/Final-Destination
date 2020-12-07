@@ -61,8 +61,8 @@ function App() {
           getUserId(response.data[0].id);
           return getUserInfo(response.data[0].id);
         }).then(function (response) {
-          console.log(response);
-          console.log("new response above");
+          // console.log(response);
+          // console.log("new response above");
           setUserProfile(response.data);
           // setGroupNames(response.data);
           // history.push('/home')
@@ -74,8 +74,8 @@ function App() {
     // } else {
     //    history.push("/")
     // }
-    console.log("if authenticated is shown below");
-    console.log(isAuthenticated);
+    // console.log("if authenticated is shown below");
+    // console.log(isAuthenticated);
   }, [isAuthenticated, user]);
 
   return (
