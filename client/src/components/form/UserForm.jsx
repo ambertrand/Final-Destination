@@ -54,11 +54,11 @@ function UserForm() {
                 // console.log(response);
                 setIsFetching(false);
             })
-    }, [])
+    }, []);
 
 
     return (
-        <div className="userInfoPad">
+        <div className="userInfoPad pt-5">
             {/* {console.log(userId)} */}
             <Row className="justify-content-center greyBox">
                 {/* User image */}
