@@ -41,7 +41,7 @@ function UserForm() {
     //         shopperOrGroupMember === "Please select group role";
     //     }
     // }
-    
+
     // userRole();
     const [groups, setGroups] = useState({});
     const [isFetching, setIsFetching] = useState(true);
@@ -65,9 +65,9 @@ function UserForm() {
                 <Col xs="12" md="4">
                     <Card className="m-3 profileImage">
                         <Card.Img variant="top" src={userProfile.picture} alt={userProfile.first_name} className="img-responsive" width="60px" max-height="100px" />
-                        {/* <Card.Body >
-                            <h4>{`${userProfile.first_name} ${userProfile.last_name}`}</h4>
-                        </Card.Body> */}
+                        <Card.Body >
+                            <h5>{`Shopping group: ${userProfile.group_name}`}</h5>
+                        </Card.Body>
                     </Card>
                 </Col>
 
@@ -76,17 +76,6 @@ function UserForm() {
                     <Card className="bg-light m-3">
                         {/* https://reactjs.org/docs/forms.html */}
                         <form>
-                            <label>
-                                Username:
-                                <input type="text" defaultValue={userProfile.username} name="userName" onChange={(event) => setUserName(event.target.value)} />
-                            </label>
-                            <label>
-                                Group name:
-                                <select id="groupName" onChange={(event) => setGroupName(event.target.value)}>
-                                    <option value="0">{userProfile.group_name}</option>
-                                    {isFetching ? (<option>Loading</option>) : (groups.map(group => (<option key={group.group_name} value={group.group_name}>{group.group_name}</option>)))}
-                                </select>
-                            </label>
                             <label>
                                 First Name:
                                 <input type="text" defaultValue={userProfile.first_name} name="firstName" onChange={(event) => setUserFirstName(event.target.value)} />
@@ -104,6 +93,21 @@ function UserForm() {
                                     <option value={false}>Group Member</option>
                                 </select>
                             </label> */}
+                            <label>
+                                Username:
+                                <input type="text" defaultValue={userProfile.username} name="userName" onChange={(event) => setUserName(event.target.value)} />
+                            </label>
+                            <label>
+                                All groups:
+                                <select id="groupName" onChange={(event) => setGroupName(event.target.value)}>
+                                    {isFetching ? (<option>Loading</option>) : (groups.map(group => (<option key={group.group_name} value={group.group_name}>{group.group_name}</option>)))}
+                                </select>
+                            </label>
+                            <Row className="justify-content-center">
+                                <Col sm="auto">
+                                    <p>Select group from "All groups" if you would like to join a new group.</p>
+                                </Col>
+                            </Row>
                             <Row className="justify-content-center">
                                 <Col sm="auto">
                                     <Button type="submit" className="mb-2" id="updateUserInfo" onClick={event => userInfo(event, userId,
