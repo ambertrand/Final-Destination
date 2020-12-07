@@ -13,7 +13,7 @@
  Our application allows a user to log in or create an account, create a group as well as view their groups and most importantly alert other group members that they are going shopping at a particular store.  The other group members can then add items to the shoppers list in real time so that the shopper can get all the needed items in one trip!
 
 ## Heroku Deployment
-[While Youre There](https://while-youre-there.herokuapp.com/)
+[While You're There](https://while-youre-there.herokuapp.com/)
 
 ## Screenshots
 ![landing screenshot](https://user-images.githubusercontent.com/65721950/101302783-91178c00-380a-11eb-9432-186a4b7e86c6.png)
@@ -29,6 +29,7 @@
 
 
 # Future Developments
+* Seperate user roles further to show different views based on the role the user chooses 
 * Allow user to be able to add multiple stores on one trip.
 * Group members will be able to see when their item has been marked completed by the shopper
 * Use a recipe API to recommend to the group recipe's to make based on their shopping items
