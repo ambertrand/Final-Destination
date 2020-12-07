@@ -8,13 +8,15 @@
 
 
 # Description
- 
+ Have you ever gone shopping for someone and forgot something?  We definitely have!  Now with Covid-19 it is more important than ever to remember shopping items in one trip.  Which is exactly what brought us to the idea for While You're There.
+
+ Our application allows a user to log in or create an account, create a group as well as view their groups and most importantly alert other group members that they are going shopping at a particular store.  The other group members can then add items to the shoppers list in real time so that the shopper can get all the needed items in one trip!
 
 ## Heroku Deployment
-[While Youre There]()
+[While Youre There](https://while-youre-there.herokuapp.com/)
 
 ## Screenshots
-
+![landing screenshot](https://user-images.githubusercontent.com/65721950/101302783-91178c00-380a-11eb-9432-186a4b7e86c6.png)
 
 # Technologies
 
@@ -25,8 +27,11 @@
 | Auth0          | Sequelize     |
 | Socket.io      | Express       |
 
-# Future Developments
 
+# Future Developments
+* Allow user to be able to add multiple stores on one trip.
+* Group members will be able to see when their item has been marked completed by the shopper
+* Use a recipe API to recommend to the group recipe's to make based on their shopping items
 
 # Contributors
 * [Alex Bertrand](https://github.com/ambertrand)
