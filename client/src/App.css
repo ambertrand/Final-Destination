@@ -19,7 +19,7 @@ img.shoppingLogo {
   border-radius: 5px;
 }
 
-Button#updateUserInfo {
+Button#updateUserInfo, Button.groupButton, Button.goShopping {
   background-color:#a9d7a9;
   border-color: #a9d7a9;
   color: #000000;
@@ -64,14 +64,14 @@ Button.choice {
 }
 
 .userInfoPad {
-  padding-top: 150px;
+  padding-top: 10%;
 }
 
 @media screen and (max-width: 375px) {
   .carouselPad {
     padding-top: 0px;
   }
-  .userInfoPad {
+  /* .userInfoPad {
     padding-top: 0px;
-  }
+  } */
 }

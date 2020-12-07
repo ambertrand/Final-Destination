@@ -41,7 +41,7 @@ function HomeButtons(event) {
         axios.get("/api/groups")
             .then(response => {
                 setGroups(response.data)
-                console.log(response);
+                // console.log(response);
                 setIsFetching(false);
             })
     }, [])

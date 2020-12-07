@@ -6,7 +6,7 @@ import { useAuth0 } from '@auth0/auth0-react';
 function Home({ history }) {
     const { isAuthenticated } = useAuth0();
     React.useEffect(() => {
-        console.log(isAuthenticated);
+        // console.log(isAuthenticated);
         if (!isAuthenticated) {
             history.push("/")
         }
