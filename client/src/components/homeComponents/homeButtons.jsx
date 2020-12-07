@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -9,7 +9,7 @@ import Image from "react-bootstrap/Image";
 //  Buttons
 import addgroup from '../../assets/addgroup.png';
 import viewgroups from '../../assets/viewgroups.png';
-import editinfo from '../../assets/editinfo.png';
+// import editinfo from '../../assets/editinfo.png';
 // import stores from '../../assets/stores.png';
 
 
@@ -20,7 +20,8 @@ function HomeButtons(event) {
     const [showViewModal, setShowViewModal] = useState(false);
     // const [showViewStoreModal, setShowViewStoreModal] = useState(false);
     const [groupName, setGroupName] = useState("");
-
+    const [groups, setGroups] = useState({});
+    const [isFetching, setIsFetching] = useState(true);
 
     const handleClose = () => setShowCreateModal(false);
     const handleShow = () => setShowCreateModal(true);
@@ -35,15 +36,20 @@ function HomeButtons(event) {
             }).catch(err => console.log(err));
     }
 
-    const viewGroups = (groupName) => {
-        return axios.get(`/api/groups/${groupName}`);
-        
-    }
+
+    useEffect(() => {
+        axios.get("/api/groups")
+            .then(response => {
+                setGroups(response.data)
+                console.log(response);
+                setIsFetching(false);
+            })
+    }, [])
 
     return (
         <Container className="greyBox">
             <Row className="teams">
-                <Col sm={12} md={4}>
+                <Col sm={12} md={6}>
 
                     {/* Create Group */}
                     <Row>
@@ -53,7 +59,7 @@ function HomeButtons(event) {
                     </Row>
                     <Row>
                         <Col className="text-center">
-                            <Button type="submit" className="choice m-2" id="createTeam" onClick={() => setShowCreateModal(true)} >Create Group</Button>
+                            <Button type="submit" className="choice m-2" id="createTeam" onClick={() => handleShow(true)} >Create Group</Button>
                         </Col>
 
                         <Modal show={showCreateModal} onHide={handleClose}>
@@ -83,7 +89,7 @@ function HomeButtons(event) {
                 </Col>
 
                 {/* View Group  */}
-                <Col sm={12} md={4}>
+                <Col sm={12} md={6}>
                     <Row>
                         <Col className="text-center">
                             <Image className="iconImg" src={viewgroups} />
@@ -100,7 +106,7 @@ function HomeButtons(event) {
                             </Modal.Header>
 
                             <Modal.Body>
-                                {viewGroups}
+                                {isFetching ? (<div>Loading</div>) : (groups.map(group => (<div>{group.group_name}</div>)))}
                             </Modal.Body>
 
                             <Modal.Footer>
@@ -110,8 +116,8 @@ function HomeButtons(event) {
                     </Row>
                 </Col>
 
-                {/* Go Shopping */}
-                <Col sm={12} md={4}>
+                {/* Go Shopping  - Future development*/}
+                {/* <Col sm={12} md={4}>
                     <Row>
                         <Col className="text-center">
                             <Image className="iconImg" src={editinfo} />
@@ -122,7 +128,7 @@ function HomeButtons(event) {
                             <Button type="submit" className="choice m-2" id="updateUserProfile">Shopping</Button>
                         </Col>
                     </Row>
-                </Col>
+                </Col> */}
 
                 {/* View Group Stores - Future development */}
                 {/* <Col sm={12} md={3}>
