@@ -12,6 +12,9 @@ module.exports = function(sequelize, DataTypes) {
         },
         group_name: {
             type: DataTypes.STRING
+        },
+        chat_message: {
+            type: DataTypes.JSON
         }
     });
     return Group;
