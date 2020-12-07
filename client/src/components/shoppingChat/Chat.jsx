@@ -1,19 +1,29 @@
 import React, { useEffect, useState, useRef } from "react";
-import { initiateSocket, disconnectSocket, subscribeToChat, handleTyping, sendMessage } from "../../utils/socket/socket";
+import { initiateSocket, disconnectSocket, subscribeToChat, handleTyping, sendMessage, goShopping } from "../../utils/socket/socket";
 import "./listStyle.css";
 import { useAuth0 } from '@auth0/auth0-react';
+import Shopping from "../../views/ShoppingList";
+import { Store } from "express-session";
 
 
 function Chat() {
     const { user } = useAuth0();
     //const rooms = ['1', '2'];
     //const { rooms }  = useAuth0();
-    const rooms = ["Default", "Test", user.group_name];
+    const rooms = ["Default", "Test"];
+    //const rooms = ["Default", "Test", user.group_name];
     const [myList, setList] = useState([]);
     const messageRef = useRef(null);
+    const storeRef = useRef(null);
     //const [userName, setUserName] = useState(user.nickname);
-    const store = "Store"
-    const storeMessage = user.name + " is going to " + store;
+    //const store = "Store"
+    //const storeMessage = user.name + " is going to " + store;
+    //shopper
+    const [shopper, setShopper] = useState("Shopper")
+    //store and store message
+    const [store, setStore] = useState("Store")
+    const [storeMessage, setStoreMessage] = useState(shopper + " is going to: " + store)
+    //rooms 
     const [room, setRoom] = useState(rooms[0]);
     //const [room, setRoom] = useState(rooms);
     //const [room, setRoom] = useState(user.group_name);
@@ -28,14 +38,25 @@ function Chat() {
         messageRef.current.value = "";
         // Or you can reset your form element to its default values
         // e.currentTarget.reset();
+        storeRef.current.value = "";
     }
     //does nothing atm
-    const handleTyping = () => {
-        setMessage()
-        //want to put room but if I put room, message it just displays the room number
-        setTyping("" + user.name + ": is typing")
-        console.log(typing)
-    }
+    // const handleTyping = () => {
+    //     setMessage()
+    //     //want to put room but if I put room, message it just displays the room number
+    //     setTyping(user.name + ": is typing")
+    //     console.log(typing)
+    // }
+    // const newShoppingTrip = () => {
+    //     console.log("New shopping trip started")
+    //     let newStore = "New Store";
+    //     let newShopper = user.name;
+    //     setStore(newStore)
+    //     setShopper(newShopper)
+    //     console.log(store)
+    //     setStoreMessage(newShopper + " is going to: " + newStore)
+    //     goShopping(room, newShopper + " is going to: " + newStore)
+    // }
     useEffect(() => {
         if (room) initiateSocket(room);
         subscribeToChat((err, data) => {
@@ -50,23 +71,37 @@ function Chat() {
     return (
         <div>
             <h1
-                //won't send message
-                // onChange={() => setMessage(user.name + " Joined Group" + room)}
-                // onChange={() => sendMessage(room, user.name + " Joined Group" + room)}
-                onChange={console.log("room changed")}
+            //won't send message
+            // onChange={() => setMessage(user.name + " Joined Group" + room)}
+            // onChange={() => sendMessage(room, user.name + " Joined Group" + room)}
+            // onChange={console.log("room changed")}
             >Group: {room}</h1>
             { rooms.map((r, i) =>
                 <button
                     //onChange={() => sendMessage(room, user.name + " Joined Group" + room)} 
                     onClick={() => setRoom(r)} key={i}>{r}
                 </button>)}
-            <h1>{storeMessage}</h1>
+            {/* <h1>{storeMessage}</h1> */}
+            {/* <div id="storeMessage">
+                {shopping.map((m, i) => <h1 key={i}>{m}</h1>)}
+            </div> */}
+            {/* <button onClick={() => newShoppingTrip()}>Go Shopping</button> */}
+            <div className="text-center"id="storeForm">
+                <form onSubmit={handleSubmit}>
+
+                    <button id="goShopping" onClick={() => goShopping(room, user.name + " is going to: " + storeRef.current.value)}>Go Shopping</button>
+                    <input id="storeInput" type="text" defaultValue="" placeholder="Store"
+                        onChange={() => setStore(storeRef.current.value)} ref={storeRef}>
+                    </input>
+                </form>
+            </div>
+
             <div id="list-chat">
                 <div id="chat-window">
                     <div id="output" >
                         {chat.map((m, i) => <p key={i}>{m}<input class="checkbox" type="checkbox"></input></p>)}
                     </div>
-                    <div id="feedback" >{typing}</div>
+                    {/* <div id="feedback" >{typing}</div> */}
                 </div>
                 <form onSubmit={handleSubmit}>
                     <input id="message" autoComplete="off" type="text"
