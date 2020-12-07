@@ -27,10 +27,10 @@ function AboutUs() {
                                     Some quick example text to build on the card title and make up the bulk of
                                     the card's content.
                             </Card.Text>
-                                <Card.Link href="https://github.com/ambertrand" >
+                                <Card.Link href="https://github.com/ambertrand" target="_blank">
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <FontAwesomeIcon icon={["fab", "github"]} size='3x' color='black' />&nbsp;&nbsp;&nbsp;
                                  </Card.Link>
-                                <Card.Link href="https://www.linkedin.com/in/alex-bertrand/" >
+                                <Card.Link href="https://www.linkedin.com/in/alex-bertrand/" target="_blank">
                                     <FontAwesomeIcon icon={["fab", "linkedin"]} size='3x' />
                                 </Card.Link>
                             </Card.Body>
@@ -45,10 +45,10 @@ function AboutUs() {
                                     Some quick example text to build on the card title and make up the bulk of
                                     the card's content.
                             </Card.Text>
-                                <Card.Link href="https://github.com/nkleinmann" >
+                                <Card.Link href="https://github.com/nkleinmann" target="_blank">
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <FontAwesomeIcon icon={["fab", "github"]} size='3x' color='black' />&nbsp;&nbsp;&nbsp;
                                  </Card.Link>
-                                <Card.Link href="https://www.linkedin.com/in/nicolekleinmann/" >
+                                <Card.Link href="https://www.linkedin.com/in/nicolekleinmann/" target="_blank">
                                     <FontAwesomeIcon icon={["fab", "linkedin"]} size='3x' />
                                 </Card.Link>
                             </Card.Body>
@@ -62,10 +62,10 @@ function AboutUs() {
                                 <Card.Text>
                                     Fun Fact: Knows how to use font awesome with React!
                                 </Card.Text>
-                                <Card.Link href="https://github.com/MattBongiorno" >
+                                <Card.Link href="https://github.com/MattBongiorno" target="_blank">
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <FontAwesomeIcon icon={["fab", "github"]} size='3x' color='black' right="10px" />&nbsp;&nbsp;&nbsp;
                                  </Card.Link>
-                                <Card.Link href="https://www.linkedin.com/in/mattbongiorno/" >
+                                <Card.Link href="https://www.linkedin.com/in/mattbongiorno/" target="_blank">
                                     <FontAwesomeIcon icon={["fab", "linkedin"]} size='3x' />
                                 </Card.Link>
                             </Card.Body>
@@ -81,10 +81,10 @@ function AboutUs() {
                                     Some quick example text to build on the card title and make up the bulk of
                                     the card's content.
                             </Card.Text>
-                                <Card.Link href="https://github.com/farmerj95" >
+                                <Card.Link href="https://github.com/farmerj95" target="_blank">
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <FontAwesomeIcon icon={["fab", "github"]} size='3x' color='black' />&nbsp;&nbsp;&nbsp;
                                  </Card.Link>
-                                <Card.Link href="https://www.linkedin.com/in/jesse-farmer-39a392166/" >
+                                <Card.Link href="https://www.linkedin.com/in/jesse-farmer-39a392166/" target="_blank">
                                     <FontAwesomeIcon icon={["fab", "linkedin"]} size='3x' />
                                 </Card.Link>
                             </Card.Body>
@@ -99,10 +99,10 @@ function AboutUs() {
                                     Some quick example text to build on the card title and make up the bulk of
                                     the card's content.
                             </Card.Text>
-                                <Card.Link href="https://github.com/RisleyDwayne" >
+                                <Card.Link href="https://github.com/RisleyDwayne" target="_blank">
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <FontAwesomeIcon icon={["fab", "github"]} size='3x' color='black' />&nbsp;&nbsp;&nbsp;
                                  </Card.Link>
-                                <Card.Link href="https://www.linkedin.com/in/mattbongiorno/" >
+                                <Card.Link href="https://www.linkedin.com/in/mattbongiorno/" target="_blank">
                                     <FontAwesomeIcon icon={["fab", "linkedin"]} size='3x' />
                                 </Card.Link>
                             </Card.Body>
@@ -117,10 +117,10 @@ function AboutUs() {
                                     Some quick example text to build on the card title and make up the bulk of
                                     the card's content.
                             </Card.Text>
-                                <Card.Link href="https://github.com/wmhunt1" >
+                                <Card.Link href="https://github.com/wmhunt1" target="_blank">
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <FontAwesomeIcon icon={["fab", "github"]} size='3x' color='black' />&nbsp;&nbsp;&nbsp;
                                  </Card.Link>
-                                <Card.Link href="https://www.linkedin.com/in/matt-hunt-208076121/" >
+                                <Card.Link href="https://www.linkedin.com/in/matt-hunt-208076121/" target="_blank">
                                     <FontAwesomeIcon icon={["fab", "linkedin"]} size='3x' />
                                 </Card.Link>
                             </Card.Body>
