@@ -1,7 +1,6 @@
 import React from "react";
 import JumboSection from "../components/jumbotron/Jumbotron.jsx";
 import Mission from "../components/landingComponents/missionstatement";
-import LandingImage from '../components/landingComponents/landingImage';
 import { useAuth0 } from '@auth0/auth0-react';
 
 function LandingPage({ history }) {
@@ -9,11 +8,16 @@ function LandingPage({ history }) {
     const { isAuthenticated } = useAuth0();
 
     React.useEffect(() => {
-        console.log(isAuthenticated);
+        // console.log(isAuthenticated);
         if (isAuthenticated) {
             history.push("/home");
         }
+        else {
+            history.push("/")
+        }
     }, [isAuthenticated, history]);
+
+
 
     return (
         <>
@@ -25,7 +29,7 @@ function LandingPage({ history }) {
             />
 
             <Mission />
-            <LandingImage />
+
         </>
 
     )

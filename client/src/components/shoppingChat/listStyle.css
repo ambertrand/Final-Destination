@@ -65,12 +65,44 @@ input{
     font-size: 16px;
 }
 
-button{
-    background: #575ed8;
-    color: #fff;
+#send {
+    /* background: #575ed8; */
+    background-color: #a9d7a9;
+  border-color: #a9d7a9;
+    /* color: #fff; */
+    color: #000000;
     font-size: 18px;
     border: 0;
     padding: 12px 0;
     width: 100%;
+    border-radius: 0 0 2px 2px;
+}
+div {
+    word-wrap: break-word;
+  }
+
+.checkbox {
+    float: right;
+    height: 25px;
+    width: 25px;
+}
+#storeForm{
+   text-align: center;
+   align-content: center;
+}
+#storeInput{
+    width: 10%;
+    
+}
+#goShopping{
+    /* background: #575ed8; */
+    background-color: #a9d7a9;
+    border-color: #a9d7a9;
+    /* color: #fff; */
+    color: #000000;
+    font-size: 18px;
+    border: 0;
+    padding: 12px 0;
+    width: 10%;
     border-radius: 0 0 2px 2px;
 }

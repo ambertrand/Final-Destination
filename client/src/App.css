@@ -11,6 +11,7 @@
   padding-top: 45px;
   padding-bottom: 5px; 
   min-width: 100%;
+  opacity: 90%;
 }
 
 img.shoppingLogo {
@@ -44,9 +45,33 @@ Button.choice {
 
 .outerContainer {
   position: relative;
-  padding-bottom: 40px;
+  padding-bottom: 80px;
 }
 
 .landingImage {
   padding-bottom: 40px;
+}
+
+.carouselPad {
+  padding-top: 40px;
+}
+
+.greyBox {
+  background-color:rgb(230, 227, 227);
+  opacity: 95%;
+  border-width: 0;
+  border-radius: 5px;
+}
+
+.userInfoPad {
+  padding-top: 150px;
+}
+
+@media screen and (max-width: 375px) {
+  .carouselPad {
+    padding-top: 0px;
+  }
+  .userInfoPad {
+    padding-top: 0px;
+  }
 }

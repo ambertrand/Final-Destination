@@ -1,33 +1,17 @@
+// Requiring necessary npm packages
 const express = require("express");
-require("dotenv").config();
-
 const session = require("express-session");
 const passport = require("passport");
-const Auth0Strategy = require("passport-auth0");
-const userInViews = require("./lib/middleware/userInViews");
 
-
-const indexRouter = require("./routes/index");
-
-// const usersRouter = require("./routes/users");
-// const authRouter = require("./routes/Auth");
-// const apiUser = require("./routes/api-user");
-
-
-const path = require("path");
+require ("dotenv").config();
+// Setting up port and requiring models for syncing
 const PORT = process.env.PORT || 3001;
 const db = require("./models");
+
+// Creating express app and configuring middleware needed for authentication
 const app = express();
-const http = require('http').createServer(app);
-const userRouter = require('./routes/userRoutes')
-
-const initializeSocketio = require("./client/src/utils/socket/index");
-
-//move this line and lines 35-37 inside of promise when connecting to db
-initializeSocketio(http);
-
-//console.log(process.env);
-
+const Auth0Strategy = require("passport-auth0");
+const userInViews = require("./lib/middleware/userInViews");
 const strategy = new Auth0Strategy(
   {
     domain: process.env.REACT_APP_AUTH0_DOMAIN,
@@ -57,6 +41,28 @@ if (process.env.NODE_ENV === "production") {
   });
 }
 
+
+
+
+const indexRouter = require("./routes/index");
+const userRouter = require('./routes/userRoutes')
+// const usersRouter = require("./routes/users");
+// const authRouter = require("./routes/Auth");
+// const apiUser = require("./routes/api-user");
+
+
+const path = require("path");
+
+const http = require('http').createServer(app);
+
+const initializeSocketio = require("./client/src/utils/socket/index");
+
+//move this line and lines 35-37 inside of promise when connecting to db
+initializeSocketio(http);
+
+
+
+
 const sess = {
   secret: "pop pop",
   cookie: {},
@@ -70,17 +76,13 @@ if (app.get("env") === "production") {
 }
 
 app.use(session(sess));
-
 app.use(userRouter);
 app.use("/api", indexRouter);
 
 // app.use("/", authRouter);
-
 // app.use("/", usersRouter);
-
 // app.use("/", apiUser);
 
-// Define API routes here
 
 // Send every other request to the React app
 // Define any API routes before this runs
@@ -90,8 +92,6 @@ app.use("/api", indexRouter);
 // app.get("*", (req, res) => {
 //   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 // });
-
-// Connect to the MySQL
 
 
 

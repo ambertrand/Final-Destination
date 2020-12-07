@@ -1,26 +1,16 @@
-import React, { useEffect, useState } from 'react';
-import userContext from '../components/form/userContext'
+import React, { useContext, useEffect, useState } from 'react';
 import JumboSection from '../components/jumbotron/Jumbotron';
 import HomeButtons from '../components/homeComponents/homeButtons';
 import { useAuth0 } from '@auth0/auth0-react';
-import axios from 'axios';
 
-function Home(props) {
-
-    const { user, isAuthenticated } = useAuth0();
-
-    useEffect(() => {
-        if (isAuthenticated) {
-
-            console.log(user);
-            axios.post("/api/users/onAuthenticated", user)
-                .then(function (response) {
-                    console.log(response);
-                    props.getUserId(response.data[0].id);
-                });
-
+function Home({ history }) {
+    const { isAuthenticated } = useAuth0();
+    React.useEffect(() => {
+        console.log(isAuthenticated);
+        if (!isAuthenticated) {
+            history.push("/")
         }
-    }, [isAuthenticated, user]);
+    }, [isAuthenticated, history]);
 
     return (
         <>

@@ -1,35 +1,72 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
+import axios from 'axios';
 import { useAuth0 } from '@auth0/auth0-react';
 import userInfo from './userInfo';
+// import getUserInfo from './getUserInfo';
 import userContext from './userContext';
+import context from '../providers/userProfileProvider/context';
 
 // React Bootstrap
 import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
-import { useState } from "react";
+
 
 function UserForm() {
     const { user } = useAuth0();
-    console.log(user);
-    const [userName, setUserName] = useState(user.nickname);
-    const [email, setEmail] = useState(user.email);
-    const [groupName, setGroupName] = useState("");
-    const [groupRole, setGroupRole] = useState("");
+    const { userProfile, setUserProfile } = useContext(context);
+    console.log(userProfile);
+    const [userName, setUserName] = useState(userProfile.username);
+
+    // const [userPhoto, setUserPhoto] = useState("");
+    // const [userFirstName, setUserFirstName] = useState("");
+
+    const [email, setEmail] = useState(userProfile.email);
+    const [groupName, setGroupName] = useState(userProfile.group_name);
+    const [groupRole, setGroupRole] = useState(userProfile.shopper);
     const userId = useContext(userContext);
 
+    // let shopperOrGroupMember = "";
+
+    // function userRole() {
+    //     if (userProfile.shopper === true) {
+    //         shopperOrGroupMember === "Shopper";
+    //     }
+    //     if (userProfile.shopper === false) {
+    //         shopperOrGroupMember === "Group Member";
+    //     }
+    //     else {
+    //         shopperOrGroupMember === "Please select group role";
+    //     }
+    // }
+    
+    // userRole();
+    const [groups, setGroups] = useState({});
+    const [isFetching, setIsFetching] = useState(true);
+
+    useEffect(() => {
+        axios.get("/api/groups")
+            .then(response => {
+                setGroups(response.data);
+                console.log("user groups below");
+                console.log(response);
+                setIsFetching(false);
+            })
+    }, [])
+
+
     return (
-        <div>
+        <div className="userInfoPad">
             {console.log(userId)}
-            <Row className="justify-content-center">
+            <Row className="greyBox">
                 {/* User image */}
                 <Col xs="12" md="4">
                     <Card className="m-3 profileImage">
-                        <Card.Img variant="top" src={user.picture} alt={user.name} className="img-responsive" width="60px" max-height="100px" />
-                        <Card.Body >
-                            <h4>{user.name}</h4>
-                        </Card.Body>
+                        <Card.Img variant="top" src={userProfile.picture} alt={userProfile.first_name} className="img-responsive" width="60px" max-height="100px" />
+                        {/* <Card.Body >
+                            <h4>{`${userProfile.first_name} ${userProfile.last_name}`}</h4>
+                        </Card.Body> */}
                     </Card>
                 </Col>
 
@@ -40,27 +77,26 @@ function UserForm() {
                         <form>
                             <label>
                                 Username:
-                                <input type="text" defaultValue={user.nickname} name="userName" onChange={(event) => setUserName(event.target.value)} />
+                                {console.log(userProfile.username)}
+                                <input type="text" defaultValue={userProfile.username} name="userName" onChange={(event) => setUserName(event.target.value)} />
                             </label>
                             <label>
                                 Email:
-                                <input type="text" defaultValue={user.email} id="email" onChange={(event) => setEmail(event.target.value)} />
+                                <h6>{userProfile.email}</h6>
+                                {/* type="text" defaultValue= id="email" onChange={(event) => setEmail(event.target.value)} /> */}
                             </label>
                             <label>
                                 Group name:&nbsp;
                                 {/* <input type="text" placeholder={user.email} id="email" /> */}
                                 <select id="groupName" onChange={(event) => setGroupName(event.target.value)}>
-                                    <option value="-1">Select group name</option>
-                                    <option value="1">team1</option>
-                                    <option value="2">team2</option>
-                                    <option value="3">team3</option>
-                                    <option value="4">team4</option>
+                                    <option value="0">{userProfile.group_name}</option>
+                                    {isFetching ? (<option>Loading</option>) : (groups.map(group => (<option value={group.group_name}>{group.group_name}</option>)))}
                                 </select>
                             </label>
                             <label>
                                 Group role:&nbsp;
                                 <select id="isShopper" onChange={(event) => setGroupRole(event.target.value)}>
-                                    <option>Select group role</option>
+                                    {/* <option>{shopperOrGroupMember}</option> */}
                                     <option value={true}>Shopper</option>
                                     <option value={false}>Group Member</option>
                                 </select>
