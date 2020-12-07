@@ -64,7 +64,7 @@ Button.choice {
 }
 
 .userInfoPad {
-  padding-top: 150px;
+  padding-top: 10%;
 }
 
 @media screen and (max-width: 375px) {
