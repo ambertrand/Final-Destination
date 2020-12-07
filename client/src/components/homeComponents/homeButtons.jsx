@@ -9,7 +9,7 @@ import Image from "react-bootstrap/Image";
 //  Buttons
 import addgroup from '../../assets/addgroup.png';
 import viewgroups from '../../assets/viewgroups.png';
-import editinfo from '../../assets/editinfo.png';
+// import editinfo from '../../assets/editinfo.png';
 // import stores from '../../assets/stores.png';
 
 
@@ -49,7 +49,7 @@ function HomeButtons(event) {
     return (
         <Container className="greyBox">
             <Row className="teams">
-                <Col sm={12} md={4}>
+                <Col sm={12} md={6}>
 
                     {/* Create Group */}
                     <Row>
@@ -59,7 +59,7 @@ function HomeButtons(event) {
                     </Row>
                     <Row>
                         <Col className="text-center">
-                            <Button type="submit" className="choice m-2" id="createTeam" onClick={() => setShowCreateModal(true)} >Create Group</Button>
+                            <Button type="submit" className="choice m-2" id="createTeam" onClick={() => handleShow(true)} >Create Group</Button>
                         </Col>
 
                         <Modal show={showCreateModal} onHide={handleClose}>
@@ -89,7 +89,7 @@ function HomeButtons(event) {
                 </Col>
 
                 {/* View Group  */}
-                <Col sm={12} md={4}>
+                <Col sm={12} md={6}>
                     <Row>
                         <Col className="text-center">
                             <Image className="iconImg" src={viewgroups} />
@@ -116,8 +116,8 @@ function HomeButtons(event) {
                     </Row>
                 </Col>
 
-                {/* Go Shopping */}
-                <Col sm={12} md={4}>
+                {/* Go Shopping  - Future development*/}
+                {/* <Col sm={12} md={4}>
                     <Row>
                         <Col className="text-center">
                             <Image className="iconImg" src={editinfo} />
@@ -128,7 +128,7 @@ function HomeButtons(event) {
                             <Button type="submit" className="choice m-2" id="updateUserProfile">Shopping</Button>
                         </Col>
                     </Row>
-                </Col>
+                </Col> */}
 
                 {/* View Group Stores - Future development */}
                 {/* <Col sm={12} md={3}>
