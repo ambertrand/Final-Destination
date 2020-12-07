@@ -48,11 +48,12 @@ function App() {
   }
 
   // const { setUserProfile } = useContext(context);
-  const { user, isAuthenticated } = useAuth0();
+  const { user, loginWithRedirect, isLoading, isAuthenticated } = useAuth0();
+  console.log(isAuthenticated);
 
 
   useEffect(() => {
-    if (isAuthenticated) {
+    if (!isLoading && isAuthenticated) {
       // console.log(user);
       axios.post("/api/users/onAuthenticated", user)
         .then(function (response) {
