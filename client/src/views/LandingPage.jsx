@@ -2,18 +2,14 @@ import React from "react";
 import JumboSection from "../components/jumbotron/Jumbotron.jsx";
 import Mission from "../components/landingComponents/missionstatement";
 import { useAuth0 } from '@auth0/auth0-react';
-
 function LandingPage({ history }) {
-
     const { isAuthenticated } = useAuth0();
-
     React.useEffect(() => {
         console.log(isAuthenticated);
         if (isAuthenticated) {
             history.push("/home");
         }
     }, [isAuthenticated, history]);
-
     return (
         <>
             <JumboSection
@@ -22,12 +18,8 @@ function LandingPage({ history }) {
                 altText="shopping cart"
                 imgClass="animate__animated animate__bounceInLeft"
             />
-
-            <Mission className="greyBox" />
-
+            <Mission />
         </>
-
     )
 }
-
 export default LandingPage;
