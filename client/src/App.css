@@ -19,7 +19,7 @@ img.shoppingLogo {
   border-radius: 5px;
 }
 
-Button#updateUserInfo, Button.groupButton, Button.goShopping {
+Button#updateUserInfo, Button.groupButton, Button.goShopping, .logOut {
   background-color:#a9d7a9;
   border-color: #a9d7a9;
   color: #000000;
