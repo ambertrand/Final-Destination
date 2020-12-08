@@ -14,7 +14,7 @@ import Card from 'react-bootstrap/Card';
 
 
 function UserForm() {
-    const { user } = useAuth0();
+    // const { user } = useAuth0();
     const { userProfile, setUserProfile } = useContext(context);
     // console.log(userProfile);
     const [userName, setUserName] = useState(userProfile.username);
@@ -100,6 +100,7 @@ function UserForm() {
                             <label>
                                 All groups:
                                 <select id="groupName" onChange={(event) => setGroupName(event.target.value)}>
+                                    {/* <option>{userProfile.group_name}</option> */}
                                     {isFetching ? (<option>Loading</option>) : (groups.map(group => (<option key={group.group_name} value={group.group_name}>{group.group_name}</option>)))}
                                 </select>
                             </label>

@@ -26,7 +26,12 @@ function HomeButtons(event) {
     const handleClose = () => setShowCreateModal(false);
     const handleShow = () => setShowCreateModal(true);
     const handleViewClose = () => setShowViewModal(false);
-    // const handleViewStoreClose = () => setShowViewStoreModal(false);
+
+    // const groupConditionalLogic = () => {
+    //     if (groups) {
+    //         {isFetching ? (<div>Loading</div>) : (groups.map(group => (<div key={group.group_name}>{group.group_name}</div>)))}
+    //     }
+    // }
 
     const newGroup = () => {
         // console.log(groupName);
@@ -48,7 +53,7 @@ function HomeButtons(event) {
                     setIsFetching(false);
                 }
             })
-    }, [])
+    }, [isFetching])
 
     return (
         <Container className="greyBox">

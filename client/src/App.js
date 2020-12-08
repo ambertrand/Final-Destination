@@ -20,7 +20,6 @@ import { fab } from '@fortawesome/free-brands-svg-icons'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
-
 library.add(fab)
 
 function App() {
