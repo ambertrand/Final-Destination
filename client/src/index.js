@@ -1,18 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import { BrowserRouter as Router } from "react-router-dom";
+import  App  from './App';
 import Auth0ProviderWithHistory  from './auth/Auth0ProviderWithHistory';
 
-const domain = process.env.REACT_APP_AUTH0_DOMAIN
-const clientId = process.env.REACT_APP_AUTH0_CLIENTID
-
 ReactDOM.render(
-  <Auth0ProviderWithHistory
-    domain={domain}
-    clientId={clientId}
-    redirectUri={(window.location.origin) + "/auth-callback"}
-  >
+  <Router>
+  <Auth0ProviderWithHistory>
     <App />
-  </Auth0ProviderWithHistory>,
+  </Auth0ProviderWithHistory>
+  </Router>,
   document.getElementById('root')
 );

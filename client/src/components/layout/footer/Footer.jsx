@@ -2,7 +2,7 @@ import React from 'react';
 import Row from 'react-bootstrap/Row';
 
 
-function Footer() {
+const Footer = () => {
     return (
         <>
             <Row className="footer justify-content-center bg-dark text-white p-2">

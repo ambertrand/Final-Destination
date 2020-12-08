@@ -1,17 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import Navigation from './components/layout/navigation/Navbar';
+import { Navigation, Loading } from "./components";
+import { Footer } from "./components";
 import UserInfo from "./views/UserInfo";
 import Shopping from "./views/ShoppingList";
 import LandingPage from "./views/LandingPage";
 import Home from "./views/Home";
 import About from "./views/About";
-import Footer from "./components/layout/footer/Footer";
 import userContext from './components/form/userContext';
 import UserProfileProvider from './components/providers/userProfileProvider/Provider';
 // import groupContext from './components/providers/groupProvider/context';
 // import groupProvider from './components/providers/groupProvider/Provider';
 import getUserInfo from './components/form/getUserInfo';
+import ProtectedRoute from "./auth/protected-route";
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { useAuth0 } from '@auth0/auth0-react';
 import BackgroundImage from './assets/GroceryStore.jpg';
@@ -23,7 +24,7 @@ import './App.css';
 
 library.add(fab)
 
-function App() {
+const App = () => {
   const [userId, setUserId] = useState("");
   const [userProfile, setUserProfile] = useState({
     email: "",
@@ -48,36 +49,39 @@ function App() {
   }
 
   // const { setUserProfile } = useContext(context);
-  const { user, loginWithRedirect, isLoading, isAuthenticated } = useAuth0();
+  const { user, getAccessTokenSilently, loginWithRedirect, isLoading, isAuthenticated } = useAuth0();
+
   console.log(isAuthenticated);
 
 
-  useEffect(() => {
-    if (!isLoading && isAuthenticated) {
-      // console.log(user);
-      axios.post("/api/users/onAuthenticated", user)
-        .then(function (response) {
-          // console.log(response);
-          // setUserProfile(response);
-          getUserId(response.data[0].id);
-          return getUserInfo(response.data[0].id);
-        }).then(function (response) {
-          // console.log(response);
-          // console.log("new response above");
-          setUserProfile(response.data);
-          // setGroupNames(response.data);
-          // history.push('/home')
-        })
-      }
-    //     .catch(err => {
-    //       // history.push("/")
-    //     })
-    // } else {
-    //    history.push("/")
-    // }
-    // console.log("if authenticated is shown below");
-    // console.log(isAuthenticated);
-  }, [isAuthenticated, user]);
+  // useEffect(() => {
+  if (isAuthenticated) {
+    // console.log(user);
+    axios.post("/api/users/onAuthenticated", user)
+      .then(function (response) {
+        // console.log(response);
+        // setUserProfile(response);
+        getUserId(response.data[0].id);
+        return getUserInfo(response.data[0].id);
+      }).then(function (response) {
+        // console.log(response);
+        // console.log("new response above");
+        setUserProfile(response.data);
+        // setGroupNames(response.data);
+        // history.push('/home')
+      });
+  }
+  //     .catch(err => {
+  //       // history.push("/")
+  //     })
+  // } else {
+  //    history.push("/")
+  // }
+  // console.log("if authenticated is shown below");
+  // console.log(isAuthenticated);
+  // }, [isAuthenticated, user]);
+
+
 
   return (
     <div className="App container-fluid outerContainer" style={backgroundStyle}>
@@ -90,18 +94,18 @@ function App() {
 
             <Switch>
               <Route exact path="/" render={(props) => (
-                <LandingPage history={props.history}/>
-              )}/>
-              <Route exact path="/userinfo" render={(props) => (
-                <UserInfo history={props.history}/>
-              )}/>
-              <Route exact path="/home" render={(props) => (
-                <Home getUserId={getUserId} history={props.history}/>
+                <LandingPage history={props.history} />
               )} />
-              
+              <Route exact path="/userinfo" render={(props) => (
+                <UserInfo history={props.history} />
+              )} />
+              <Route exact path="/home" render={(props) => (
+                <Home getUserId={getUserId} history={props.history} />
+              )} />
+
               <Route exact path="/shopping" render={(props) => (
-                <Shopping getUserId={getUserId} history={props.history}/>
-                )} />
+                <Shopping getUserId={getUserId} history={props.history} />
+              )} />
 
               <Route exact path="/about" component={About} />
             </Switch>
@@ -116,5 +120,6 @@ function App() {
 
 
   );
+
 }
 export default App;
