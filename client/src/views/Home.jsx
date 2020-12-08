@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React from 'react';
 import JumboSection from '../components/jumbotron/Jumbotron';
 import HomeButtons from '../components/homeComponents/homeButtons';
 import { useAuth0 } from '@auth0/auth0-react';

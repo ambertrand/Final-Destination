@@ -24,6 +24,7 @@ import './App.css';
 library.add(fab)
 
 function App() {
+  // const [groupId, setGroupId] = useState("");
   const [userId, setUserId] = useState("");
   const [userProfile, setUserProfile] = useState({
     email: "",
@@ -38,6 +39,10 @@ function App() {
     setUserId(id);
   }
 
+  // const getGroupId = (id) => {
+  //   setGroupId(groupId);
+  // }
+
   const backgroundStyle = {
     backgroundImage: `url(${BackgroundImage})`,
     minHeight: "100vh",
@@ -49,6 +54,11 @@ function App() {
 
   // const { setUserProfile } = useContext(context);
   const { user, isAuthenticated } = useAuth0();
+
+  // Sets groupname
+  // const [groupName, setGroupName] = useState(userProfile.group_name);
+  // const [groups, setGroups] = useState({});
+  // const [isFetching, setIsFetching] = useState(true);
 
 
   useEffect(() => {
@@ -66,17 +76,21 @@ function App() {
           setUserProfile(response.data);
           // setGroupNames(response.data);
           // history.push('/home')
-        })
-      }
-    //     .catch(err => {
-    //       // history.push("/")
-    //     })
-    // } else {
-    //    history.push("/")
-    // }
+        });
+    }
+
     // console.log("if authenticated is shown below");
     // console.log(isAuthenticated);
   }, [isAuthenticated, user]);
+  // useEffect(() => {
+  //   axios.get("/api/groups")
+  //     .then(response => {
+  //       setGroups(response.data);
+  //       console.log("user groups below");
+  //       console.log(response);
+  //       setIsFetching(false);
+  //     })
+  // }, []);
 
   return (
     <div className="App container-fluid outerContainer" style={backgroundStyle}>
@@ -89,18 +103,18 @@ function App() {
 
             <Switch>
               <Route exact path="/" render={(props) => (
-                <LandingPage history={props.history}/>
-              )}/>
-              <Route exact path="/userinfo" render={(props) => (
-                <UserInfo history={props.history}/>
-              )}/>
-              <Route exact path="/home" render={(props) => (
-                <Home getUserId={getUserId} history={props.history}/>
+                <LandingPage history={props.history} />
               )} />
-              
+              <Route exact path="/userinfo" render={(props) => (
+                <UserInfo history={props.history} />
+              )} />
+              <Route exact path="/home" render={(props) => (
+                <Home getUserId={getUserId} history={props.history} />
+              )} />
+
               <Route exact path="/shopping" render={(props) => (
-                <Shopping getUserId={getUserId} history={props.history}/>
-                )} />
+                <Shopping getUserId={getUserId} history={props.history} />
+              )} />
 
               <Route exact path="/about" component={About} />
             </Switch>
