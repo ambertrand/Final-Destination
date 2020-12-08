@@ -106,7 +106,7 @@ function HomeButtons(event) {
                             </Modal.Header>
 
                             <Modal.Body>
-                                {isFetching ? (<div>Loading</div>) : (groups.map(group => (<div>{group.group_name}</div>)))}
+                                {isFetching ? (<div>Loading</div>) : (groups.map(group => (<div key={group.group_name}>{group.group_name}</div>)))}
                             </Modal.Body>
 
                             <Modal.Footer>

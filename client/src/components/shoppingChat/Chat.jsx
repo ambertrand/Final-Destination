@@ -85,8 +85,8 @@ function Chat() {
         axios.get("/api/groups")
             .then(response => {
                 setGroups(response.data);
-                // console.log("user groups below");
-                // console.log(response);
+                console.log("user groups below");
+                console.log(response);
                 setIsFetching(false);
             })
     }, []);
