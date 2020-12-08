@@ -85,15 +85,15 @@ function Chat() {
         axios.get("/api/groups")
             .then(response => {
                 setGroups(response.data);
-                // console.log("user groups below");
-                // console.log(response);
+                console.log("user groups below");
+                console.log(response);
                 setIsFetching(false);
             })
     }, []);
     return (
         <div>
             <Row className="justify-content-center pt-5">
-                <Col sm={8} className="greyBox">
+                <Col xs={10} className="greyBox rounded mb-0">
 
 
                     <Row className="justify-content-center">
@@ -151,7 +151,7 @@ function Chat() {
                     <div id="list-chat">
                         <div id="chat-window">
                             <div id="output" >
-                                {chat.map((m, i) => <p key={i}>{m}<input class="checkbox" type="checkbox"></input></p>)}
+                                {chat.map((m, i) => <p key={i}>{m}<input className="checkbox" type="checkbox"></input></p>)}
                             </div>
                             {/* <div id="feedback" >{typing}</div> */}
                         </div>
