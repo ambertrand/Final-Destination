@@ -1,6 +1,5 @@
 import React from "react";
 import Row from 'react-bootstrap/Row';
-// import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
 import Carousel from 'react-bootstrap/Carousel';
 import alex from '../../assets/Alex.png';
@@ -24,8 +23,7 @@ function AboutUs() {
                             <Card.Body>
                                 <Card.Title>Alex Bertrand</Card.Title>
                                 <Card.Text>
-                                    Some quick example text to build on the card title and make up the bulk of
-                                    the card's content.
+                                    Fun Fact: Has legs of steel from skiing.
                             </Card.Text>
                                 <Card.Link href="https://github.com/ambertrand" target="_blank">
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <FontAwesomeIcon icon={["fab", "github"]} size='3x' color='black' />&nbsp;&nbsp;&nbsp;
@@ -42,8 +40,7 @@ function AboutUs() {
                             <Card.Body>
                                 <Card.Title>Nicole Kleinmann</Card.Title>
                                 <Card.Text>
-                                    Some quick example text to build on the card title and make up the bulk of
-                                    the card's content.
+                                    Fun Fact: Went skydiving in Australia!
                             </Card.Text>
                                 <Card.Link href="https://github.com/nkleinmann" target="_blank">
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <FontAwesomeIcon icon={["fab", "github"]} size='3x' color='black' />&nbsp;&nbsp;&nbsp;
@@ -78,8 +75,7 @@ function AboutUs() {
                             <Card.Body>
                                 <Card.Title>Jesse Farmer</Card.Title>
                                 <Card.Text>
-                                    Some quick example text to build on the card title and make up the bulk of
-                                    the card's content.
+                                    Fun Fact: I love to play any form of pick up sports, and I'm a massive dog lover!
                             </Card.Text>
                                 <Card.Link href="https://github.com/farmerj95" target="_blank">
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <FontAwesomeIcon icon={["fab", "github"]} size='3x' color='black' />&nbsp;&nbsp;&nbsp;
@@ -96,8 +92,7 @@ function AboutUs() {
                             <Card.Body>
                                 <Card.Title>Dwayne Risley</Card.Title>
                                 <Card.Text>
-                                    Some quick example text to build on the card title and make up the bulk of
-                                    the card's content.
+                                    Fun Fact: Has the voice for radio.
                             </Card.Text>
                                 <Card.Link href="https://github.com/RisleyDwayne" target="_blank">
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <FontAwesomeIcon icon={["fab", "github"]} size='3x' color='black' />&nbsp;&nbsp;&nbsp;
@@ -114,8 +109,7 @@ function AboutUs() {
                             <Card.Body>
                                 <Card.Title>Warren Hunt</Card.Title>
                                 <Card.Text>
-                                    Some quick example text to build on the card title and make up the bulk of
-                                    the card's content.
+                                    Fun Fact: Contrary to popular belief is mortal.
                             </Card.Text>
                                 <Card.Link href="https://github.com/wmhunt1" target="_blank">
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <FontAwesomeIcon icon={["fab", "github"]} size='3x' color='black' />&nbsp;&nbsp;&nbsp;
