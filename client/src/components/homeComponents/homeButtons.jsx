@@ -40,9 +40,12 @@ function HomeButtons(event) {
     useEffect(() => {
         axios.get("/api/groups")
             .then(response => {
-                setGroups(response.data)
-                // console.log(response);
-                setIsFetching(false);
+                if (response.data) {
+
+                    setGroups(response.data)
+                    console.log(response.data);
+                    setIsFetching(false);
+                }
             })
     }, [])
 
@@ -107,6 +110,8 @@ function HomeButtons(event) {
 
                             <Modal.Body>
                                 {isFetching ? (<div>Loading</div>) : (groups.map(group => (<div key={group.group_name}>{group.group_name}</div>)))}
+                                {/* {console.log(group.group_name)} */}
+
                             </Modal.Body>
 
                             <Modal.Footer>
