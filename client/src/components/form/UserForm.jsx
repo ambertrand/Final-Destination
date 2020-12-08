@@ -103,13 +103,13 @@ function UserForm() {
                                     {isFetching ? (<option>Loading</option>) : (groups.map(group => (<option key={group.group_name} value={group.group_name}>{group.group_name}</option>)))}
                                 </select>
                             </label>
-                            <Row className="justify-content-center">
+                            <Row className="justify-content-center p-2">
                                 <Col sm="auto">
                                     <p>Select group from "All groups" if you would like to join a new group.</p>
                                 </Col>
                             </Row>
                             <Row className="justify-content-center">
-                                <Col sm="auto">
+                                <Col xs={5}>
                                     <Button type="submit" className="mb-2" id="updateUserInfo" onClick={event => userInfo(event, userId,
                                         {
                                             userName,

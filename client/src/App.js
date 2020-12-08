@@ -39,6 +39,10 @@ const App = () => {
     setUserId(id);
   }
 
+  // const getGroupId = (id) => {
+  //   setGroupId(groupId);
+  // }
+
   const backgroundStyle = {
     backgroundImage: `url(${BackgroundImage})`,
     minHeight: "100vh",

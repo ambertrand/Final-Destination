@@ -23,16 +23,5 @@ function JumboSection(props) {
     )
 }
 
-// JumboSection.defaultProps = {
-//     altText: 'hi',
-//     imgClass: null
-// }
-
-// JumboSection.propTypes = {
-//     title: PropTypes.string.isRequired,
-//     imageSrc: PropTypes.string.isRequired,
-//     altText: PropTypes.string,
-//     imgClass: PropTypes.string,
-// }
 
 export default JumboSection;
