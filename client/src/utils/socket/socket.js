@@ -26,7 +26,7 @@ export const sendMessage = (group, userName, message) => {
     room: group.group_name, 
     message: `${userName}: ${message}` });
   console.log("message sent")
-  // console.log(group.id);
+  console.log(group.id);
 
   axios.put(`/api/groups/${group.id}`, {userName, message})
   .then((response) => {

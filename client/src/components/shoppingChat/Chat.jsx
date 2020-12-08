@@ -3,8 +3,8 @@ import axios from 'axios';
 import { initiateSocket, disconnectSocket, subscribeToChat, handleTyping, sendMessage, goShopping } from "../../utils/socket/socket";
 import "./listStyle.css";
 import { useAuth0 } from '@auth0/auth0-react';
-import Shopping from "../../views/ShoppingList";
-import { Store } from "express-session";
+// import Shopping from "../../views/ShoppingList";
+// import { Store } from "express-session";
 import context from '../providers/userProfileProvider/context';
 
 import Button from 'react-bootstrap/Button';
@@ -79,7 +79,7 @@ function Chat() {
     }, []);
 
     useEffect(() => {
-        // console.log(activeGroup)
+        console.log(activeGroup[0])
         // if (room) {
         axios.get(`/api/groups/${activeGroup.id}`)
             .then(response => {
@@ -89,7 +89,7 @@ function Chat() {
             })
         // }
     }, [activeGroup.id]);
-    
+
     return (
         <div>
             <Row className="justify-content-center pt-5">
