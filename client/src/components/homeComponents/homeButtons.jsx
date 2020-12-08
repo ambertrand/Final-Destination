@@ -123,7 +123,7 @@ function HomeButtons(event) {
                             </Modal.Footer>
                         </Modal>
                     </Row>
-                </Col> */} 
+                </Col> 
                 
 
                 {/* Go Shopping  - Future development*/}
