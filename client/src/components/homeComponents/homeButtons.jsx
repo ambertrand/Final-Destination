@@ -20,7 +20,7 @@ function HomeButtons(event) {
     const [showViewModal, setShowViewModal] = useState(false);
     // const [showViewStoreModal, setShowViewStoreModal] = useState(false);
     const [groupName, setGroupName] = useState("");
-    const [groups, setGroups] = useState({});
+    const [groups, setGroups] = useState([]);
     const [isFetching, setIsFetching] = useState(true);
 
     const handleClose = () => setShowCreateModal(false);
@@ -40,10 +40,11 @@ function HomeButtons(event) {
     useEffect(() => {
         axios.get("/api/groups")
             .then(response => {
-                if (response.data) {
+                // response.data = {}
+                if (JSON.stringify(response.data) !== "{}") {
 
                     setGroups(response.data)
-                    console.log(response.data);
+                    // console.log(response);
                     setIsFetching(false);
                 }
             })
