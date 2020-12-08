@@ -53,7 +53,7 @@ function HomeButtons(event) {
     return (
         <Container className="greyBox">
             <Row className="teams">
-                <Col sm={12} md={6}>
+                <Col sm={12}>
 
                     {/* Create Group */}
                     <Row>
@@ -93,7 +93,7 @@ function HomeButtons(event) {
                 </Col>
 
                 {/* View Group  */}
-                <Col sm={12} md={6}>
+                {/* <Col sm={12} md={6}>
                     <Row>
                         <Col className="text-center">
                             <Image className="iconImg" src={viewgroups} />
@@ -113,14 +113,15 @@ function HomeButtons(event) {
                                 {isFetching ? (<div>Loading</div>) : (groups.map(group => (<div key={group.group_name}>{group.group_name}</div>)))}
                                 {/* {console.log(group.group_name)} */}
 
-                            </Modal.Body>
+                            {/* </Modal.Body>
 
                             <Modal.Footer>
                                 <Button variant="secondary" onClick={handleViewClose}>Close</Button>
                             </Modal.Footer>
                         </Modal>
                     </Row>
-                </Col>
+                </Col> */} 
+                
 
                 {/* Go Shopping  - Future development*/}
                 {/* <Col sm={12} md={4}>
