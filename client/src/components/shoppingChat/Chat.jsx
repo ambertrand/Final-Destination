@@ -36,14 +36,21 @@ function Chat() {
     const [typing, setTyping] = useState("")
     const [message, setMessage] = useState("");
     const [chat, setChat] = useState([]);
+    let groupId="";
 
     // console.log(groups);
-    const groupsFilter = groups.filter(group => group.group_name === room)
-    // console.log(groupFilter);
+    const groupFilter = groups.filter(group => group.group_name === room)
+    // if (groupFilter[0]) {
+    //     groupId=groupFilter[0].id;
+    // }
     const activeGroup = useMemo(() => {
         return (
             groups.filter(group => group.group_name === room));
     }, [groups, room]);
+    if (groupFilter[0]) {
+        // console.log(activeGroup[0].id);
+    }
+    
 
     //clears input
     const handleSubmit = (e) => {
@@ -79,16 +86,16 @@ function Chat() {
     }, []);
 
     useEffect(() => {
-        console.log(activeGroup[0])
-        // if (room) {
-        axios.get(`/api/groups/${activeGroup.id}`)
+        // console.log(activeGroup)
+        if (groupFilter[0]) {
+        axios.get(`/api/groups/${activeGroup[0].id}`)
             .then(response => {
-                console.log("user message below");
-                console.log(response);
+                // console.log("user message below");
+                // console.log(response);
                 // setIsFetching(false);
             })
-        // }
-    }, [activeGroup.id]);
+        }
+    }, [activeGroup]);
 
     return (
         <div>
@@ -96,7 +103,7 @@ function Chat() {
                 <Col xs={10} className="greyBox rounded mb-0">
 
 
-                    <Row className="justify-content-center">
+                    {/* <Row className="justify-content-center">
 
                         <Col sm={4}>
                             <h1
@@ -107,11 +114,11 @@ function Chat() {
                                     onClick={() => setRoom(r)} key={i}>{r}
                                 </Button>)}
                         </Col>
-                    </Row>
+                    </Row> */}
 
                     <Row className="justify-content-center pt-2">
                         <Col sm={4}>
-                            <p>1. If you are shopper, enter a store and select "go shopping."</p>
+                            <p>If you are shopper, enter a store and select "go shopping." Otherwise, skip right to adding shopping items!</p>
                         </Col>
                     </Row>
                     <Row className="justify-content-center pt-2">
@@ -126,17 +133,13 @@ function Chat() {
                             <Button className="goShopping" onClick={() => goShopping(room, user.name + " is going to: " + storeRef.current.value)}>Go Shopping</Button>
                         </Col>
                     </Row>
-                    <Row className="justify-content-center pt-3">
-                        <Col sm={4}>
-                            <p>2. Add shopping items!</p>
-                        </Col>
-                    </Row>
+                    
 
                     <div id="list-chat">
                         <div id="chat-window">
-                            <div id="output">
+                            {/* <div id="output">
                                 <p>Hello</p>
-                            </div>
+                            </div> */}
                             <div id="output" >
                                 {chat.map((m, i) => <p key={i}>{m}<input className="checkbox" type="checkbox"></input></p>)}
                             </div>

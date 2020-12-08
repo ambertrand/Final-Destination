@@ -22,20 +22,21 @@ export const subscribeToChat = (cb) => {
   });
 }
 export const sendMessage = (group, userName, message) => {
+  
   if (socket) socket.emit('chat', {
     room: group.group_name, 
     message: `${userName}: ${message}` });
-  console.log("message sent")
-  console.log(group.id);
+  // console.log("message sent")
+  // console.log(group.id);
 
   axios.put(`/api/groups/${group.id}`, {userName, message})
   .then((response) => {
-      console.log(response);
+      // console.log(response);
   }).catch(err => console.log(err));
 }
 export const goShopping = (room, storeMessage) => {
   if (socket) socket.emit('shopping', {room, storeMessage });
-  console.log("new shopping trip")
+  // console.log("new shopping trip")
 }
 // export const handleTyping = (room, message) =>{
 //     if (socket) socket.emit('typing', {room, message});
