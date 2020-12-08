@@ -1,7 +1,3 @@
-// import {io} from "socket.io-client";
-// const socket = io.connect(process.env.PORT || "http://localhost:3001");
-//export default socket;
-
 import io from 'socket.io-client';
 let socket;
 export const initiateSocket = (room) => {
@@ -28,7 +24,3 @@ export const goShopping = (room, storeMessage) => {
   if (socket) socket.emit('shopping', {room, storeMessage });
   console.log("new shopping trip")
 }
-// export const handleTyping = (room, message) =>{
-//     if (socket) socket.emit('typing', {room, message});
-//     console.log("typing")
-// }
