@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef, useContext } from "react";
+import React, { useEffect, useState, useRef, useContext, useMemo } from "react";
 import axios from 'axios';
 import { initiateSocket, disconnectSocket, subscribeToChat, handleTyping, sendMessage, goShopping } from "../../utils/socket/socket";
 import "./listStyle.css";
@@ -17,7 +17,7 @@ function Chat() {
 
     const { userProfile, setUserProfile } = useContext(context);
     const [groupName, setGroupName] = useState(userProfile.group_name);
-    const [groups, setGroups] = useState({});
+    const [groups, setGroups] = useState([]);
     const [isFetching, setIsFetching] = useState(true);
 
     //const rooms = ['1', '2'];
@@ -37,12 +37,21 @@ function Chat() {
     const [store, setStore] = useState("Store")
     const [storeMessage, setStoreMessage] = useState(shopper + " is going to: " + store)
     //rooms 
-    const [room, setRoom] = useState(rooms[2]);
+    const [room, setRoom] = useState(rooms[0]);
     //const [room, setRoom] = useState(rooms);
     //const [room, setRoom] = useState(user.group_name);
     const [typing, setTyping] = useState("")
     const [message, setMessage] = useState("");
     const [chat, setChat] = useState([]);
+
+    // console.log(groups);
+    const groupFilter = groups.filter(group => group.group_name === room)
+    // console.log(groupFilter);
+    const activeGroup = useMemo(() => {
+        return (
+            groups.filter(group => group.group_name === room));
+    }, [groups, room]);
+
     //clears input
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -53,23 +62,7 @@ function Chat() {
         // e.currentTarget.reset();
         storeRef.current.value = "";
     }
-    //does nothing atm
-    // const handleTyping = () => {
-    //     setMessage()
-    //     //want to put room but if I put room, message it just displays the room number
-    //     setTyping(user.name + ": is typing")
-    //     console.log(typing)
-    // }
-    // const newShoppingTrip = () => {
-    //     console.log("New shopping trip started")
-    //     let newStore = "New Store";
-    //     let newShopper = user.name;
-    //     setStore(newStore)
-    //     setShopper(newShopper)
-    //     console.log(store)
-    //     setStoreMessage(newShopper + " is going to: " + newStore)
-    //     goShopping(room, newShopper + " is going to: " + newStore)
-    // }
+
     useEffect(() => {
         if (room) initiateSocket(room);
         subscribeToChat((err, data) => {
@@ -85,11 +78,21 @@ function Chat() {
         axios.get("/api/groups")
             .then(response => {
                 setGroups(response.data);
-                console.log("user groups below");
-                console.log(response);
+                // console.log("user groups below");
+                // console.log(response);
                 setIsFetching(false);
             })
     }, []);
+    useEffect(() => {
+        if (activeGroup.id) {
+            axios.get(`/api/groups/${activeGroup.id}`)
+                .then(response => {
+                    console.log("user message below");
+                    console.log(response);
+                    // setIsFetching(false);
+                })
+        }
+    }, [activeGroup.id]);
     return (
         <div>
             <Row className="justify-content-center pt-5">
@@ -108,18 +111,26 @@ function Chat() {
                         </Col>
                     </Row>
                     {/* {console.log(userProfile.group_name)} */}
-                    <Row className="justify-content-center">
+                    {/* <Row className="justify-content-center">
                         <Col sm={4}>
                             <p>1.) Select group.</p>
                         </Col>
                         <Col sm={2}>
-                            {rooms.map((r, i) =>
-                                <Button className="groupButton"
-                                    //onChange={() => sendMessage(room, user.name + " Joined Group" + room)} 
-                                    onClick={() => setRoom(r)} key={i}>{r}
-                                </Button>)}
+                            {rooms.map((r, i) => {
+                                // console.log(groups);
+                                // const groupFilter = groups.filter(group => group.group_name === r) 
+                                // console.log(groupFilter);
+                                return (
+                                    <Button className="groupButton"
+                                        //onChange={() => sendMessage(room, user.name + " Joined Group" + room)} 
+                                        onClick={() => setRoom(r)} key={i}>{r}
+                                    </Button>)
+                            }
+                            )
+                            }
+
                         </Col>
-                    </Row>
+                    </Row> */}
                     {/* <h1>{storeMessage}</h1> */}
                     {/* <div id="storeMessage">
                 {shopping.map((m, i) => <h1 key={i}>{m}</h1>)}
@@ -127,22 +138,24 @@ function Chat() {
                     {/* <button onClick={() => newShoppingTrip()}>Go Shopping</button> */}
                     <Row className="justify-content-center pt-2">
                         <Col sm={4}>
-                            <p>2. If you are shopper, enter a store and select "go shopping."</p>
+                            <p>1. If you are shopper, enter a store and select "go shopping."</p>
                         </Col>
-                        <Col sm={4} md={3}>
+                    </Row>
+                    <Row className="justify-content-center pt-2">
+                    <Col sm={4} md={3}>
                             <input type="text" defaultValue="" placeholder="Store"
                                 onChange={() => setStore(storeRef.current.value)} ref={storeRef}>
                             </input>
                         </Col>
-                        <Col sm={4} md={3}>
-                            {/* <form onSubmit={handleSubmit}> */}
+                    </Row>
+                    <Row className='justify-content-center pt-2'>
+                        <Col sm={2} md={2}>
                             <Button className="goShopping" onClick={() => goShopping(room, user.name + " is going to: " + storeRef.current.value)}>Go Shopping</Button>
-                            {/* </form> */}
                         </Col>
                     </Row>
-                    <Row className="justify-content-center pt-2">
+                    <Row className="justify-content-center pt-3">
                         <Col sm={4}>
-                            <p>3. Add shopping items!</p>
+                            <p>2. Add shopping items!</p>
                         </Col>
                     </Row>
 
@@ -165,7 +178,7 @@ function Chat() {
                             //onChange={() => handleTyping()}
                             />
                             <button id="send"
-                                onClick={() => sendMessage(room, user.name + ": " + messageRef.current.value)}
+                                onClick={() => sendMessage(activeGroup[0], user.name, messageRef.current.value)}
                             >Send</button>
                         </form>
                     </div>

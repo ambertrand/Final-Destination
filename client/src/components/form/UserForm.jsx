@@ -100,6 +100,7 @@ function UserForm() {
                             <label>
                                 All groups:
                                 <select id="groupName" onChange={(event) => setGroupName(event.target.value)}>
+                                    {/* <option>{userProfile.group_name}</option> */}
                                     {isFetching ? (<option>Loading</option>) : (groups.map(group => (<option key={group.group_name} value={group.group_name}>{group.group_name}</option>)))}
                                 </select>
                             </label>
