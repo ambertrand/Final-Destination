@@ -76,7 +76,9 @@ router.put("/profile/:id", function (req, res) {
   db.user.update({
     username: req.body.userName,
     group_name: req.body.groupName,
-    shopper: req.body.groupRole
+    first_name: req.body.userFirstName,
+    last_name: req.body.userLastName
+    // shopper: req.body.groupRole
   }, {
     where: {
       id: req.params.id
