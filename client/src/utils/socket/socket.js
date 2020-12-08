@@ -30,7 +30,7 @@ export const sendMessage = (group, userName, message) => {
 
   axios.put(`/api/groups/${group.id}`, {userName, message})
   .then((response) => {
-      // console.log(response);
+      console.log(response);
   }).catch(err => console.log(err));
 }
 export const goShopping = (room, storeMessage) => {

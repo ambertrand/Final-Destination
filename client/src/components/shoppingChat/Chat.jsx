@@ -20,17 +20,10 @@ function Chat() {
     const [groups, setGroups] = useState([]);
     const [isFetching, setIsFetching] = useState(true);
 
-    //const rooms = ['1', '2'];
-    //const { rooms }  = useAuth0();
-    // const rooms = ["Default", "Test"];
-    // const rooms = ["Default", "Test", userProfile.group_name];
     const rooms = [userProfile.group_name];
     const [myList, setList] = useState([]);
     const messageRef = useRef(null);
     const storeRef = useRef(null);
-    //const [userName, setUserName] = useState(user.nickname);
-    //const store = "Store"
-    //const storeMessage = user.name + " is going to " + store;
     //shopper
     const [shopper, setShopper] = useState("Shopper")
     //store and store message
@@ -45,7 +38,7 @@ function Chat() {
     const [chat, setChat] = useState([]);
 
     // console.log(groups);
-    const groupFilter = groups.filter(group => group.group_name === room)
+    const groupsFilter = groups.filter(group => group.group_name === room)
     // console.log(groupFilter);
     const activeGroup = useMemo(() => {
         return (
@@ -74,6 +67,7 @@ function Chat() {
             disconnectSocket();
         }
     }, [room]);
+
     useEffect(() => {
         axios.get("/api/groups")
             .then(response => {
@@ -83,16 +77,19 @@ function Chat() {
                 setIsFetching(false);
             })
     }, []);
+
     useEffect(() => {
-        if (activeGroup.id) {
-            axios.get(`/api/groups/${activeGroup.id}`)
-                .then(response => {
-                    console.log("user message below");
-                    console.log(response);
-                    // setIsFetching(false);
-                })
-        }
+        // console.log(activeGroup)
+        // if (room) {
+        axios.get(`/api/groups/${activeGroup.id}`)
+            .then(response => {
+                console.log("user message below");
+                console.log(response);
+                // setIsFetching(false);
+            })
+        // }
     }, [activeGroup.id]);
+    
     return (
         <div>
             <Row className="justify-content-center pt-5">
@@ -103,46 +100,22 @@ function Chat() {
 
                         <Col sm={4}>
                             <h1
-                            //won't send message
-                            // onChange={() => setMessage(user.name + " Joined Group" + room)}
-                            // onChange={() => sendMessage(room, user.name + " Joined Group" + room)}
-                            // onChange={console.log("room changed")}
                             >Group: {room}</h1>
+                            {rooms.map((r, i) =>
+                                <Button className="groupButton"
+                                    //onChange={() => sendMessage(room, user.name + " Joined Group" + room)} 
+                                    onClick={() => setRoom(r)} key={i}>{r}
+                                </Button>)}
                         </Col>
                     </Row>
-                    {/* {console.log(userProfile.group_name)} */}
-                    {/* <Row className="justify-content-center">
-                        <Col sm={4}>
-                            <p>1.) Select group.</p>
-                        </Col>
-                        <Col sm={2}>
-                            {rooms.map((r, i) => {
-                                // console.log(groups);
-                                // const groupFilter = groups.filter(group => group.group_name === r) 
-                                // console.log(groupFilter);
-                                return (
-                                    <Button className="groupButton"
-                                        //onChange={() => sendMessage(room, user.name + " Joined Group" + room)} 
-                                        onClick={() => setRoom(r)} key={i}>{r}
-                                    </Button>)
-                            }
-                            )
-                            }
 
-                        </Col>
-                    </Row> */}
-                    {/* <h1>{storeMessage}</h1> */}
-                    {/* <div id="storeMessage">
-                {shopping.map((m, i) => <h1 key={i}>{m}</h1>)}
-            </div> */}
-                    {/* <button onClick={() => newShoppingTrip()}>Go Shopping</button> */}
                     <Row className="justify-content-center pt-2">
                         <Col sm={4}>
                             <p>1. If you are shopper, enter a store and select "go shopping."</p>
                         </Col>
                     </Row>
                     <Row className="justify-content-center pt-2">
-                    <Col sm={4} md={3}>
+                        <Col sm={4} md={3}>
                             <input type="text" defaultValue="" placeholder="Store"
                                 onChange={() => setStore(storeRef.current.value)} ref={storeRef}>
                             </input>
@@ -159,10 +132,11 @@ function Chat() {
                         </Col>
                     </Row>
 
-
-
                     <div id="list-chat">
                         <div id="chat-window">
+                            <div id="output">
+                                <p>Hello</p>
+                            </div>
                             <div id="output" >
                                 {chat.map((m, i) => <p key={i}>{m}<input className="checkbox" type="checkbox"></input></p>)}
                             </div>
