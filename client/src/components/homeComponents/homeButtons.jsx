@@ -20,7 +20,7 @@ function HomeButtons(event) {
     const [showViewModal, setShowViewModal] = useState(false);
     // const [showViewStoreModal, setShowViewStoreModal] = useState(false);
     const [groupName, setGroupName] = useState("");
-    const [groups, setGroups] = useState({});
+    const [groups, setGroups] = useState([]);
     const [isFetching, setIsFetching] = useState(true);
 
     const handleClose = () => setShowCreateModal(false);
@@ -45,16 +45,20 @@ function HomeButtons(event) {
     useEffect(() => {
         axios.get("/api/groups")
             .then(response => {
-                setGroups(response.data)
-                // console.log(response);
-                setIsFetching(false);
+                // response.data = {}
+                if (JSON.stringify(response.data) !== "{}") {
+
+                    setGroups(response.data)
+                    // console.log(response);
+                    setIsFetching(false);
+                }
             })
     }, [isFetching])
 
     return (
         <Container className="greyBox">
             <Row className="teams">
-                <Col sm={12} md={6}>
+                <Col sm={12}>
 
                     {/* Create Group */}
                     <Row>
@@ -94,7 +98,7 @@ function HomeButtons(event) {
                 </Col>
 
                 {/* View Group  */}
-                <Col sm={12} md={6}>
+                {/* <Col sm={12} md={6}>
                     <Row>
                         <Col className="text-center">
                             <Image className="iconImg" src={viewgroups} />
@@ -119,7 +123,8 @@ function HomeButtons(event) {
                             </Modal.Footer>
                         </Modal>
                     </Row>
-                </Col>
+                </Col> */} 
+                
 
                 {/* Go Shopping  - Future development*/}
                 {/* <Col sm={12} md={4}>
