@@ -83,7 +83,7 @@ function Chat() {
                 // console.log(response);
                 setIsFetching(false);
             })
-    }, []);
+    }, [isFetching]);
 
     useEffect(() => {
         // console.log(activeGroup)
