@@ -9,7 +9,7 @@ function JumboSection(props) {
         <Jumbotron className="jumbo">
             <Row className="justify-content-center">
                 <Col xs="auto">
-                    <h2 className="text-center text-dark display-5">{title}</h2>
+                    <h2 className="text-center text-dark">{title}</h2>
                 </Col>
             </Row>
             <Row className="justify-content-center">
