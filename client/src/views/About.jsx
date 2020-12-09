@@ -5,17 +5,17 @@ import React from "react";
 // import Card from 'react-bootstrap/Card';
 import AboutUs from "../components/aboutComponents/aboutUs";
 // import Carousel from "../components/aboutComponents/carousel";
-import { useAuth0 } from '@auth0/auth0-react';
+// import { useAuth0 } from '@auth0/auth0-react';
 
 function About({history}) {
-    const { isAuthenticated } = useAuth0();
+    // const { isAuthenticated } = useAuth0();
 
-    React.useEffect(() => {
-        // console.log(isAuthenticated);
-        if (!isAuthenticated) {
-            history.push("/")
-        }
-    }, [isAuthenticated, history]);
+    // React.useEffect(() => {
+    //     // console.log(isAuthenticated);
+    //     if (!isAuthenticated) {
+    //         history.push("/")
+    //     }
+    // }, [isAuthenticated, history]);
     return (
 
         <>
