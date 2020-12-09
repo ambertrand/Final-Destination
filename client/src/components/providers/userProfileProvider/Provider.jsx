@@ -1,4 +1,4 @@
-import React, {useMemo, useState} from 'react';
+import React, {useMemo} from 'react';
 import userProfileContext from "./context";
 
 const UserProfileProvider = ({user, children}) => {

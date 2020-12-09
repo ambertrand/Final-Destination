@@ -15,7 +15,7 @@ import Card from 'react-bootstrap/Card';
 
 function UserForm() {
     // const { user } = useAuth0();
-    const { userProfile, setUserProfile } = useContext(context);
+    const { userProfile, } = useContext(context);
     // console.log(userProfile);
     const [userName, setUserName] = useState(userProfile.username);
     const [userFirstName, setUserFirstName] = useState(userProfile.first_name);

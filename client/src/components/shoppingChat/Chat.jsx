@@ -3,6 +3,8 @@ import axios from 'axios';
 import { initiateSocket, disconnectSocket, subscribeToChat, sendMessage, goShopping } from "../../utils/socket/socket";
 import "./listStyle.css";
 import { useAuth0 } from '@auth0/auth0-react';
+// import Shopping from "../../views/ShoppingList";
+// import { Store } from "express-session";
 import context from '../providers/userProfileProvider/context';
 
 import Button from 'react-bootstrap/Button';
@@ -13,7 +15,7 @@ import Col from 'react-bootstrap/Col';
 function Chat() {
     const { user } = useAuth0();
 
-    const { userProfile, setUserProfile } = useContext(context);
+    const { userProfile, } = useContext(context);
     // const [groupName, setGroupName] = useState(userProfile.group_name);
     const [groups, setGroups] = useState([]);
     const [isFetching, setIsFetching] = useState(true);
@@ -25,14 +27,14 @@ function Chat() {
     //shopper
     // const [shopper, setShopper] = useState("Shopper")
     //store and store message
-    const [store, setStore] = useState("Store")
+    const [, setStore] = useState("Store")
     // const [storeMessage, setStoreMessage] = useState(shopper + " is going to: " + store)
     //rooms 
-    const [room, setRoom] = useState(rooms[0]);
+    const [room, ] = useState(rooms[0]);
     //const [room, setRoom] = useState(rooms);
     //const [room, setRoom] = useState(user.group_name);
-    const [typing, setTyping] = useState("")
-    const [message, setMessage] = useState("");
+    const [, setTyping] = useState("")
+    const [, setMessage] = useState("");
     const [chat, setChat] = useState([]);
 
     // console.log(groups);
