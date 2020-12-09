@@ -92,7 +92,9 @@ const App = () => {
             <Navigation />
 
             <Switch>
-              <Route exact path="/" component={LandingPage} />
+              <Route exact path="/" render={(props) => (
+                <LandingPage history={props.history} />
+              )} />
                 {/* <LandingPage />
               </Route> */}
               <Route exact path="/userinfo" component={UserInfo} />
