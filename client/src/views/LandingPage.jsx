@@ -1,21 +1,20 @@
 import React from "react";
 import JumboSection from "../components/jumbotron/Jumbotron.jsx";
 import Mission from "../components/landingComponents/missionstatement";
-// import { useAuth0 } from '@auth0/auth0-react';
+import { useAuth0 } from '@auth0/auth0-react';
 
 function LandingPage({ history }) {
 
-    // const { isAuthenticated } = useAuth0();
+    const { isAuthenticated } = useAuth0();
 
-    // React.useEffect(() => {
-    //     // console.log(isAuthenticated);
-    //     if (isAuthenticated) {
-    //         history.push("/home");
-    //     }
-    //     else {
-    //         history.push("/")
-    //     }
-    // }, [isAuthenticated]);
+    React.useEffect(() => {
+        if (isAuthenticated) {
+            history.push("/home");
+        }
+        else {
+            history.push("/")
+        }
+    }, [isAuthenticated]);
 
 
 
