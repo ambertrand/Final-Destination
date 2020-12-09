@@ -28,10 +28,12 @@ function UserForm() {
     useEffect(() => {
         axios.get("/api/groups")
             .then(response => {
-                setGroups(response.data);
-                // console.log("user groups below");
-                // console.log(response);
-                setIsFetching(false);
+                if (Array.isArray(response.data)) {
+                    setGroups(response.data);
+                    // console.log("user groups below");
+                    // console.log(response);
+                    setIsFetching(false);
+                }
             })
     }, []);
 

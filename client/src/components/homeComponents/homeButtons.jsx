@@ -38,7 +38,7 @@ function HomeButtons(event) {
         axios.get("/api/groups")
         .then(response => {
             // response.data = {}
-            if (JSON.stringify(response.data) !== "{}") {
+            if (Array.isArray(response.data)) {
 
                 setGroups(response.data)
                 // console.log(response);
