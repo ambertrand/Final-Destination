@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useAuth0 } from '@auth0/auth0-react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Navigation, Loading } from "./components";
 import { Footer } from "./components";
 import UserInfo from "./views/UserInfo";
@@ -13,8 +15,8 @@ import UserProfileProvider from './components/providers/userProfileProvider/Prov
 // import groupProvider from './components/providers/groupProvider/Provider';
 import getUserInfo from './components/form/getUserInfo';
 import ProtectedRoute from "./auth/protected-route";
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { useAuth0 } from '@auth0/auth0-react';
+
+
 import BackgroundImage from './assets/GroceryStore.jpg';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
@@ -58,37 +60,37 @@ const App = () => {
   console.log(isAuthenticated);
 
 
-  // useEffect(() => {
-  if (isAuthenticated) {
-    // console.log(user);
-    axios.post("/api/users/onAuthenticated", user)
-      .then(function (response) {
-        // console.log(response);
-        // setUserProfile(response);
-        getUserId(response.data[0].id);
-        return getUserInfo(response.data[0].id);
-      }).then(function (response) {
-        // console.log(response);
-        // console.log("new response above");
-        setUserProfile(response.data);
-        // setGroupNames(response.data);
-        // history.push('/home')
-      });
-  }
-  //     .catch(err => {
-  //       // history.push("/")
-  //     })
-  // } else {
-  //    history.push("/")
+  //  useEffect(() => {
+  // if (isAuthenticated) {
+  //   // console.log(user);
+  //   axios.post("/api/users/onAuthenticated", user)
+  //     .then(function (response) {
+  //       // console.log(response);
+  //       // setUserProfile(response);
+  //       getUserId(response.data[0].id);
+  //       return getUserInfo(response.data[0].id);
+  //     }).then(function (response) {
+  //       // console.log(response);
+  //       // console.log("new response above");
+  //       setUserProfile(response.data);
+  //       // setGroupNames(response.data);
+  //       // history.push('/home')
+  //     });
   // }
-  // console.log("if authenticated is shown below");
-  // console.log(isAuthenticated);
-  // }, [isAuthenticated, user]);
+  // //     .catch(err => {
+  // //       // history.push("/")
+  // //     })
+  // // } else {
+  // //    history.push("/")
+  // // }
+  // // console.log("if authenticated is shown below");
+  // // console.log(isAuthenticated);
+  //  }, [isAuthenticated, user]);
 
 
 
   return (
-    <div className="App container-fluid outerContainer" style={backgroundStyle}>
+    <div id = "App" className="App container-fluid outerContainer" style={backgroundStyle}>
       {/* <groupProvider name={groupNames}> */}
       <userContext.Provider value={userId}>
         <UserProfileProvider user={userProfile}>
