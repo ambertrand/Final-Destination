@@ -18,31 +18,10 @@ function UserForm() {
     const { userProfile, setUserProfile } = useContext(context);
     // console.log(userProfile);
     const [userName, setUserName] = useState(userProfile.username);
-
-    // const [userPhoto, setUserPhoto] = useState("");
     const [userFirstName, setUserFirstName] = useState(userProfile.first_name);
     const [userLastName, setUserLastName] = useState(userProfile.last_name);
-
-    // const [email, setEmail] = useState(userProfile.email);
     const [groupName, setGroupName] = useState(userProfile.group_name);
-    // const [groupRole, setGroupRole] = useState(userProfile.shopper);
     const userId = useContext(userContext);
-
-    // let shopperOrGroupMember = "";
-
-    // function userRole() {
-    //     if (userProfile.shopper === true) {
-    //         shopperOrGroupMember === "Shopper";
-    //     }
-    //     if (userProfile.shopper === false) {
-    //         shopperOrGroupMember === "Group Member";
-    //     }
-    //     else {
-    //         shopperOrGroupMember === "Please select group role";
-    //     }
-    // }
-
-    // userRole();
     const [groups, setGroups] = useState([]);
     const [isFetching, setIsFetching] = useState(true);
 
