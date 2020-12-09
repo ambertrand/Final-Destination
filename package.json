@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
+  "homepage": "https://while-youre-there.herokuapp.com/",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.32",
     "@fortawesome/free-brands-svg-icons": "^5.15.1",
@@ -46,6 +47,5 @@
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/ambertrand/While-Youre-There/issues"
-  },
-  "homepage": "https://github.com/ambertrand/While-Youre-There"
+  }
 }
