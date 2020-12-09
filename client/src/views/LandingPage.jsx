@@ -15,7 +15,7 @@ function LandingPage({ history }) {
         else {
             history.push("/")
         }
-    }, [isAuthenticated, history]);
+    }, [isAuthenticated]);
 
 
 
