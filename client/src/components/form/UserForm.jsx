@@ -24,6 +24,10 @@ function UserForm() {
     const userId = useContext(userContext);
     const [groups, setGroups] = useState([]);
     const [isFetching, setIsFetching] = useState(true);
+    // added to try to catch when user first logs in
+    // if (userProfile.group_name === "") {
+    //     setGroupName("Please choose a group!");
+    // }
 
     useEffect(() => {
         axios.get("/api/groups")
@@ -47,7 +51,7 @@ function UserForm() {
                     <Card className="m-3 profileImage">
                         <Card.Img variant="top" src={userProfile.picture} alt={userProfile.first_name} className="img-responsive" width="60px" max-height="100px" />
                         <Card.Body >
-                            <h5>{`Shopping group: ${userProfile.group_name}`}</h5>
+                            <h5>{`${userProfile.first_name} ${userProfile.last_name}`}</h5>
                         </Card.Body>
                     </Card>
                 </Col>
@@ -79,15 +83,15 @@ function UserForm() {
                                 <input type="text" defaultValue={userProfile.username} name="userName" onChange={(event) => setUserName(event.target.value)} />
                             </label>
                             <label>
-                                All groups:
+                                <p>Your Group: {userProfile.group_name}</p>
                                 <select id="groupName" onChange={(event) => setGroupName(event.target.value)}>
-                                    {/* <option>{userProfile.group_name}</option> */}
+                                    <option>Choose new group</option>
                                     {isFetching ? (<option>Loading</option>) : (groups.map(group => (<option key={group.group_name} value={group.group_name}>{group.group_name}</option>)))}
                                 </select>
                             </label>
                             <Row className="justify-content-center p-2">
                                 <Col sm="auto">
-                                    <p>Select group from "All groups" if you would like to join a new group.</p>
+                                    <p>Select another group if you would like to join a new group.</p>
                                 </Col>
                             </Row>
                             <Row className="justify-content-center">
@@ -105,12 +109,7 @@ function UserForm() {
                                 </Col>
                             </Row>
                         </form>
-
-
-
                     </Card>
-
-
                 </Col>
             </Row>
 
