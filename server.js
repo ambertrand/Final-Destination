@@ -10,7 +10,7 @@ const db = require("./models");
 // Creating express app and configuring middleware needed for authentication
 const app = express();
 const Auth0Strategy = require("passport-auth0");
-const userInViews = require("./lib/middleware/userInViews");
+// const userInViews = require("./lib/middleware/userInViews");
 const strategy = new Auth0Strategy(
   {
     domain: process.env.REACT_APP_AUTH0_DOMAIN,
