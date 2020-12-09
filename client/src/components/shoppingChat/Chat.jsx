@@ -19,10 +19,6 @@ function Chat() {
     // const [groupName, setGroupName] = useState(userProfile.group_name);
     const [groups, setGroups] = useState([]);
     const [isFetching, setIsFetching] = useState(true);
-<<<<<<< HEAD
-=======
-
->>>>>>> 674e7c32478559b94ef4f1cda747530bb4c4c6fe
     const rooms = [userProfile.group_name];
     const [myList, setList] = useState([]);
     const messageRef = useRef(null);
@@ -33,17 +29,11 @@ function Chat() {
     const [, setStore] = useState("Store")
     // const [storeMessage, setStoreMessage] = useState(shopper + " is going to: " + store)
     //rooms 
-<<<<<<< HEAD
-    const [room, setRoom] = useState(rooms[0]);
-    const [typing, setTyping] = useState("")
-    const [message, setMessage] = useState("");
-=======
     const [room, ] = useState(rooms[0]);
     //const [room, setRoom] = useState(rooms);
     //const [room, setRoom] = useState(user.group_name);
     const [, setTyping] = useState("")
     const [, setMessage] = useState("");
->>>>>>> 674e7c32478559b94ef4f1cda747530bb4c4c6fe
     const [chat, setChat] = useState([]);
 
     // console.log(groups);
@@ -67,10 +57,6 @@ function Chat() {
         messageRef.current.value = "";
         storeRef.current.value = "";
     }
-<<<<<<< HEAD
-=======
-
->>>>>>> 674e7c32478559b94ef4f1cda747530bb4c4c6fe
     useEffect(() => {
         if (room) initiateSocket(room);
         subscribeToChat((err, data) => {
@@ -112,29 +98,14 @@ function Chat() {
                     {/* <Row className="justify-content-center">
 
                         <Col sm={4}>
-<<<<<<< HEAD
-                            <h1>Group: {room}</h1>
-                        </Col>
-                    </Row>
-                    <Row className="justify-content-center">
-                        <Col sm={4}>
-                            <p>1.) Select group.</p>
-                        </Col>
-                        <Col sm={2}>
-=======
                             <h1
                             >Group: {room}</h1>
->>>>>>> 674e7c32478559b94ef4f1cda747530bb4c4c6fe
                             {rooms.map((r, i) =>
                                 <Button className="groupButton" onClick={() => setRoom(r)} key={i}>{r}
                                 </Button>)}
                         </Col>
-<<<<<<< HEAD
-                    </Row>
-=======
                     </Row> */}
 
->>>>>>> 674e7c32478559b94ef4f1cda747530bb4c4c6fe
                     <Row className="justify-content-center pt-2">
                         <Col sm={4}>
                             <p>If you are shopper, enter a store and select "go shopping." Otherwise, skip right to adding shopping items!</p>
@@ -146,12 +117,6 @@ function Chat() {
                                 onChange={() => setStore(storeRef.current.value)} ref={storeRef}>
                             </input>
                         </Col>
-<<<<<<< HEAD
-                        <Col sm={4} md={3}>
-                            <Button className="goShopping" onClick={() => goShopping(room, user.name + " is going to: " + storeRef.current.value)}>Go Shopping</Button>
-                        </Col>
-=======
->>>>>>> 674e7c32478559b94ef4f1cda747530bb4c4c6fe
                     </Row>
                     <Row className='justify-content-center pt-2'>
                         <Col sm={2} md={2}>

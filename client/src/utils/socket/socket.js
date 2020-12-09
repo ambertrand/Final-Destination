@@ -1,11 +1,8 @@
-<<<<<<< HEAD
-=======
 // import {io} from "socket.io-client";
 // const socket = io.connect(process.env.PORT || "http://localhost:3001");
 //export default socket;
 
 import axios from 'axios';
->>>>>>> 674e7c32478559b94ef4f1cda747530bb4c4c6fe
 import io from 'socket.io-client';
 let socket;
 export const initiateSocket = (room) => {
@@ -39,14 +36,9 @@ export const sendMessage = (group, userName, message) => {
 }
 export const goShopping = (room, storeMessage) => {
   if (socket) socket.emit('shopping', {room, storeMessage });
-<<<<<<< HEAD
-  console.log("new shopping trip")
-}
-=======
   // console.log("new shopping trip")
 }
 // export const handleTyping = (room, message) =>{
 //     if (socket) socket.emit('typing', {room, message});
 //     console.log("typing")
 // }
->>>>>>> 674e7c32478559b94ef4f1cda747530bb4c4c6fe
