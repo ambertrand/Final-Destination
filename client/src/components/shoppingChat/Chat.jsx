@@ -1,10 +1,8 @@
 import React, { useEffect, useState, useRef, useContext, useMemo } from "react";
 import axios from 'axios';
-import { initiateSocket, disconnectSocket, subscribeToChat, handleTyping, sendMessage, goShopping } from "../../utils/socket/socket";
+import { initiateSocket, disconnectSocket, subscribeToChat, sendMessage, goShopping } from "../../utils/socket/socket";
 import "./listStyle.css";
 import { useAuth0 } from '@auth0/auth0-react';
-// import Shopping from "../../views/ShoppingList";
-// import { Store } from "express-session";
 import context from '../providers/userProfileProvider/context';
 
 import Button from 'react-bootstrap/Button';
@@ -16,7 +14,7 @@ function Chat() {
     const { user } = useAuth0();
 
     const { userProfile, setUserProfile } = useContext(context);
-    const [groupName, setGroupName] = useState(userProfile.group_name);
+    // const [groupName, setGroupName] = useState(userProfile.group_name);
     const [groups, setGroups] = useState([]);
     const [isFetching, setIsFetching] = useState(true);
 
@@ -25,10 +23,10 @@ function Chat() {
     const messageRef = useRef(null);
     const storeRef = useRef(null);
     //shopper
-    const [shopper, setShopper] = useState("Shopper")
+    // const [shopper, setShopper] = useState("Shopper")
     //store and store message
     const [store, setStore] = useState("Store")
-    const [storeMessage, setStoreMessage] = useState(shopper + " is going to: " + store)
+    // const [storeMessage, setStoreMessage] = useState(shopper + " is going to: " + store)
     //rooms 
     const [room, setRoom] = useState(rooms[0]);
     //const [room, setRoom] = useState(rooms);
@@ -36,7 +34,6 @@ function Chat() {
     const [typing, setTyping] = useState("")
     const [message, setMessage] = useState("");
     const [chat, setChat] = useState([]);
-    let groupId="";
 
     // console.log(groups);
     const groupFilter = groups.filter(group => group.group_name === room)
@@ -85,17 +82,17 @@ function Chat() {
             })
     }, [isFetching]);
 
-    useEffect(() => {
-        // console.log(activeGroup)
-        if (groupFilter[0]) {
-        axios.get(`/api/groups/${activeGroup[0].id}`)
-            .then(response => {
-                // console.log("user message below");
-                // console.log(response);
-                // setIsFetching(false);
-            })
-        }
-    }, [activeGroup]);
+    // useEffect(() => {
+    //     // console.log(activeGroup)
+    //     if (groupFilter[0]) {
+    //     axios.get(`/api/groups/${activeGroup[0].id}`)
+    //         .then(response => {
+    //             // console.log("user message below");
+    //             // console.log(response);
+    //             // setIsFetching(false);
+    //         })
+    //     }
+    // }, []);
 
     return (
         <div>
