@@ -20,12 +20,15 @@
 
 # Technologies
 
-|  Front-End     |  Back-End     |
-| -------------  | ------------- |
-| React          | Node.js       |
-| React-Bootstrap| MySQL         |
-| Auth0          | Sequelize     |
-| Socket.io      | Express       |
+|  Front-End     |  Back-End     |  Dev-Tools     |
+| -------------  | ------------- | -------------  |
+| React          | Node.js       | nodemon        |
+| React-Bootstrap| MySQL         | Balsamiq       |
+| Auth0          | Sequelize     | Trello         |
+| Font Awesome   | Express       | Google         |
+          
+
+
 
 
 # Future Developments

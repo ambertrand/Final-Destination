@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
+  "homepage": "https://while-youre-there.herokuapp.com/",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.32",
     "@fortawesome/free-brands-svg-icons": "^5.15.1",
@@ -31,7 +32,7 @@
   "scripts": {
     "start:devserver": "nodemon --ignore 'client/*'",
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
-    "start:prod":"node server.js",
+    "start:prod": "node server.js",
     "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
     "client": "cd client && npm run start",
     "install": "cd client && npm install",
@@ -46,6 +47,5 @@
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/ambertrand/While-Youre-There/issues"
-  },
-  "homepage": "https://github.com/ambertrand/While-Youre-There"
+  }
 }

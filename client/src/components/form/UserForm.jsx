@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
 import axios from 'axios';
-import { useAuth0 } from '@auth0/auth0-react';
+// import { useAuth0 } from '@auth0/auth0-react';
 import userInfo from './userInfo';
 // import getUserInfo from './getUserInfo';
 import userContext from './userContext';
@@ -14,45 +14,26 @@ import Card from 'react-bootstrap/Card';
 
 
 function UserForm() {
-    const { user } = useAuth0();
-    const { userProfile, setUserProfile } = useContext(context);
+    // const { user } = useAuth0();
+    const { userProfile, } = useContext(context);
     // console.log(userProfile);
     const [userName, setUserName] = useState(userProfile.username);
-
-    // const [userPhoto, setUserPhoto] = useState("");
     const [userFirstName, setUserFirstName] = useState(userProfile.first_name);
     const [userLastName, setUserLastName] = useState(userProfile.last_name);
-
-    // const [email, setEmail] = useState(userProfile.email);
     const [groupName, setGroupName] = useState(userProfile.group_name);
-    // const [groupRole, setGroupRole] = useState(userProfile.shopper);
     const userId = useContext(userContext);
-
-    // let shopperOrGroupMember = "";
-
-    // function userRole() {
-    //     if (userProfile.shopper === true) {
-    //         shopperOrGroupMember === "Shopper";
-    //     }
-    //     if (userProfile.shopper === false) {
-    //         shopperOrGroupMember === "Group Member";
-    //     }
-    //     else {
-    //         shopperOrGroupMember === "Please select group role";
-    //     }
-    // }
-
-    // userRole();
-    const [groups, setGroups] = useState({});
+    const [groups, setGroups] = useState([]);
     const [isFetching, setIsFetching] = useState(true);
 
     useEffect(() => {
         axios.get("/api/groups")
             .then(response => {
-                setGroups(response.data);
-                // console.log("user groups below");
-                // console.log(response);
-                setIsFetching(false);
+                if (Array.isArray(response.data)) {
+                    setGroups(response.data);
+                    // console.log("user groups below");
+                    // console.log(response);
+                    setIsFetching(false);
+                }
             })
     }, []);
 
@@ -100,16 +81,17 @@ function UserForm() {
                             <label>
                                 All groups:
                                 <select id="groupName" onChange={(event) => setGroupName(event.target.value)}>
+                                    {/* <option>{userProfile.group_name}</option> */}
                                     {isFetching ? (<option>Loading</option>) : (groups.map(group => (<option key={group.group_name} value={group.group_name}>{group.group_name}</option>)))}
                                 </select>
                             </label>
-                            <Row className="justify-content-center">
+                            <Row className="justify-content-center p-2">
                                 <Col sm="auto">
                                     <p>Select group from "All groups" if you would like to join a new group.</p>
                                 </Col>
                             </Row>
                             <Row className="justify-content-center">
-                                <Col sm="auto">
+                                <Col xs={5}>
                                     <Button type="submit" className="mb-2" id="updateUserInfo" onClick={event => userInfo(event, userId,
                                         {
                                             userName,
