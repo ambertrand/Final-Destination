@@ -11,8 +11,6 @@ import Home from "./views/Home";
 import About from "./views/About";
 import userContext from './components/form/userContext';
 import UserProfileProvider from './components/providers/userProfileProvider/Provider';
-// import groupContext from './components/providers/groupProvider/context';
-// import groupProvider from './components/providers/groupProvider/Provider';
 import getUserInfo from './components/form/getUserInfo';
 import ProtectedRoute from "./auth/protected-route";
 
@@ -23,8 +21,7 @@ import { fab } from '@fortawesome/free-brands-svg-icons'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
-
-library.add(fab)
+library.add(fab);
 
 const App = () => {
   const [userId, setUserId] = useState("");
@@ -40,10 +37,6 @@ const App = () => {
   const getUserId = (id) => {
     setUserId(id);
   }
-
-  // const getGroupId = (id) => {
-  //   setGroupId(groupId);
-  // }
 
   const backgroundStyle = {
     backgroundImage: `url(${BackgroundImage})`,
@@ -99,20 +92,18 @@ const App = () => {
             <Navigation />
 
             <Switch>
-              <Route exact path="/" render={(props) => (
-                <LandingPage history={props.history} />
-              )} />
-              <Route exact path="/userinfo" render={(props) => (
-                <UserInfo history={props.history} />
-              )} />
-              <Route exact path="/home" render={(props) => (
-                <Home getUserId={getUserId} history={props.history} />
-              )} />
-
-              <Route exact path="/shopping" render={(props) => (
-                <Shopping getUserId={getUserId} history={props.history} />
-              )} />
-
+              <Route exact path="/" component={LandingPage} />
+                {/* <LandingPage />
+              </Route> */}
+              <Route exact path="/userinfo" component={UserInfo} />
+                {/* <UserInfo />
+              </Route> */}
+              <Route exact path="/home">
+                <Home getUserId={getUserId} />
+              </Route>
+              <Route exact path="/shopping">
+                <Shopping getUserId={getUserId} />
+              </Route>
               <Route exact path="/about" component={About} />
             </Switch>
 
@@ -121,7 +112,6 @@ const App = () => {
           </Router >
         </UserProfileProvider>
       </userContext.Provider>
-      {/* </groupProvider> */}
     </div>
 
 

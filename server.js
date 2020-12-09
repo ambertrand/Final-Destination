@@ -10,7 +10,7 @@ const db = require("./models");
 // Creating express app and configuring middleware needed for authentication
 const app = express();
 const Auth0Strategy = require("passport-auth0");
-const userInViews = require("./lib/middleware/userInViews");
+// const userInViews = require("./lib/middleware/userInViews");
 const strategy = new Auth0Strategy(
   {
     domain: process.env.REACT_APP_AUTH0_DOMAIN,
@@ -33,12 +33,7 @@ passport.use(strategy);
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 // Serve up static assets (usually on heroku)
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build"));
-  app.get('/*', function (req, res) {
-    res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
-  });
-}
+
 
 
 
@@ -82,15 +77,13 @@ app.use("/api", indexRouter);
 // app.use("/", usersRouter);
 // app.use("/", apiUser);
 
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+  app.get('/*', function (req, res) {
+    res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
+  });
+}
 
-// Send every other request to the React app
-// Define any API routes before this runs
-// app.get('/*', function (req, res) {
-//   res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
-// });
-// app.get("*", (req, res) => {
-//   res.sendFile(path.join(__dirname, "./client/build/index.html"));
-// });
 
 
 

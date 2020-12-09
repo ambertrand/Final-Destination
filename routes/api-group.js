@@ -23,4 +23,48 @@ router.get("/", function (req, res) {
     });
 });
 
+// update group chat
+router.put('/:id', function(req, res) {
+  console.log(req.body);
+  db.group.update({
+  //   where: {
+  //     id: req.params.id
+  //   },
+  //   defaults: 
+  //   {
+  //     chat_message: req.body.message
+  //   }
+  // })
+  // .then(function (dbGroup) {
+  //     res.status(201).end();
+  //   })
+  //   .catch(function (err) {
+  //     res.status(401).json(err);
+  //     console.log(err);
+  //   });
+
+  chat_message: req.body.message
+   
+  }, {
+    where: {
+      id: req.params.id
+    }
+  })
+    .then(function (dbGroup) {
+      res.json(dbGroup);
+    });
+})
+
+// Get by group id
+router.get("/:id", function (req, res) {
+  db.user.findOne({
+    where: {
+      id: req.params.id
+    }
+  })
+    .then(function (dbUser) {
+      res.json(dbUser);
+    });
+});
+
 module.exports = router;
