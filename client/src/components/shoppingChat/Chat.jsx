@@ -3,8 +3,6 @@ import axios from 'axios';
 import { initiateSocket, disconnectSocket, subscribeToChat, sendMessage, goShopping } from "../../utils/socket/socket";
 import "./listStyle.css";
 import { useAuth0 } from '@auth0/auth0-react';
-// import Shopping from "../../views/ShoppingList";
-// import { Store } from "express-session";
 import context from '../providers/userProfileProvider/context';
 
 import Button from 'react-bootstrap/Button';
