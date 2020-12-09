@@ -1,12 +1,8 @@
-// import {io} from "socket.io-client";
-// const socket = io.connect(process.env.PORT || "http://localhost:3001");
-//export default socket;
-
 import axios from 'axios';
 import io from 'socket.io-client';
 let socket;
 export const initiateSocket = (room) => {
-  socket = io('http://localhost:3000');
+  socket = io(process.env.PORT || 'http://localhost:3000');
   // console.log(`Connecting socket...`);
   if (socket && room) socket.emit('join', room);
 }
