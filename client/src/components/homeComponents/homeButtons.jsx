@@ -9,8 +9,6 @@ import Image from "react-bootstrap/Image";
 //  Buttons
 import addgroup from '../../assets/addgroup.png';
 import viewgroups from '../../assets/viewgroups.png';
-// import editinfo from '../../assets/editinfo.png';
-// import stores from '../../assets/stores.png';
 
 
 
@@ -27,12 +25,6 @@ function HomeButtons(event) {
     const handleShow = () => setShowCreateModal(true);
     const handleViewClose = () => setShowViewModal(false);
 
-    // const groupConditionalLogic = () => {
-    //     if (groups) {
-    //         {isFetching ? (<div>Loading</div>) : (groups.map(group => (<div key={group.group_name}>{group.group_name}</div>)))}
-    //     }
-    // }
-
     const newGroup = () => {
         // console.log(groupName);
         axios.post("/api/groups", { group_name: groupName })
@@ -41,19 +33,19 @@ function HomeButtons(event) {
             }).catch(err => console.log(err));
     }
 
-
-    useEffect(() => {
+    const handleGroupModal = () => {
+        setShowViewModal(true);
         axios.get("/api/groups")
-            .then(response => {
-                // response.data = {}
-                if (JSON.stringify(response.data) !== "{}") {
+        .then(response => {
+            // response.data = {}
+            if (JSON.stringify(response.data) !== "{}") {
 
-                    setGroups(response.data)
-                    // console.log(response);
-                    setIsFetching(false);
-                }
-            })
-    }, [isFetching])
+                setGroups(response.data)
+                // console.log(response);
+                setIsFetching(false);
+            }
+        });
+    }
 
     return (
         <Container className="greyBox">
@@ -106,7 +98,7 @@ function HomeButtons(event) {
                     </Row>
                     <Row>
                         <Col className="text-center">
-                            <Button type="submit" className="choice m-2" id="viewTeams" onClick={() => setShowViewModal(true)}>View Groups</Button>
+                            <Button type="submit" className="choice m-2" id="viewTeams" onClick={handleGroupModal}>View Groups</Button>
                         </Col>
 
                         <Modal show={showViewModal} onHide={handleViewClose}>

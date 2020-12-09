@@ -14,7 +14,8 @@ function UserInfo({history}) {
         if (!isAuthenticated) {
             history.push("/")
         }
-    }, [isAuthenticated, history]);
+        //  eslint-disable-next-line 
+    }, [isAuthenticated]);
 
     return (
         <Container>
