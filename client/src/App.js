@@ -101,20 +101,18 @@ function App() {
             <Navigation />
 
             <Switch>
-              <Route exact path="/" render={(props) => (
-                <LandingPage history={props.history} />
-              )} />
-              <Route exact path="/userinfo" render={(props) => (
-                <UserInfo history={props.history} />
-              )} />
-              <Route exact path="/home" render={(props) => (
-                <Home getUserId={getUserId} history={props.history} />
-              )} />
-
-              <Route exact path="/shopping" render={(props) => (
-                <Shopping getUserId={getUserId} history={props.history} />
-              )} />
-
+              <Route exact path="/">
+                <LandingPage />
+              </Route>
+              <Route exact path="/userinfo">
+                <UserInfo />
+              </Route>
+              <Route exact path="/home">
+                <Home getUserId={getUserId} />
+              </Route>
+              <Route exact path="/shopping">
+                <Shopping getUserId={getUserId} />
+              </Route>
               <Route exact path="/about" component={About} />
             </Switch>
 
