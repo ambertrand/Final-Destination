@@ -5,7 +5,7 @@ const socketio = require('socket.io');
 const initializeSocketio = (server) => {
     const io = socketio(server, {
         cors: {
-            origin: "http://localhost:3000",
+            origin: process.env.PORT || "http://localhost:3000",
             methods: ["GET", "POST"],
             allowedHeaders: ["my-custom-header"],
             credentials: true
