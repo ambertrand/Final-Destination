@@ -10,8 +10,8 @@ const UserProfileProvider = ({user, children}) => {
     // }), [userProfile, setUserProfile])
     // only update if either of above 2 objects change
     const userInfo = useMemo(() => ({
-        userProfile: user
-    }))
+        userProfile: user,
+    }), [user]);
     return (
         <userProfileContext.Provider value={userInfo}>
             {children}
