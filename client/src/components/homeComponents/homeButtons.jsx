@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -9,8 +9,6 @@ import Image from "react-bootstrap/Image";
 //  Buttons
 import addgroup from '../../assets/addgroup.png';
 import viewgroups from '../../assets/viewgroups.png';
-// import editinfo from '../../assets/editinfo.png';
-// import stores from '../../assets/stores.png';
 
 
 
@@ -20,13 +18,12 @@ function HomeButtons(event) {
     const [showViewModal, setShowViewModal] = useState(false);
     // const [showViewStoreModal, setShowViewStoreModal] = useState(false);
     const [groupName, setGroupName] = useState("");
-    const [groups, setGroups] = useState({});
+    const [groups, setGroups] = useState([]);
     const [isFetching, setIsFetching] = useState(true);
 
     const handleClose = () => setShowCreateModal(false);
     const handleShow = () => setShowCreateModal(true);
     const handleViewClose = () => setShowViewModal(false);
-    // const handleViewStoreClose = () => setShowViewStoreModal(false);
 
     const newGroup = () => {
         // console.log(groupName);
@@ -36,15 +33,19 @@ function HomeButtons(event) {
             }).catch(err => console.log(err));
     }
 
-
-    useEffect(() => {
+    const handleGroupModal = () => {
+        setShowViewModal(true);
         axios.get("/api/groups")
-            .then(response => {
+        .then(response => {
+            // response.data = {}
+            if (Array.isArray(response.data)) {
+
                 setGroups(response.data)
                 // console.log(response);
                 setIsFetching(false);
-            })
-    }, [])
+            }
+        });
+    }
 
     return (
         <Container className="greyBox">
@@ -97,7 +98,7 @@ function HomeButtons(event) {
                     </Row>
                     <Row>
                         <Col className="text-center">
-                            <Button type="submit" className="choice m-2" id="viewTeams" onClick={() => setShowViewModal(true)}>View Groups</Button>
+                            <Button type="submit" className="choice m-2" id="viewTeams" onClick={handleGroupModal}>View Groups</Button>
                         </Col>
 
                         <Modal show={showViewModal} onHide={handleViewClose}>
@@ -114,7 +115,8 @@ function HomeButtons(event) {
                             </Modal.Footer>
                         </Modal>
                     </Row>
-                </Col>
+                </Col> 
+                
 
                 {/* Go Shopping  - Future development*/}
                 {/* <Col sm={12} md={4}>
