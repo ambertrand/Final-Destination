@@ -74,12 +74,12 @@ function App() {
             <Navigation />
 
             <Switch>
-              <Route exact path="/">
-                <LandingPage />
-              </Route>
-              <Route exact path="/userinfo">
-                <UserInfo />
-              </Route>
+              <Route exact path="/" component={LandingPage} />
+                {/* <LandingPage />
+              </Route> */}
+              <Route exact path="/userinfo" component={UserInfo} />
+                {/* <UserInfo />
+              </Route> */}
               <Route exact path="/home">
                 <Home getUserId={getUserId} />
               </Route>
