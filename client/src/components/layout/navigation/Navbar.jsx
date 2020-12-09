@@ -22,8 +22,26 @@ const LoginButton = () => {
   )
 }
 
+const LogoutButton = () => {
+  const { logout } = useAuth0();
+  return (
+        <Col sm={12} md={3}>
+          <button
+            className="logOut mt-2 p-2"
+            onClick={() =>
+              logout({
+                returnTo: window.location.origin,
+              })
+            }
+          >
+            Log Out
+          </button>
+        </Col>
+  );
+};
+
 const Logout = () => {
-  const { isAuthenticated, logout } = useAuth0();
+  const { isAuthenticated } = useAuth0();
   return (
 
     isAuthenticated && (
@@ -36,12 +54,9 @@ const Logout = () => {
             <Link to="/about" className="item navbar-brand text-white">About Us</Link>
 
           </Col>
-          <Col sm={12} md={3} className="navigation-sub">
-            <Button className="" onClick={() => logout()}>
+            <LogoutButton>
               Log Out
-            </Button>
-
-          </Col>
+            </LogoutButton>
         </Row>
       </div>
     )
