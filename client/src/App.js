@@ -79,9 +79,10 @@ function App() {
               )} />
                 {/* <LandingPage />
               </Route> */}
-              <Route exact path="/userinfo" component={UserInfo} />
-                {/* <UserInfo />
-              </Route> */}
+              <Route exact path="/userinfo" >
+              {/* component={UserInfo} */}
+                <UserInfo />
+              </Route>
               <Route exact path="/home">
                 <Home getUserId={getUserId} />
               </Route>
