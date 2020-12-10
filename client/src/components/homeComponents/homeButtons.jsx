@@ -29,6 +29,7 @@ function HomeButtons(event) {
         // console.log(groupName);
         axios.post("/api/groups", { group_name: groupName })
             .then(res => {
+                handleClose()
                 // console.log(res)
             }).catch(err => console.log(err));
     }
@@ -37,9 +38,7 @@ function HomeButtons(event) {
         setShowViewModal(true);
         axios.get("/api/groups")
         .then(response => {
-            // response.data = {}
             if (Array.isArray(response.data)) {
-
                 setGroups(response.data)
                 // console.log(response);
                 setIsFetching(false);
