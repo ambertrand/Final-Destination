@@ -1,8 +1,10 @@
 import axios from 'axios';
 import io from 'socket.io-client';
 let socket;
+// const PORT = process.env.PORT || 'ws://while-youre-there.herokuapp.com/3001'
+
 export const initiateSocket = (room) => {
-  socket = io(process.env.PORT || 'http://localhost:3000');
+  socket = io();
   // console.log(`Connecting socket...`);
   if (socket && room) socket.emit('join', room);
 }

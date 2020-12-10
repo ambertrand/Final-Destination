@@ -1,11 +1,11 @@
 const socketio = require('socket.io');
-
+// const PORT = process.env.PORT
 //let rooms = ["room1", "room2"] 
 
 const initializeSocketio = (server) => {
     const io = socketio(server, {
         cors: {
-            origin: process.env.PORT || "http://localhost:3000",
+            origin: "http://localhost:3000",
             methods: ["GET", "POST"],
             allowedHeaders: ["my-custom-header"],
             credentials: true
