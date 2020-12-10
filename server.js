@@ -50,7 +50,7 @@ const http = require('http').createServer(app);
 const initializeSocketio = require("./client/src/utils/socket/index");
 
 //move this line and lines 35-37 inside of promise when connecting to db
-initializeSocketio(http);
+
 
 
 
@@ -87,7 +87,8 @@ if (process.env.NODE_ENV === "production") {
 
 db.sequelize.sync().then(() => {
   http.listen(PORT, () => {
-    console.log(`🌎 ==> API server now on port ${PORT}!`);
+    console.log(`🌎 ==> API server now on port ${PORT}!`)
+    initializeSocketio(http);
   });
 
 })
