@@ -48,15 +48,12 @@ input{
     width: 100%;
     background: #fff;
     border-bottom: 1px solid #eee;
-    /* font-family: Nunito; */
     font-size: 16px;
 }
 
 #send {
-    /* background: #575ed8; */
     background-color: #a9d7a9;
-  border-color: #a9d7a9;
-    /* color: #fff; */
+    border-color: #a9d7a9;
     color: #000000;
     font-size: 18px;
     border: 0;
@@ -82,10 +79,8 @@ div {
     
 }
 #goShopping{
-    /* background: #575ed8; */
     background-color: #a9d7a9;
     border-color: #a9d7a9;
-    /* color: #fff; */
     color: #000000;
     font-size: 18px;
     border: 0;
