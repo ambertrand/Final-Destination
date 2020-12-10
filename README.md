@@ -17,6 +17,7 @@
 
 ## Screenshots
 ![landing screenshot](https://user-images.githubusercontent.com/65721950/101302783-91178c00-380a-11eb-9432-186a4b7e86c6.png)
+![Shopping screenshot](https://user-images.githubusercontent.com/65721950/101705015-04600e80-3a54-11eb-9910-98eb2f0b9792.png)
 
 # Technologies
 

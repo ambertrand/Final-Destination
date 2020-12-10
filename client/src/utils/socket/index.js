@@ -1,5 +1,4 @@
 const socketio = require('socket.io');
-// const PORT = process.env.PORT
 //let rooms = ["room1", "room2"] 
 
 const initializeSocketio = (server) => {

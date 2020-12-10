@@ -1,7 +1,6 @@
 import axios from 'axios';
 import io from 'socket.io-client';
 let socket;
-// const PORT = process.env.PORT || 'ws://while-youre-there.herokuapp.com/3001'
 
 export const initiateSocket = (room) => {
   socket = io();
