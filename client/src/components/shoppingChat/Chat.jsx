@@ -99,7 +99,7 @@ function Chat() {
     return (
         <div>
             <Row className="justify-content-center pt-5">
-                <Col xs={10} className="greyBox rounded mb-0">
+                <Col xs={9} className="greyBox rounded mb-0">
 
 
                     {/* <Row className="justify-content-center">
@@ -116,20 +116,21 @@ function Chat() {
                     </Row> */}
 
                     <Row className="justify-content-center pt-2">
-                        <Col sm={4}>
-                            <p>If you are shopper, enter a store and select "go shopping." Otherwise, skip right to adding shopping items!</p>
+                        <Col sm={5}>
+                            <p>1. Join a group on your Profile page.</p>
+                            <p>2. If you are shopper, enter a store and select "go shopping." Otherwise, skip right to adding shopping items!</p>
                         </Col>
                     </Row>
                     <Row className="justify-content-center pt-2">
                         <Col sm={4} md={3}>
-                            <input type="text" defaultValue="" placeholder="Store"
+                            <input className="input" type="text" defaultValue="" placeholder="Store"
                                 onChange={() => setStore(storeRef.current.value)} ref={storeRef}>
                             </input>
                         </Col>
                     </Row>
                     <Row className='justify-content-center pt-2'>
                         <Col sm={2} md={2}>
-                            <Button className="goShopping" onClick={() => goShopping(room, user.name + " is going to: " + storeRef.current.value)}>Go Shopping</Button>
+                            <Button className="input goShopping" onClick={() => goShopping(room, user.name + " is going to: " + storeRef.current.value)}>Go Shopping</Button>
                         </Col>
                     </Row>
                     
@@ -145,7 +146,7 @@ function Chat() {
                             {/* <div id="feedback" >{typing}</div> */}
                         </div>
                         <form onSubmit={handleSubmit}>
-                            <input id="message" autoComplete="off" type="text"
+                            <input id="message" autoComplete="off" type="text" className="input"
                                 defaultValue=""
                                 placeholder="message"
                                 //value={message}

@@ -24,10 +24,9 @@ function UserForm() {
     const userId = useContext(userContext);
     const [groups, setGroups] = useState([]);
     const [isFetching, setIsFetching] = useState(true);
-    // added to try to catch when user first logs in
-    // if (userProfile.group_name === "") {
-    //     setGroupName("Please choose a group!");
-    // }
+    let userNameFix = "";
+    let userFirstNameFix = "";
+    let userLastNameFix = "";
 
     useEffect(() => {
         axios.get("/api/groups")
@@ -41,9 +40,40 @@ function UserForm() {
             })
     }, []);
 
+    const updateUserProfileFix = (event) => {
+        if (userName === "") {
+            userNameFix = userProfile.username;
+        } else {
+            userNameFix = userName;
+        }
+        if (userFirstName === "") {
+            userFirstNameFix = userProfile.userFirstName;
+        } else {
+            userFirstNameFix = userFirstName;
+        }
+        if (userLastName === "") {
+            userLastNameFix = userProfile.userLastName;
+        } else {
+            userLastNameFix = userLastName;
+        }
+        userInfo(event, userId,
+            {
+                userName: userNameFix, 
+                groupName: groupName,
+                userFirstName: userFirstNameFix,
+                userLastName: userLastNameFix
+            }
+        )
+        
+        // if (userFirstName === "") return;
+        // if (!userLastName) return;
+       
+    }
+
 
     return (
         <div className="userInfoPad pt-5">
+            {console.log(userProfile)}
             {/* {console.log(userId)} */}
             <Row className="justify-content-center greyBox">
                 {/* User image */}
@@ -60,31 +90,22 @@ function UserForm() {
                 <Col xs="12" md="8" >
                     <Card className="bg-light m-3">
                         {/* https://reactjs.org/docs/forms.html */}
-                        <form>
+                        <form className="mt-2">
                             <label>
-                                First Name:
-                                <input type="text" defaultValue={userProfile.first_name} name="firstName" onChange={(event) => setUserFirstName(event.target.value)} />
-                                {/* type="text" defaultValue= id="email" onChange={(event) => setEmail(event.target.value)} /> */}
+                                First Name: 
+                                <input className="ml-2" type="text" defaultValue={userProfile.first_name} name="firstName" onChange={(event) => setUserFirstName(event.target.value)} />
                             </label>
                             <label>
                                 Last Name:
-                                <input type="text" defaultValue={userProfile.last_name} name="lastName" onChange={(event) => setUserLastName(event.target.value)} />
+                                <input className="ml-2" type="text" defaultValue={userProfile.last_name} name="lastName" onChange={(event) => setUserLastName(event.target.value)} />
                             </label>
-                            {/* <label>
-                                Group role:&nbsp;
-                                <select id="isShopper" onChange={(event) => setGroupRole(event.target.value)}>
-                                    <option>{shopperOrGroupMember}</option>
-                                    <option value={true}>Shopper</option>
-                                    <option value={false}>Group Member</option>
-                                </select>
-                            </label> */}
                             <label>
                                 Username:
-                                <input type="text" defaultValue={userProfile.username} name="userName" onChange={(event) => setUserName(event.target.value)} />
+                                <input className="ml-2" type="text" defaultValue={userProfile.username} name="userName" onChange={(event) => setUserName(event.target.value)} />
                             </label>
                             <label>
-                                <p>Your Group: {userProfile.group_name}</p>
-                                <select id="groupName" onChange={(event) => setGroupName(event.target.value)}>
+                                <p className="ml-2">Your Group: {userProfile.group_name}</p>
+                                <select className="ml-2" id="groupName" onChange={(event) => setGroupName(event.target.value)}>
                                     <option>Choose new group</option>
                                     {isFetching ? (<option>Loading</option>) : (groups.map(group => (<option key={group.group_name} value={group.group_name}>{group.group_name}</option>)))}
                                 </select>
@@ -95,15 +116,18 @@ function UserForm() {
                                 </Col>
                             </Row>
                             <Row className="justify-content-center">
-                                <Col xs={5}>
-                                    <Button type="submit" className="mb-2" id="updateUserInfo" onClick={event => userInfo(event, userId,
-                                        {
-                                            userName,
-                                            groupName,
-                                            userFirstName,
-                                            userLastName
-                                        }
-                                    )}>
+                                <Col xs={4}>
+                                    <Button type="submit" className="mb-2" id="updateUserInfo" onClick={
+                                        updateUserProfileFix
+                                    // event => userInfo(event, userId,
+                                    //     {
+                                    //         userName,
+                                    //         groupName,
+                                    //         userFirstName,
+                                    //         userLastName
+                                    //     }
+                                    // )
+                                    }>
                                         Update Profile Info
                                 </Button>
                                 </Col>
