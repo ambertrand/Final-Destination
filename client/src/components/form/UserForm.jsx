@@ -90,22 +90,22 @@ function UserForm() {
                 <Col xs="12" md="8" >
                     <Card className="bg-light m-3">
                         {/* https://reactjs.org/docs/forms.html */}
-                        <form>
+                        <form className="mt-2">
                             <label>
                                 First Name: 
-                                <input type="text" defaultValue={userProfile.first_name} name="firstName" onChange={(event) => setUserFirstName(event.target.value)} />
+                                <input className="ml-2" type="text" defaultValue={userProfile.first_name} name="firstName" onChange={(event) => setUserFirstName(event.target.value)} />
                             </label>
                             <label>
                                 Last Name:
-                                <input type="text" defaultValue={userProfile.last_name} name="lastName" onChange={(event) => setUserLastName(event.target.value)} />
+                                <input className="ml-2" type="text" defaultValue={userProfile.last_name} name="lastName" onChange={(event) => setUserLastName(event.target.value)} />
                             </label>
                             <label>
                                 Username:
-                                <input type="text" defaultValue={userProfile.username} name="userName" onChange={(event) => setUserName(event.target.value)} />
+                                <input className="ml-2" type="text" defaultValue={userProfile.username} name="userName" onChange={(event) => setUserName(event.target.value)} />
                             </label>
                             <label>
-                                <p>Your Group: {userProfile.group_name}</p>
-                                <select id="groupName" onChange={(event) => setGroupName(event.target.value)}>
+                                <p className="ml-2">Your Group: {userProfile.group_name}</p>
+                                <select className="ml-2" id="groupName" onChange={(event) => setGroupName(event.target.value)}>
                                     <option>Choose new group</option>
                                     {isFetching ? (<option>Loading</option>) : (groups.map(group => (<option key={group.group_name} value={group.group_name}>{group.group_name}</option>)))}
                                 </select>
@@ -116,7 +116,7 @@ function UserForm() {
                                 </Col>
                             </Row>
                             <Row className="justify-content-center">
-                                <Col xs={5}>
+                                <Col xs={4}>
                                     <Button type="submit" className="mb-2" id="updateUserInfo" onClick={
                                         updateUserProfileFix
                                     // event => userInfo(event, userId,
