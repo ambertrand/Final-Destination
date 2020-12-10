@@ -116,8 +116,9 @@ function Chat() {
                     </Row> */}
 
                     <Row className="justify-content-center pt-2">
-                        <Col sm={4}>
-                            <p>Join a group and if you are shopper, enter a store and select "go shopping." Otherwise, skip right to adding shopping items!</p>
+                        <Col sm={5}>
+                            <p>1. Join a group on your Profile page.</p>
+                            <p>2. If you are shopper, enter a store and select "go shopping." Otherwise, skip right to adding shopping items!</p>
                         </Col>
                     </Row>
                     <Row className="justify-content-center pt-2">
