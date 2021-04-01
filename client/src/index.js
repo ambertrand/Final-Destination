@@ -14,5 +14,6 @@ ReactDOM.render(
   >
     <App />
   </Auth0Provider>,
+  // links to root in html file
   document.getElementById('root')
 );

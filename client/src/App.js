@@ -1,22 +1,22 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import Navigation from './components/layout/navigation/Navbar';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import Navigation from "./components/layout/navigation/Navbar";
 import UserInfo from "./views/UserInfo";
 import Shopping from "./views/ShoppingList";
 import LandingPage from "./views/LandingPage";
 import Home from "./views/Home";
 import About from "./views/About";
 import Footer from "./components/layout/footer/Footer";
-import userContext from './components/form/userContext';
-import UserProfileProvider from './components/providers/userProfileProvider/Provider';
-import getUserInfo from './components/form/getUserInfo';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { useAuth0 } from '@auth0/auth0-react';
-import BackgroundImage from './assets/GroceryStore.jpg';
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { fab } from '@fortawesome/free-brands-svg-icons'
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './App.css';
+import userContext from "./components/form/userContext";
+import UserProfileProvider from "./components/providers/userProfileProvider/Provider";
+import getUserInfo from "./components/form/getUserInfo";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { useAuth0 } from "@auth0/auth0-react";
+import BackgroundImage from "./assets/GroceryStore.jpg";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { fab } from "@fortawesome/free-brands-svg-icons";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./App.css";
 
 library.add(fab);
 
@@ -29,12 +29,12 @@ function App() {
     last_name: "",
     username: "",
     picture: "",
-    shopper: 1
+    shopper: 1,
   });
 
   const getUserId = (id) => {
     setUserId(id);
-  }
+  };
 
   const backgroundStyle = {
     backgroundImage: `url(${BackgroundImage})`,
@@ -42,24 +42,20 @@ function App() {
     backgroundRepeat: "no-repeat",
     backgroundPosition: "center",
     backgroundAttachment: "fixed",
-    backgroundSize: "cover"
-  }
+    backgroundSize: "cover",
+  };
 
   const { user, isAuthenticated } = useAuth0();
 
-
   useEffect(() => {
     if (isAuthenticated) {
-      // console.log(user);
-      axios.post("/api/users/onAuthenticated", user)
+      axios
+        .post("/api/users/onAuthenticated", user)
         .then(function (response) {
-          // console.log(response);
-          // setUserProfile(response);
           getUserId(response.data[0].id);
           return getUserInfo(response.data[0].id);
-        }).then(function (response) {
-          // console.log(response);
-          // console.log("new response above");
+        })
+        .then(function (response) {
           setUserProfile(response.data);
         });
     }
@@ -69,18 +65,16 @@ function App() {
     <div className="App container-fluid outerContainer" style={backgroundStyle}>
       <userContext.Provider value={userId}>
         <UserProfileProvider user={userProfile}>
-          < Router >
-
+          <Router>
             <Navigation />
 
             <Switch>
-              <Route exact path="/" render={(props) => (
-                <LandingPage history={props.history} />
-              )} />
-                {/* <LandingPage />
-              </Route> */}
-              <Route exact path="/userinfo" >
-              {/* component={UserInfo} */}
+              <Route
+                exact
+                path="/"
+                render={(props) => <LandingPage history={props.history} />}
+              />
+              <Route exact path="/userinfo">
                 <UserInfo />
               </Route>
               <Route exact path="/home">
@@ -93,13 +87,10 @@ function App() {
             </Switch>
 
             <Footer />
-
-          </Router >
+          </Router>
         </UserProfileProvider>
       </userContext.Provider>
     </div>
-
-
   );
 }
 export default App;
